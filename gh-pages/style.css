@@ -107,6 +107,15 @@ section h2 {
   font-family: "Georgia", serif;
 }
 
+/* Espaçamento entre parágrafos */
+p {
+  margin-top: 15px;
+}
+
+section p:first-of-type {
+  margin-top: 0; /* não aplica no primeiro parágrafo da seção */
+}
+
 /* Rodapé */
 footer {
   text-align: center;
@@ -116,4 +125,95 @@ footer {
   border-top: 2px solid #cbb79e;
   color: #3e2f1c;
   font-style: italic;
+}
+
+.img-topico {
+  display: block;
+  margin: 20px auto;   /* centraliza a imagem */
+  max-width: 80%;      /* ajusta ao tamanho da tela */
+  border-radius: 8px;  /* bordas arredondadas (opcional) */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15); /* sombreamento leve */
+}
+
+figure {
+  text-align: center;
+  margin: 20px auto;
+}
+
+figcaption {
+  font-size: 14px;
+  color: #555;
+  font-style: italic;
+  margin-top: 8px;
+}
+
+.lista-segmentos {
+  margin: 15px 0;
+  padding-left: 25px;
+  line-height: 1.6;
+}
+
+.lista-segmentos li {
+  margin-bottom: 12px;
+  text-align: justify;
+}
+
+.lista-segmentos strong {
+  color: #6b4226; /* marrom madeira para destacar o título */
+}
+
+.tabela-custom {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-family: "Georgia", serif;
+}
+
+.tabela-custom th,
+.tabela-custom td {
+  border: 1px solid #cbb79e;
+  padding: 10px;
+  text-align: left; /* alinhamento mais natural para texto maior */
+}
+
+.tabela-custom th {
+  background: #eae0d5;
+  color: #3e2f1c;
+  font-weight: bold;
+}
+
+/* Largura das colunas */
+.tabela-custom th:first-child,
+.tabela-custom td:first-child {
+  width: 20%; /* coluna 1 menor */
+}
+
+.tabela-custom th:last-child,
+.tabela-custom td:last-child {
+  width: 80%; /* coluna 2 maior */
+}
+
+.tabela-custom tr:nth-child(even) {
+  background: #faf7f2; /* alterna cor para linhas pares */
+}
+
+.referencias {
+  margin-top: 15px;
+  padding-left: 20px;
+  line-height: 1.6;
+}
+
+.referencias li {
+  margin-bottom: 12px;
+  text-align: justify;
+  font-size: 14px;
+}
+
+.referencias a {
+  color: #6b4226;
+  text-decoration: none;
+}
+
+.referencias a:hover {
+  text-decoration: underline;
 }
