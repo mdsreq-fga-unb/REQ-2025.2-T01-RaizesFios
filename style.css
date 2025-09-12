@@ -217,3 +217,43 @@ figcaption {
 .referencias a:hover {
   text-decoration: underline;
 }
+
+.tabela-custom3 {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-family: "Georgia", serif;
+}
+
+.tabela-custom3 th,
+.tabela-custom3 td {
+  border: 1px solid #cbb79e;
+  padding: 10px;
+  text-align: left;
+}
+
+.tabela-custom3 th {
+  background: #eae0d5;
+  color: #3e2f1c;
+  font-weight: bold;
+}
+
+.tabela-custom3 tr:nth-child(even) {
+  background: #faf7f2; /* linhas pares em bege claro */
+}
+
+/* Definindo larguras para as 3 colunas */
+.tabela-custom3 th:first-child,
+.tabela-custom3 td:first-child {
+  width: 20%; /* primeira coluna menor */
+}
+
+.tabela-custom3 th:nth-child(2),
+.tabela-custom3 td:nth-child(2) {
+  width: 40%; /* segunda coluna média */
+}
+
+.tabela-custom3 th:last-child,
+.tabela-custom3 td:last-child {
+  width: 40%; /* terceira coluna maior */
+}

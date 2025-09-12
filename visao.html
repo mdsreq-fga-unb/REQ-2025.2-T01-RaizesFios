@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Visão do Produto e Projeto - Raízes e Fios</title>
+  <title>Visão do Produto e Projeto - Raízes & Fios</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* Esconde todas as seções por padrão */
@@ -18,7 +18,7 @@
 <body>
   <!-- Cabeçalho fixo -->
   <header class="topbar">
-    <h1>Raízes e Fios</h1>
+    <h1>Raízes & Fios</h1>
     <nav class="topnav">
       <a href="index.html">Início</a>
       <a href="visao.html">Visão do Produto e Projeto</a>
@@ -248,6 +248,94 @@
     <section id="topicotres">
       <h2>3. ESTRATÉGIAS DE ENGENHARIA DE SOFTWARE</h2>
 
+      <h1>3.1 Estratégia Priorizada </h1>
+      <p><strong>Abordagem: </strong>Híbrida</p>
+      <p><strong>Ciclo de Vida: </strong>Incremental e Iterativo</p>
+      <p><strong>Processo: </strong>Rapid Application Development – RAD</p>
+
+      <h1>3.2 Quadro Comparativo</h1>
+      <p>Analisando o projeto, concluímos que o processo ScrumXP também se adequaria ao desenvolvimento do produto. O quadro abaixo apresenta uma comparação entre os dois processos, visando esclarecer e justificar a escolha estabelecida no tópico 3.1. </p>
+
+      <table class="tabela-custom3">
+        <tr>
+          <th>Características</th>
+          <th>ScrumXP</th>
+          <th>RAD (Rapid Application Development)</th>
+        </tr>
+        <tr>
+          <td><strong>Abordagem Geral</strong></td>
+          <td>Iterativo e incremental, com foco em entregas rápidas e feedback contínuo.</td>
+          <td>Iterativo e incremental, priorizando prototipação rápida e ciclos curtos de desenvolvimento.</td>
+        </tr>
+        <tr>
+          <td><strong>Foco em Arquitetura</strong></td>
+          <td>Menor ênfase inicial, com evolução da arquitetura ao longo do tempo conforme necessidade.</td>
+          <td>Pouco foco em arquitetura robusta; prioriza protótipos funcionais e ajustes rápidos, mesmo que isso comprometa escalabilidade futura. </td>
+        </tr>
+        <tr>
+          <td><strong>Estrutura de Processos</strong></td>
+          <td>Baseado em sprints (2–4 semanas), com entregas incrementais adaptadas a feedback constante do cliente.</td>
+          <td>Estruturado em fases rápidas (planejamento, prototipação, iteração e entrega), mas com foco na velocidade mais que na formalidade de processos.</td>
+        </tr>
+        <tr>
+          <td><strong>Flexibilidade de Requisitos</strong></td>
+          <td>Alta flexibilidade, permitindo mudanças constantes a cada sprint de acordo com feedback. </td>
+          <td>Muito flexível, favorece alterações frequentes durante o desenvolvimento, mesmo em fases avançadas, pela facilidade de prototipação. </td>
+        </tr>
+        <tr>
+          <td><strong>Colaboração com Cliente</strong></td>
+          <td>Envolvimento constante do cliente, principalmente ao final de cada sprint. </td>
+          <td>Colaboração intensa nas fases de prototipação, com participação ativa do cliente para validar protótipos antes da versão final. </td>
+        </tr>
+        <tr>
+          <td><strong>Complexidade do Processo</strong></td>
+          <td>Processo leve, mas com papéis definidos e necessidade de disciplina no uso das práticas ágeis.</td>
+          <td>Mais simples e rápido de implementar, mas menos disciplinado; depende fortemente da disponibilidade do cliente. </td>
+        </tr>
+        <tr>
+          <td><strong>Qualidade Técnica </strong></td>
+          <td>Alta ênfase na qualidade, com práticas do XP (TDD, refatoração, pair programming, integração contínua).</td>
+          <td>Menor foco em práticas de engenharia de software robustas; qualidade depende mais da revisão manual e validação do cliente. </td>
+        </tr>
+        <tr>
+          <td><strong>Práticas de Desenvolvimento</strong></td>
+          <td>Uso de práticas ágeis técnicas avançadas, garantindo código limpo e sustentável. </td>
+          <td>Baseado em prototipação rápida e revisões frequentes, mas sem práticas técnicas fortes.</td>
+        </tr>
+        <tr>
+          <td><strong>Adaptação ao Projeto </strong></td>
+          <td>Adequado para projetos com necessidade de interação constante com o cliente e evolução contínua do produto.</td>
+          <td>Adequado para projetos de curto prazo com prazos apertados e clientes dispostos a validar constantemente os protótipos.</td>
+        </tr>
+        <tr>
+          <td><strong>Documentação</strong></td>
+          <td>Documentação reduzida, apenas o essencial.</td>
+          <td>Documentação mínima; ênfase em protótipos funcionais em vez de documentos. </td>
+        </tr>
+        <tr>
+          <td><strong>Controle de Qualidade</strong></td>
+          <td>Controle forte embutido em práticas ágeis (TDD, integração contínua).</td>
+          <td>Controle mais frágil, baseado em testes práticos sobre protótipos entregues ao cliente. </td>
+        </tr>
+        <tr>
+          <td><strong>Escalabilidade</strong></td>
+          <td>Melhor para equipes pequenas a médias, com forte colaboração.</td>
+          <td>Limitado a equipes pequenas e projetos de curto prazo; não escala bem para projetos complexos. </td>
+        </tr>
+        <tr>
+          <td><strong>Suporte a Equipes de Desenvolvimento</strong></td>
+          <td>Suporta equipes colaborativas, com papéis flexíveis e adaptação ao ritmo do projeto.</td>
+          <td>Funciona bem com equipes pequenas e clientes muito presentes; pode falhar se houver baixa participação do cliente.</td>
+        </tr>
+      </table>
+
+      <h1>3.3 Justificativa</h1>
+      <p>A escolha do processo RAD está diretamente alinhada com as principais características do projeto: <strong>equipe reduzida, cliente pouco experiente em tecnologia</strong> e necessidade de <strong>entrega rápida</strong>. </p>
+      <p>O RAD privilegia a prototipação e a <strong>interação constante</strong> entre os desenvolvedores e usuários, o que facilita a comunicação com o cliente que, mesmo sem conhecimento técnico, pode compreender melhor o sistema por meio de <strong>protótipos visuais.</strong> </p>
+      <p>Além disso, a <strong>característica incremental</strong> do processo garante que problemas de usabilidade e expectativas não verbalizadas sejam identificadas antes da implementação final, considerando que o RAD permite que o projeto seja desenvolvido com um escopo modularizado e em curto prazo.</p>
+      <p>Embora apresente limitações em projetos de alta escalabilidade, no contexto de um pequeno negócio familiar e com uma equipe acadêmica em formação, o processo escolhido potencializa a entrega de um produto funcional dentro do prazo e com qualidade. </p>
+      <p>Dito isso, o RAD foi escolhido em detrimento ao ScrumXP por se adaptar melhor a prazos curtos, clientes leigos, equipes em formação e à necessidade de mostrar rapidamente protótipos e resultados tangíveis. Embora o ScrumXP ofereça maior qualidade técnica, ele exigiria mais tempo, maturidade da equipe e engajamento disciplinado do cliente, o que não corresponde à realidade do projeto. </p>
+
     </section>
 
     <section id="topicoquatro">
@@ -258,10 +346,74 @@
     <section id="topicocinco">
       <h2>5. INTERAÇÃO ENTRE EQUIPE E CLIENTE </h2>
 
+      <h1>5.1 Composição da Equipe </h1>
+
+
+      <h1>5.2 Comunicação </h1>
+
+      <p><strong>Ferramentas de Comunicação </strong></p>
+      <ul class="lista-segmentos">
+        <li>
+          <strong>WhatsApp:</strong> o aplicativo será utilizado para comunicação rápida e imediata entre os membros da equipe. Permitirá esclarecimento de dúvidas rápidas, coordenação de pequenas tarefas do dia a dia e resolução de problemas emergentes durante o desenvolvimento.
+        </li>
+        <li>
+          <strong>Microsoft Teams:</strong> será utilizado para o compartilhamento de arquivos, documentação do projeto, dados e materiais de suporte. Além disso, servirá como plataforma para as reuniões semanais de revisão e planejamento de iterações, permitindo gravação e registro de decisões. 
+        </li>
+      </ul>
+
+      <p><strong>Métodos e Frequência de Reuniões</strong></p>
+      <ul class="lista-segmentos">
+        <li>
+          Vamos tentar estabelecer feedbacks rápidos do desenvolvimento de cada membro da equipe pelo menos 2 vezes na semana, além das reuniões semanais, por meio das ferramentas estabelecidas, para garantir o alinhamento constante e rápida resolução de problemas. 
+        </li>
+        <li>
+          Reunião semanal de revisão e planejamento, via Teams, com o objetivo de revisar o protótipo ou funcionalidades desenvolvidas, discutir ajustes necessários e planejar as tarefas da próxima semana, permitindo validação contínua do progresso. 
+        </li>
+        <li>
+          Reunião de feedback com o cliente, a cada 2 semanas, para apresentar o protótipo, validar funcionalidades entregues e colher feedbacks que serão incorporados na próxima iteração. 
+        </li>
+      </ul>
+
+      <p><strong>Frequência de Iterações com o Cliente</strong></p>
+      <p>Conforme estabelecido pelo processo de desenvolvimento do produto, as iterações são curtas, de até 2 semanas, permitindo que o cliente esteja envolvido diretamente a cada ciclo de desenvolvimento. O feedback contínuo do cliente garantirá que o protótipo evolua de acordo com suas expectativas, aumentando a qualidade e adequação ao produto. </p>
+
+
+      <h1>5.3 Processos de Validação</h1>
+
+      <p><strong>Validação interna da equipe</strong></p>
+      <p>A equipe de desenvolvimento realizará revisões e testes internos ao final de cada ciclo de desenvolvimento, com o objetivo de garantir a qualidade do código, a funcionalidade de cada recurso e o alinhamento com as especificações do projeto. Isso inclui: </p>
+      <ul class="lista-segmentos">
+        <li>
+          <strong>Testes de funcionalidade:</strong> verificação se cada botão, link ou formulário está funcionando corretamente.
+        <li>
+          <strong>Revisão de código:</strong> feito pelos desenvolvedores da equipe para garantir que esteja limpo, otimizado e livre de erros.
+        </li>
+      </ul>
+
+      <p><strong>Validação com o Cliente</strong></p>
+      <p>A cada 2 semanas, a equipe apresentará um novo protótipo ou uma versão mais atualizada da plataforma. Essa abordagem garante que os usuários se envolvam diretamente no processo e que a solução seja construída com base em suas expectativas e limitações. Espera-se que as reuniões de validação incluam: </p>
+      <ul class="lista-segmentos">
+        <li>
+          <strong>Apresentação e Demonstração:</strong>A equipe demonstrará as novas funcionalidades de forma prática, explicando como elas funcionam e quais problemas resolvem.
+        </li>
+        <li>
+          <strong>Sessões de Feedback:</strong>O casal de artesãos terá a oportunidade de interagir com o protótipo, fazendo perguntas e fornecendo feedbacks sobre a usabilidade, o design e as funcionalidades. 
+        </li>
+        <li>
+          <strong>Validação de Usabilidade:</strong>Poderemos solicitar aos usuários que executem tarefas específicas para identificar e corrigir prontamente os pontos de dificuldade dos usuários.  
+        </li>
+      </ul>
+
+      <p><strong>Validação Final e Implantação</strong></p>
+      <p>Após a conclusão de todas as iterações, a versão final deverá passar por uma última rodada de validação, a fim de garantir que o produto esteja pronto para ser entregue. O processo incluirá a aprovação final do casal de artesãos e um breve treinamento de como gerenciar a plataforma de forma autônoma. </p>
+
+
     </section>
 
     <section id="topicoseis">
       <h2>6. LIÇÕES APRENDIDAS </h2>
+
+      <h1>6.1 Unidade 1</h1>
 
     </section>
 
@@ -284,7 +436,7 @@
     </section>
 
     <footer>
-      <p>© 2025 Raízes e Fios | Projeto UnB</p>
+      <p>© 2025 Raízes & Fios | Projeto UnB</p>
     </footer>
   </main>
 
