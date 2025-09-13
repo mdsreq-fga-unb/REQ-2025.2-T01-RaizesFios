@@ -257,3 +257,48 @@ figcaption {
 .tabela-custom3 td:last-child {
   width: 40%; /* terceira coluna maior */
 }
+
+.tabela-custom4 {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-family: "Georgia", serif;
+}
+
+.tabela-custom4 th,
+.tabela-custom4 td {
+  border: 1px solid #cbb79e;
+  padding: 10px;
+  text-align: left;
+}
+
+.tabela-custom4 th {
+  background: #eae0d5;
+  color: #3e2f1c;
+  font-weight: bold;
+}
+
+.tabela-custom4 tr:nth-child(even) {
+  background: #faf7f2; /* alterna cor para linhas pares */
+}
+
+/* Larguras para as 4 colunas */
+.tabela-custom4 th:first-child,
+.tabela-custom4 td:first-child {
+  width: 20%; /* coluna 1 menor (Características) */
+}
+
+.tabela-custom4 th:nth-child(2),
+.tabela-custom4 td:nth-child(2) {
+  width: 25%; /* coluna 2 */
+}
+
+.tabela-custom4 th:nth-child(3),
+.tabela-custom4 td:nth-child(3) {
+  width: 25%; /* coluna 3 */
+}
+
+.tabela-custom4 th:last-child,
+.tabela-custom4 td:last-child {
+  width: 30%; /* coluna 4 maior */
+}
