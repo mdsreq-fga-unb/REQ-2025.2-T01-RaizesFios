@@ -31,8 +31,16 @@ body {
 }
 
 .topbar h1 {
+  display: flex;            /* coloca texto e imagem lado a lado */
+  align-items: center;      /* alinha verticalmente */
   font-size: 20px;
   font-family: "Times New Roman", serif;
+  margin: 0;                /* garante que não tenha espaçamento extra */
+}
+
+.topbar h1 .logo {
+  height: 1.2em;            /* deixa a logo do tamanho da fonte */
+  margin-right: 10px;       /* espaço entre logo e nome */
 }
 
 .topnav a {
@@ -130,7 +138,7 @@ footer {
 .img-topico {
   display: block;
   margin: 20px auto;   /* centraliza a imagem */
-  max-width: 80%;      /* ajusta ao tamanho da tela */
+  max-width: 50%;      /* ajusta ao tamanho da tela */
   border-radius: 8px;  /* bordas arredondadas (opcional) */
   box-shadow: 0 2px 6px rgba(0,0,0,0.15); /* sombreamento leve */
 }
@@ -301,4 +309,48 @@ figcaption {
 .tabela-custom4 th:last-child,
 .tabela-custom4 td:last-child {
   width: 30%; /* coluna 4 maior */
+}
+
+#equipe {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.equipe-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.membro img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.membro p {
+  margin: 0;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Link do GitHub como botão */
+.github-link {
+  display: inline-block;
+  margin-top: 40px; /* afasta das fotos */
+  padding: 10px 20px;
+  background-color: #24292e; /* cor do GitHub */
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.github-link:hover {
+  background-color: #444d56; /* cor mais clara no hover */
 }
