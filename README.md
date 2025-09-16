@@ -4,7 +4,7 @@
 
 ## Sobre o Projeto
 
-O Raízes & Fios é um projeto que desenvolvido para um empreendimento artesanal familiar, conduzido por um casal que transformou sua paixão em uma fonte de renda significativa ao longo de 15 anos. A artesã é especializada em peças de crochê (bolsas, roupas e itens decorativos), enquanto o artesão cria peças únicas em madeira, originadas de um projeto pedagógico em educação especial.   
+O Raízes & Fios é um projeto em desenvolvimento para um empreendimento artesanal familiar, conduzido por um casal que transformou sua paixão em uma fonte de renda significativa ao longo de 15 anos. A artesã é especializada em peças de crochê (bolsas, roupas e itens decorativos), enquanto o artesão cria peças únicas em madeira, originadas de um projeto pedagógico em educação especial.   
 
 O negócio se destaca no setor da economia criativa pela valorização do trabalho manual, originalidade e identidade cultural de seus produtos. Atualmente, as vendas ocorrem principalmente em feiras presenciais, onde o contato direto com os clientes é um diferencial. No entanto, a limitada presença digital restringe o crescimento e o alcance da marca.  
 
