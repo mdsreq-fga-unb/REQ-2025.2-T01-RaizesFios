@@ -354,3 +354,29 @@ figcaption {
 .github-link:hover {
   background-color: #444d56; /* cor mais clara no hover */
 }
+
+.apresentacao-link {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #6b4226;
+  color: #f4e9d8;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin: 20px auto 20px auto; /* sobe o botão afastando menos do rodapé */
+}
+
+/* centraliza só o link de apresentação */
+.apresentacao-link:hover {
+  background-color: #d1b17a;
+  color: #3e2f1c;
+  transform: translateY(-2px);
+}
+
+.apresentacao-link-container,
+main > p {
+  text-align: center;  /* centraliza o link dentro do <p> */
+  margin-bottom: 20px; /* controla a distância até o footer */
+}
