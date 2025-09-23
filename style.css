@@ -380,3 +380,27 @@ main > p {
   text-align: center;  /* centraliza o link dentro do <p> */
   margin-bottom: 20px; /* controla a distância até o footer */
 }
+
+.tabela-custom5 {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-family: "Georgia", serif;
+}
+
+.tabela-custom5 th,
+.tabela-custom5 td {
+  border: 1px solid #cbb79e;
+  padding: 10px;
+  text-align: center;
+}
+
+.tabela-custom5 th {
+  background: #eae0d5;
+  color: #3e2f1c;
+  font-weight: bold;
+}
+
+.tabela-custom5 tr:nth-child(even) {
+  background: #faf7f2; /* alterna cor para linhas pares */
+}
