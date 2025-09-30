@@ -37,7 +37,13 @@ Nosso objetivo é analisar esse cenário e propor soluções para fortalecer a p
 Aqui está nossa apresentação da Unidade 1, onde detalhamos tópicos pertinentes ao Documento de Visão do Produto:
 
 <div align="center">
+
   
 **[Clique aqui para acessar o vídeo de apresentação da Unidade I](https://unbbr.sharepoint.com/sites/Projeto-RequisitosdeSW/_layouts/15/stream.aspx?id=%2Fsites%2FProjeto%2DRequisitosdeSW%2FDocumentos%20Compartilhados%2FGeneral%2FRecordings%2FReuni%C3%A3o%20da%20Equipe%2D20250915%5F204441%2DGrava%C3%A7%C3%A3o%20de%20Reuni%C3%A3o%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2E0fe7233b%2Da8bd%2D4f9a%2D9b08%2D66ee37c728aa)**
 
 </div>
+
+
+##Lista de Requisitos
+
+(https://docs.google.com/document/d/1keg-Y3J0gn3Aj0Njhaff5_v5BX-HTGbL/edit?usp=sharing&ouid=110613010992546413557&rtpof=true&sd=true)
