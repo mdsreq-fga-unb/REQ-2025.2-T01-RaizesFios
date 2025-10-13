@@ -404,3 +404,13 @@ main > p {
 .tabela-custom5 tr:nth-child(even) {
   background: #faf7f2; /* alterna cor para linhas pares */
 }
+
+h3 {
+  color: #6b4226; /* marrom madeira */
+  font-family: "Georgia", serif;
+  font-size: 20px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  border-left: 4px solid #d1b17a; /* detalhe dourado suave */
+  padding-left: 10px;
+}
