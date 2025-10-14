@@ -1054,7 +1054,125 @@
 
       <h1>7.2 Lista de Requisitos Não Funcionais</h1>
     </section>
-
+<table aria-label="Requisitos Não-Funcionais - E-commerce de Artesanato"
+  style="width:100%; border-collapse:collapse; margin:1rem 0; font-size:0.95rem;">
+  <caption style="text-align:left; padding:0.5rem 0; font-weight:600;">
+    Requisitos Não-Funcionais - E-commerce de Artesanato
+  </caption>
+  <thead>
+    <tr>
+      <th style="border-bottom:2px solid #ccc; text-align:left; padding:0.5rem;">Código</th>
+      <th style="border-bottom:2px solid #ccc; text-align:left; padding:0.5rem; width:25%;">Nome do Requisito</th>
+      <th style="border-bottom:2px solid #ccc; text-align:left; padding:0.5rem;">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="3" style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#f5f5f5; font-weight:bold;">Usabilidade</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">RNF-U01</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Navegação intuitiva (fluxo de compra em <5 etapas)</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O fluxo de compra deve ser direto e intuitivo, permitindo que o usuário conclua a compra em no máximo 5 etapas (ex.: seleção de produto, carrinho, identificação, endereço, pagamento).</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">RNF-U02</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Feedback visual (confirmação de ações)</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve fornecer feedbacks visuais claros e imediatos para todas as ações do usuário, como confirmações, erros, carregamentos ou alertas. Elementos como mensagens de sucesso, banners informativos, indicadores de progresso e validações em tempo real deverão ser utilizados para melhorar a compreensão das interações. Serão realizados testes com usuários, com a meta de que pelo menos 80% consigam executar tarefas básicas sem ajuda externa.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">RFN-U03</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Design consistente (padrão visual único em toda a aplicação)</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">A interface será desenvolvida com base em um Design System próprio, garantindo consistência visual, padronização de componentes e facilidade de aprendizado.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">RFN-U04</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Interface responsiva (funcionar em mobile e desktop)</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O site deverá ser responsivo (adaptar-se a diferentes tamanhos de tela, de 320 px a 1920 px) e acessível a usuários com baixa familiaridade digital.</td>
+    </tr>
+    
+    <tr>
+      <td colspan="3" style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#f5f5f5; font-weight:bold;">Confiabilidade</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">RNF-C01</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Disponibilidade básica 24/7</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve estar disponível para uso 24 horas por dia, 7 dias por semana, com tolerância a breves períodos de manutenção programada, garantindo acesso contínuo para usuários e administradores.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">RNF-C02</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Backup de dados críticos (usuários, pedidos, produtos)</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve realizar backups automáticos diários dos dados críticos (usuários, pedidos, produtos), armazenando-os em ambiente seguro, com possibilidade de restauração em caso de falhas ou perdas.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">RNF-C03</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Transações confiáveis</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve garantir a integridade das transações, assegurando que operações como pagamentos, registros de pedidos e alterações de estoque sejam concluídas de forma atômica, evitando duplicidades ou inconsistências.</td>
+    </tr>
+    
+    <tr>
+      <td colspan="3" style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#f5f5f5; font-weight:bold;">Desempenho</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">RNF-D01</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Tempo de resposta (carregamento de páginas < 3s)</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">As páginas da aplicação devem carregar completamente em até 3 segundos em conexões móveis padrão (4G), garantindo uma experiência fluida para o usuário.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">RNF-D02</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Eficiência em buscas (pesquisa por produtos < 3s)</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve retornar os resultados de pesquisa por produtos em até 3 segundos, mesmo em cenários com volume elevado de dados, garantindo uma navegação ágil para o usuário.</td>
+    </tr>
+    
+    <tr>
+      <td colspan="3" style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#f5f5f5; font-weight:bold;">Suportabilidade</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">RNF-S01</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Logging básico (logs de erro e transações críticas)</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve manter registros (logs) de erros, eventos críticos e transações importantes, possibilitando auditoria e diagnóstico de falhas em produção.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">RNF-S02</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Documentação de API (documentação para integração de pagamento)</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve disponibilizar documentação atualizada e clara da API, especialmente para endpoints relacionados a integrações de pagamento, facilitando manutenção e futuras expansões.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">RNF-S03</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Chaves de API e configurações em variáveis de ambiente</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve armazenar todas as chaves de API, tokens e configurações sensíveis exclusivamente em variáveis de ambiente, garantindo segurança e facilidade de gerenciamento entre ambientes (desenvolvimento, homologação, produção).</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">RNF-S04</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Versionamento (controle de versão para código e banco)</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve utilizar controle de versão (ex.: Git) para todo o código-fonte e adotar mecanismos de versionamento do banco de dados (ex.: migrations), garantindo rastreabilidade e facilidade de manutenção evolutiva.</td>
+    </tr>
+    
+    <tr>
+      <td colspan="3" style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#f5f5f5; font-weight:bold;">Segurança</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">RNF-SEC01</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Autenticação segura para senhas</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve implementar mecanismos seguros de autenticação, utilizando hashing forte (ex.: bcrypt) para armazenamento de senhas, além de tokens de sessão seguros (ex.: JWT) com prazo de expiração definido.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">RNF-SEC02</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Comunicação criptografada</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Todas as comunicações entre cliente e servidor devem ocorrer através de HTTPS/TLS, garantindo confidencialidade e integridade dos dados transmitidos.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">RNF-SEC03</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Proteção de dados: mascaramento de dados sensíveis</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deverá garantir a proteção dos dados de usuários utilizando HTTPS/TLS em todas as comunicações entre cliente e servidor.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">RNF-SEC04</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Validação de input</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve validar e sanitizar todos os dados de entrada recebidos do cliente, prevenindo vulnerabilidades como SQL Injection, XSS e injeções de comandos, garantindo integridade e segurança da aplicação.</td>
+    </tr>
+  </tbody>
+</table>
     <section id="topicooito">
       <h2>8. DoR e DoD</h2>
 
