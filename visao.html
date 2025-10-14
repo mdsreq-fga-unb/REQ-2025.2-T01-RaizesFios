@@ -833,6 +833,225 @@
 
       <h1>7.1 Lista de Requisitos Funcionais </h1>
 
+      <table aria-label="Requisitos Funcionais - E-commerce de Artesanato"
+  style="width:100%; border-collapse:collapse; margin:1rem 0; font-size:0.95rem;">
+  <caption style="text-align:left; padding:0.5rem 0; font-weight:600;">
+    Requisitos Funcionais - E-commerce de Artesanato
+  </caption>
+  <thead>
+    <tr>
+      <th style="border-bottom:2px solid #ccc; text-align:left; padding:0.5rem;">Código</th>
+      <th style="border-bottom:2px solid #ccc; text-align:left; padding:0.5rem;">Nome do Requisito</th>
+      <th style="border-bottom:2px solid #ccc; text-align:left; padding:0.5rem;">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="3" style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#f5f5f5; font-weight:bold;">Módulo: Produto</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF01</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Registrar produto</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve permitir que o administrador crie produtos com suas respectivas características e descrições.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF02</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Editar produto</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve permitir que o administrador edite as informações de um produto já registrado.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF03</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Consultar produto</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve permitir que o administrador consulte a existência ou não de um produto na base de dados.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF04</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Excluir produto</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve permitir que o administrador exclua um produto criado anteriormente.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF05</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Gerar alerta de estoque máximo</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve gerar um alerta ao administrador quando o estoque atingir um nível máximo pré-definido.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF06</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Gerar alerta de estoque mínimo</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve gerar um alerta ao administrador quando o estoque atingir um nível mínimo pré-definido.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF07</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Criar categoria de produto</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve permitir que o administrador crie categorias e subcategorias de produtos.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF08</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Editar categoria de produto</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve permitir que o administrador edite categorias e subcategorias de produtos criadas anteriormente.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF09</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Filtrar produto por categoria</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve permitir que o usuário/cliente encontre produtos através de filtros de pesquisa por categoria.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF10</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Pesquisar produto por nome ou palavra-chave</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema de permitir que o usuário/cliente pesquise por produtos específicos utilizando nome ou palavra-chave.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF11</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Avaliar produto</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve permitir que o usuário/cliente faça uma breve avaliação do produto em texto e atribua uma pontuação de 0 a 5 estrelas.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF12</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Exibir produtos recomendados</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve exibir aos usuários/clientes uma lista de produtos recomendados com base em histórico de navegação, categorias similares e/ou avaliações de outros usuários.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF13</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Exibir produtos mais vendidos</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve exibir aos usuários/clientes uma lista com os produtos mais vendidos, atualizada de acordo com os registros de vendas.</td>
+    </tr>
+    
+    <tr>
+      <td colspan="3" style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#f5f5f5; font-weight:bold;">Módulo: Carrinho</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF14</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Adicionar produto ao carrinho</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve permitir que o usuário/cliente adicione um produto ao carrinho de compras.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF15</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Remover produto do carrinho</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve permitir que o usuário/cliente remova um produto do carrinho de compras, adicionado anteriormente.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF16</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Calcular valor total do carrinho</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve atualizar o valor total do carrinho de compras sempre que um novo produto for adicionado ou um produto for removido do carrinho de compras.</td>
+    </tr>
+    
+    <tr>
+      <td colspan="3" style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#f5f5f5; font-weight:bold;">Módulo: Pedido</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF17</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Atualizar status do pedido</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve permitir que o administrador atualize o status de um pedido, de forma que o cliente tome ciência em tempo real.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF18</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Enviar notificação de pedido</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve enviar notificações automáticas aos usuários/clientes (por e-mail ou interface do sistema) sempre que houver alterações relevantes no status do pedido.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF19</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Cancelar pedido</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve permitir que o usuário solicite o cancelamento de um pedido, respeitando as regras pré-definidas.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF20</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Acompanhar pedido</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve permitir que o usuário acompanhe o status do seu pedido por meio de uma interface de rastreamento acessível na área do cliente.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF21</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Fornecer histórico de pedidos ao usuário</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve disponibilizar ao usuário uma lista com todos os pedidos realizados.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF22</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Calcular frete</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve calcular automaticamente o valor do frete com base no endereço de entrega informado pelo usuário e nas opções de envio disponíveis.</td>
+    </tr>
+    
+    <tr>
+      <td colspan="3" style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#f5f5f5; font-weight:bold;">Módulo: Pagamento</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF23</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Verificar pagamento</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve verificar automaticamente a confirmação de pagamento junto ao provedor de pagamentos.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF24</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Gerar QRCode Pix</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve gerar dinamicamente um QR Code Pix válido para cada pedido, permitindo que o usuário realize o pagamento diretamente via aplicativo bancário.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF25</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Selecionar forma de pagamento</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve permitir que o usuário escolha entre diferentes métodos de pagamento disponíveis.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF26</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Emitir comprovante de pagamento</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve emitir um comprovante de pagamento digital após a confirmação, disponibilizando-o para download ou visualização na área do usuário.</td>
+    </tr>
+    
+    <tr>
+      <td colspan="3" style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#f5f5f5; font-weight:bold;">Módulo: Usuário</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF27</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Registrar usuário</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">o sistema deve permitir que o usuário faça seu cadastro.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF28</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Editar usuário</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">o sistema deve permitir que o usuário cadastrado edite suas informações de cadastro.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF29</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Realizar login de usuário</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve permitir que usuários cadastrados façam login utilizando e-mail e senha previamente cadastrados.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF30</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Realizar autenticação de usuário</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve autenticar o usuário por meio de tokens de sessão, garantindo acesso apenas a funcionalidades compatíveis com seu perfil (cliente ou administrador).</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF31</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Recuperar senha do usuário</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve permitir que o usuário recupere sua senha por meio de um fluxo seguro de redefinição, utilizando e-mail de recuperação.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF32</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Validar endereço de entrega</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deverá cumprir uma etapa de confirmação de endereço de entrega, antes da finalização da compra.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF33</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Cadastrar endereço de entrega</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve permitir que o usuário cadastre um ou mais endereços de entrega.</td>
+    </tr>
+    
+    <tr>
+      <td colspan="3" style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#f5f5f5; font-weight:bold;">Módulo: Gestão</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF34</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Controlar acesso por perfil de usuário</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve permitir que o usuário opte pelo acesso como cliente ou como administrador.</td>
+    </tr>
+    
+    <tr>
+      <td colspan="3" style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#f5f5f5; font-weight:bold;">Módulo: Comunicação</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">RF35</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Direcionar cliente ao artesão</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema deve permitir que o cliente seja direcionado ao artesão responsável pelo produto, por meio de um canal de comunicação integrado (ex.: chat interno, link para WhatsApp ou formulário), para esclarecimento de dúvidas ou solicitações personalizadas.</td>
+    </tr>
+  </tbody>
+</table>
+
+
       <h1>7.2 Lista de Requisitos Não Funcionais</h1>
     </section>
 
