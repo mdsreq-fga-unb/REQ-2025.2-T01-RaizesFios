@@ -31,17 +31,3 @@ Nosso objetivo é analisar esse cenário e propor soluções para fortalecer a p
 
 </div>
 
-
-## Apresentação - Unidade 1
-
-Aqui está nossa apresentação da Unidade 1, onde detalhamos tópicos pertinentes ao Documento de Visão do Produto:
-
-<div align="center">
-
-
-</div>
-
-
-##Lista de Requisitos
-
-(https://docs.google.com/document/d/1keg-Y3J0gn3Aj0Njhaff5_v5BX-HTGbL/edit?usp=sharing&ouid=110613010992546413557&rtpof=true&sd=true)
