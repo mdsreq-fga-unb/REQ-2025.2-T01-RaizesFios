@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Entregas - Raízes & Fios</title>
+  <title>Evidências - Raízes & Fios</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* Esconde todas as seções por padrão */
@@ -38,30 +38,27 @@
   <nav class="sidebar">
     <h2>Menu</h2>
     <ul>
-      <li><a href="#" onclick="showSection('entregaum')">Entrega 1</a></li>
-      <li><a href="#" onclick="showSection('entregadois')">Entrega 2</a></li>
+      <li><a href="#" onclick="showSection('entrevistas')">Entrevistas</a></li>
+      <li><a href="#" onclick="showSection('outros')">Outras Evidências</a></li>
     </ul>
   </nav>
 
   <!-- Conteúdo principal -->
   <main>
-    <!-- Apenas uma começa ativa -->
-    <section id="entregaum" class="active">
-      <h1>Unidade 1</h1>
+    <!-- Seção 1 -->
+    <section id="entrevistas" class="active">
+      <h1>Entrevistas</h1>
       <p>
-        <a class="apresentacao-link" href="https://unbbr.sharepoint.com/sites/Projeto-RequisitosdeSW/_layouts/15/stream.aspx?id=%2Fsites%2FProjeto%2DRequisitosdeSW%2FDocumentos%20Compartilhados%2FGeneral%2FRecordings%2FReunião%20da%20Equipe%2D20250915%5F204441%2DGravação%20de%20Reunião%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2Ec1136f26%2D1d24%2D47d8%2Dac56%2D5d2ca91a9534" target="_blank">
-          Apresentação Unidade 1
+        <a class="apresentacao-link" target="_blank">
+          Entrevista com o cliente
         </a>
       </p>
     </section>
 
-    <section id="entregadois">
-      <h1>Unidade 2</h1>
-      <p>
-        <a class="apresentacao-link" href="https://unbbr.sharepoint.com/sites/Projeto-RequisitosdeSW/_layouts/15/stream.aspx?id=%2Fsites%2FProjeto%2DRequisitosdeSW%2FDocumentos%20Compartilhados%2FGeneral%2FRecordings%2FReunião%20da%20Equipe%2D20250915%5F204441%2DGravação%20de%20Reunião%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2Ec1136f26%2D1d24%2D47d8%2Dac56%2D5d2ca91a9534" target="_blank">
-          Apresentação Unidade 2
-        </a>
-      </p>
+    <!-- Seção 4 -->
+    <section id="outros">
+      <h1>Outras Evidências</h1>
+      <p>Em breve — anexos e registros complementares do processo de requisitos.</p>
     </section>
 
     <footer>
@@ -81,7 +78,7 @@
       const sectionToShow = document.getElementById(sectionId);
       if (sectionToShow) {
         sectionToShow.classList.add("active");
-        // Faz o scroll suave até a nova seção
+        // Faz o scroll suave até a seção visível
         sectionToShow.scrollIntoView({ behavior: "smooth" });
       }
     }
