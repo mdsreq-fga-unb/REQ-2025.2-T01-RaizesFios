@@ -1361,401 +1361,140 @@
     <section id="topiconove">
       <h2>9. BACKLOG DE PRODUTO </h2>
 
-      <h1>Priorização de Requisitos</h1>
+      <h1>9.1 Backlog Geral</h1>
 
-      <p>
-        A etapa de priorização de requisitos teve como objetivo definir a ordem de desenvolvimento das funcionalidades,
-        considerando tanto o valor de negócio percebido pelo cliente quanto a complexidade técnica estimada pela equipe
-        de desenvolvimento.
-      </p>
+      <p>Neste tópico será descrito o backlog do produto, organizado hierarquicamente para garantir clareza e rastreabilidade dos requisitos. A estrutura será mantida através do framework de <strong>Temas, Épicos e User Stories</strong>, que desdobra iniciativas estratégicas em partes executáveis, alinhando a visão do produto com o trabalho de desenvolvimento.</p>
 
-      <p>
-        Para isso, foi utilizada a <b>Matriz Valor de Negócio x Complexidade</b>, uma técnica amplamente empregada na
-        Engenharia de Requisitos
-        para apoiar a tomada de decisão e o planejamento incremental do produto.
-      </p>
+<h2>Temas</h2>
+<p>Os Temas representam as principais frentes de atuação necessárias para materializar a visão do produto. Cada Tema foi concebido como o meio estratégico para alcançar um Objetivo Específico correspondente, assegurando que todo desenvolvimento esteja orientado a resultados mensuráveis e alinhado com a estratégia global do produto.</p>
 
-      <h2>Critérios de Priorização</h2>
+<table aria-label="Temas do Produto" style="width:100%; border-collapse:collapse; margin:1rem 0; font-size:0.95rem;">
+  <thead>
+    <tr>
+      <th style="border-bottom:2px solid #ccc; text-align:left; padding:0.5rem;">Nº Tema</th>
+      <th style="border-bottom:2px solid #ccc; text-align:left; padding:0.5rem;">Nome do Tema</th>
+      <th style="border-bottom:2px solid #ccc; text-align:left; padding:0.5rem;">Foco</th>
+      <th style="border-bottom:2px solid #ccc; text-align:left; padding:0.5rem;">OE Associado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">T1</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Catálogo Digital e Gestão de Produtos</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Exibição, organização e personalização da oferta dos artesãos</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">OE1</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">T2</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Comunicação e Experiência de Compra</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Mediação da interação direta entre clientes e artesãos</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">OE2</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">T3</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Pagamentos e Conversão</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Fluxo financeiro seguro e simplificado para maximizar vendas</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">OE3</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">T4</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Usabilidade e Onboarding</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Experiência intuitiva e acessível para artesãos com baixo conhecimento tecnológico</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">OE4</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">T5</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Acesso Rápido e Divulgação</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Conexão entre mundo físico e digital através de QR Codes</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">OE5</td>
+    </tr>
+  </tbody>
+</table>
 
-      <p><b>Valor de Negócio:</b> corresponde à importância e impacto que cada requisito possui para o cliente e para o
-        alcance dos objetivos do sistema.
-        Essa avaliação foi feita com base no feedback direto do cliente, que classificou os requisitos segundo quatro
-        níveis:</p>
+<h2>Épicos</h2>
+<p>Os Épicos representam as grandes funcionalidades que agrupam entregas relacionadas dentro de cada Tema. Eles organizam o trabalho em blocos coerentes de valor, facilitando o planejamento e a execução do desenvolvimento.</p>
 
-      <ul>
-        <li><b>Prioridade 1:</b> sem valor de negócio</li>
-        <li><b>Prioridade 2:</b> pouco valor de negócio</li>
-        <li><b>Prioridade 3:</b> valor de negócio moderado</li>
-        <li><b>Prioridade 4:</b> alto valor de negócio</li>
-      </ul>
-
-      <p>O resultado dessa avaliação é apresentado na tabela abaixo:</p>
-
-      <div style="text-align: center; margin: 20px 0;">
-        <img src="image/valor_negocio.png" alt="Tabela de Valor de Negócio"
-          style="width:100%; max-width:600px; border:1px solid #ccc; border-radius:8px;">
-      </div>
-
-      <p><b>Complexidade Técnica:</b> representa o nível de esforço necessário para implementar cada requisito,
-        considerando fatores como
-        tempo de desenvolvimento, quantidade de recursos, dependências técnicas e riscos associados. Essa análise foi
-        realizada pela equipe de desenvolvimento,
-        também em uma escala de quatro níveis:</p>
-
-      <ul>
-        <li><b>Prioridade 1:</b> esforço baixo</li>
-        <li><b>Prioridade 2:</b> esforço moderado</li>
-        <li><b>Prioridade 3:</b> esforço alto</li>
-        <li><b>Prioridade 4:</b> esforço muito alto</li>
-      </ul>
-
-      <p>A seguir, é apresentada a tabela com a análise técnica dos requisitos:</p>
-
-      <div style="text-align: center; margin: 20px 0;">
-        <img src="image/complexidade.png" alt="Tabela de Complexidade Técnica"
-          style="width:100%; max-width:600px; border:1px solid #ccc; border-radius:8px;">
-      </div>
-
-      <h2>Integração dos Resultados</h2>
-
-      <p>
-        Com base nas duas avaliações anteriores, foi elaborada a <b>Matriz Valor de Negócio x Complexidade</b>,
-        que permite visualizar a distribuição dos requisitos e identificar aqueles que apresentam maior retorno em
-        relação ao esforço necessário.
-      </p>
-
-      <p>
-        Essa visualização facilita a priorização das funcionalidades mais vantajosas para o desenvolvimento inicial do
-        sistema.
-        Requisitos com <b>alto valor de negócio e baixa complexidade</b> foram considerados como as principais
-        oportunidades de entrega de valor rápido,
-        enquanto requisitos de <b>alta complexidade e baixo valor</b> foram classificados como secundários ou passíveis
-        de postergação.
-      </p>
-
-      <div style="
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 30px;
-      margin: 30px 0;
-      flex-wrap: wrap;
-      ">
-        <img src="image/requisitos.png" alt="Gráfico de Requisitos"
-          style="width: 100%; max-width: 400px; height: auto; border: 1px solid #ccc; border-radius: 8px;">
-
-        <img src="image/matriz.png" alt="Matriz Valor x Complexidade"
-          style="width: 100%; max-width: 600px; height: auto; border: 1px solid #ccc; border-radius: 8px;">
-      </div>
-
-      <p>
-        Dessa forma, a matriz serviu como base para o planejamento do desenvolvimento e auxiliou na definição das
-        entregas prioritárias do projeto.
-      </p>
-
-      <h1>Histórias de Usuário</h1>
-
-      <p>
-        A seguir, são apresentadas as <strong>Histórias de Usuário</strong> que detalham as funcionalidades do sistema a
-        partir da perspectiva do usuário final. Elas foram organizadas e priorizadas com base em uma matriz de
-        <strong>Complexidade vs. Valor de Negócio</strong>, permitindo focar o desenvolvimento nas entregas que geram
-        maior impacto e planejar adequadamente as funcionalidades mais estratégicas. Cada quadrante da
-        matriz representa uma prioridade de desenvolvimento.
-      </p>
-
-      <hr>
-
-      <h2>Quadrante 1: Foco Principal (Alto Valor, Baixa Complexidade)</h2>
-      <h3>Ação: Fazer Primeiro</h3>
-      <table border="1" style="width:100%; border-collapse: collapse;">
-        <thead>
-          <tr style="background-color:#f2f2f2;">
-            <th style="padding: 8px; text-align: left;">ID</th>
-            <th style="padding: 8px; text-align: left;">História de Usuário</th>
-            <th style="padding: 8px; text-align: left;">RF Associado</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="padding: 8px;">US01</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>administrador</code>, <b>eu quero</b>
-              <code>registrar novos produtos</code>, <b>para que</b> <code>eu possa disponibilizá-los para venda</code>.
-            </td>
-            <td style="padding: 8px;">RF01</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px;">US02</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>administrador</code>, <b>eu quero</b>
-              <code>editar as informações de um produto</code>, <b>para que</b>
-              <code>eu possa manter o catálogo atualizado</code>.
-            </td>
-            <td style="padding: 8px;">RF02</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px;">US03</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>administrador</code>, <b>eu quero</b>
-              <code>consultar produtos no painel</code>, <b>para que</b>
-              <code>eu possa verificar suas informações</code>.
-            </td>
-            <td style="padding: 8px;">RF03</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px;">US04</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>administrador</code>, <b>eu quero</b>
-              <code>excluir um produto do catálogo</code>, <b>para que</b>
-              <code>eu possa remover itens que não serão mais vendidos</code>.
-            </td>
-            <td style="padding: 8px;">RF04</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px;">US05</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>administrador</code>, <b>eu quero</b>
-              <code>ser notificado sobre estoque mínimo/máximo</code>, <b>para que</b>
-              <code>eu possa gerenciar o inventário</code>.
-            </td>
-            <td style="padding: 8px;">RF05, RF06</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px;">US06</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>administrador</code>, <b>eu quero</b>
-              <code>criar e organizar produtos em categorias</code>, <b>para que</b>
-              <code>os clientes naveguem melhor</code>.
-            </td>
-            <td style="padding: 8px;">RF07</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px;">US07</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>cliente</code>, <b>eu quero</b>
-              <code>filtrar produtos por categoria</code>, <b>para que</b>
-              <code>eu possa encontrar facilmente o que me interessa</code>.
-            </td>
-            <td style="padding: 8px;">RF08</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px;">US12</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>cliente</code>, <b>eu quero</b>
-              <code>adicionar um produto ao meu carrinho</code>, <b>para que</b>
-              <code>eu possa comprá-lo com outros itens</code>.
-            </td>
-            <td style="padding: 8px;">RF13</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px;">US13</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>cliente</code>, <b>eu quero</b>
-              <code>remover um produto do carrinho</code>, <b>para que</b>
-              <code>eu possa desistir da compra daquele item</code>.
-            </td>
-            <td style="padding: 8px;">RF14</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px;">US14</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>cliente</code>, <b>eu quero</b>
-              <code>ver o valor total do carrinho ser atualizado automaticamente</code>, <b>para que</b>
-              <code>eu saiba quanto vou pagar</code>.
-            </td>
-            <td style="padding: 8px;">RF15</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px;">US17</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>cliente</code>, <b>eu quero</b>
-              <code>solicitar o cancelamento de um pedido</code>, <b>para que</b>
-              <code>eu possa desistir da compra antes do envio</code>.
-            </td>
-            <td style="padding: 8px;">RF18</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px;">US18</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>cliente</code>, <b>eu quero</b>
-              <code>acompanhar o status do meu pedido</code>, <b>para que</b>
-              <code>eu tenha visibilidade de todo o processo</code>.
-            </td>
-            <td style="padding: 8px;">RF19</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px;">US22</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>cliente</code>, <b>eu quero</b>
-              <code>gerar um QR Code Pix para pagar</code>, <b>para que</b>
-              <code>eu possa finalizar a compra de forma rápida</code>.
-            </td>
-            <td style="padding: 8px;">RF23</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px;">US23</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>cliente</code>, <b>eu quero</b>
-              <code>escolher entre diferentes formas de pagamento</code>, <b>para que</b>
-              <code>eu use a opção mais conveniente</code>.
-            </td>
-            <td style="padding: 8px;">RF24</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px;">US25</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>visitante</code>, <b>eu quero</b>
-              <code>fazer meu cadastro no site</code>, <b>para que</b> <code>eu possa realizar compras</code>.
-            </td>
-            <td style="padding: 8px;">RF26</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px;">US26</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>cliente</code>, <b>eu quero</b>
-              <code>editar as informações do meu perfil</code>, <b>para que</b>
-              <code>eu possa manter meus dados atualizados</code>.
-            </td>
-            <td style="padding: 8px;">RF27</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px;">US27</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>usuário cadastrado</code>, <b>eu quero</b>
-              <code>realizar login</code>, <b>para que</b> <code>eu possa acessar minha conta</code>.
-            </td>
-            <td style="padding: 8px;">RF28</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px;">US29</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>usuário</code>, <b>eu quero</b>
-              <code>recuperar minha senha</code>, <b>para que</b> <code>eu possa voltar a acessar minha conta</code>.
-            </td>
-            <td style="padding: 8px;">RF30</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px;">US31</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>cliente</code>, <b>eu quero</b>
-              <code>entrar em contato com o artesão</code>, <b>para que</b>
-              <code>eu possa tirar dúvidas ou pedir personalizações</code>.
-            </td>
-            <td style="padding: 8px;">RF34</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <br>
-
-      <h2>Quadrante 2: Projetos Estratégicos (Alto Valor, Alta Complexidade)</h2>
-      <h3>Ação: Planejar com Cuidado</h3>
-      <table border="1" style="width:100%; border-collapse: collapse;">
-        <thead>
-          <tr style="background-color:#f2f2f2;">
-            <th style="padding: 8px; text-align: left;">ID</th>
-            <th style="padding: 8px; text-align: left;">História de Usuário</th>
-            <th style="padding: 8px; text-align: left;">RF Associado</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="padding: 8px;">US08</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>cliente</code>, <b>eu quero</b>
-              <code>pesquisar por um produto usando nome ou palavras-chave</code>, <b>para que</b>
-              <code>eu encontre rapidamente um item específico</code>.
-            </td>
-            <td style="padding: 8px;">RF09</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px;">US09</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>cliente</code>, <b>eu quero</b>
-              <code>avaliar um produto com nota e comentário</code>, <b>para que</b>
-              <code>eu possa ajudar outros compradores</code>.
-            </td>
-            <td style="padding: 8px;">RF10</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px;">US10</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>cliente</code>, <b>eu quero</b>
-              <code>ver uma lista de produtos recomendados</code>, <b>para que</b>
-              <code>eu possa descobrir novos itens</code>.
-            </td>
-            <td style="padding: 8px;">RF11</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px;">US11</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>cliente</code>, <b>eu quero</b>
-              <code>ver uma seção de "produtos mais vendidos"</code>, <b>para que</b>
-              <code>eu saiba quais são os itens populares</code>.
-            </td>
-            <td style="padding: 8px;">RF12</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px;">US15</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>administrador</code>, <b>eu quero</b>
-              <code>atualizar o status de um pedido</code>, <b>para que</b>
-              <code>o cliente seja informado sobre o andamento</code>.
-            </td>
-            <td style="padding: 8px;">RF16</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px;">US16</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>cliente</code>, <b>eu quero</b>
-              <code>receber notificações por e-mail sobre meu pedido</code>, <b>para que</b>
-              <code>eu não precise acessar o site a todo momento</code>.
-            </td>
-            <td style="padding: 8px;">RF17</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px;">US19</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>cliente</code>, <b>eu quero</b>
-              <code>ter acesso a um histórico de todos os meus pedidos</code>, <b>para que</b>
-              <code>eu possa consultar compras passadas</code>.
-            </td>
-            <td style="padding: 8px;">RF20</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px;">US21</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>administrador</code>, <b>eu quero</b>
-              <code>que o sistema verifique o pagamento automaticamente</code>, <b>para que</b>
-              <code>eu possa iniciar o envio sem intervenção manual</code>.
-            </td>
-            <td style="padding: 8px;">RF22</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px;">US24</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>cliente</code>, <b>eu quero</b>
-              <code>receber um comprovante de pagamento</code>, <b>para que</b>
-              <code>eu tenha um registro da transação</code>.
-            </td>
-            <td style="padding: 8px;">RF25</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px;">US28</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>usuário</code>, <b>eu quero</b>
-              <code>que o sistema me autentique de forma segura</code>, <b>para que</b>
-              <code>eu só tenha acesso ao meu perfil</code>.
-            </td>
-            <td style="padding: 8px;">RF29, RF33</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <br>
-
-      <h2>Quadrante 3: Baixa Prioridade (Baixo Valor, Baixa Complexidade)</h2>
-      <h3>Ação: Fazer se Sobrar Tempo</h3>
-      <table border="1" style="width:100%; border-collapse: collapse;">
-        <thead>
-          <tr style="background-color:#f2f2f2;">
-            <th style="padding: 8px; text-align: left;">ID</th>
-            <th style="padding: 8px; text-align: left;">História de Usuário</th>
-            <th style="padding: 8px; text-align: left;">RF Associado</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="padding: 8px;">US20</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>cliente</code>, <b>eu quero</b>
-              <code>que o frete seja calculado automaticamente com base no meu endereço</code>, <b>para que</b>
-              <code>eu saiba o custo total antes de finalizar</code>.
-            </td>
-            <td style="padding: 8px;">RF21</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px;">US30</td>
-            <td style="padding: 8px;"><b>Como um</b> <code>cliente</code>, <b>eu quero</b>
-              <code>cadastrar e gerenciar múltiplos endereços de entrega</code>, <b>para que</b>
-              <code>eu possa enviar presentes ou escolher para onde enviar meu pedido</code>.
-            </td>
-            <td style="padding: 8px;">RF31, RF32</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h1>9.1 Backlog do Produto</h1>
+<table aria-label="Épicos do Produto" style="width:100%; border-collapse:collapse; margin:1rem 0; font-size:0.95rem;">
+  <thead>
+    <tr>
+      <th style="border-bottom:2px solid #ccc; text-align:left; padding:0.5rem;">Épico</th>
+      <th style="border-bottom:2px solid #ccc; text-align:left; padding:0.5rem;">Descrição</th>
+      <th style="border-bottom:2px solid #ccc; text-align:left; padding:0.5rem;">Tema Associado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Gestão de Catálogo (CRUD)</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Funcionalidades básicas de criação, leitura, atualização e exclusão de produtos e categorias.</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">T1 - Catálogo Digital</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Controle de Estoque</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Monitoramento e alertas automáticos sobre os níveis de estoque.</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">T1 - Catálogo Digital</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Descoberta e Busca</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Funcionalidades que ajudam o usuário a encontrar produtos no catálogo.</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">T1 - Catálogo Digital</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Engajamento e Social Proof</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Funcionalidades que aumentam a confiança e o tempo do usuário na plataforma.</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">T1 - Catálogo Digital</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Canal Direto com o Artesão</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Sistema para facilitar o contato entre cliente e artesão para negociações.</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">T2 - Comunicação</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Gestão do Carrinho de Compras</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Funcionalidades para o usuário gerenciar os itens antes da compra.</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">T3 - Pagamentos e Conversão</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Processo de Checkout e Frete</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Fluxo de finalização de compra, incluindo cálculo de frete e validação de endereço.</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">T3 - Pagamentos e Conversão</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Gestão do Ciclo de Vida do Pedido</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Acompanhamento, notificações e alterações de status do pedido.</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">T3 - Pagamentos e Conversão</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Processamento de Pagamento</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Integração com gateways e métodos para finalizar a transação financeira.</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">T3 - Pagamentos e Conversão</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Pagamento via PIX com QR Code</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Implementação específica do fluxo de pagamento via PIX com geração de QR Code.</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">T3 - Pagamentos e Conversão</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Cadastro e Autenticação de Usuário</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Fluxo completo de onboarding, login e segurança da conta.</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">T4 - Usabilidade e Onboarding</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Gestão de Endereços</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Funcionalidades para o usuário gerenciar seus locais de entrega.</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">T4 - Usabilidade e Onboarding</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Controle de Acesso e Perfis</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Sistema para diferenciar as permissões de clientes e administradores.</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">T4 - Usabilidade e Onboarding</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">Sistema de QR Codes de Acesso</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Geração, gestão e distribuição de QR Codes que vinculam diretamente a perfis e produtos.</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">T5 - Acesso Rápido e Divulgação</td>
+    </tr>
+  </tbody>
+</table>
 
       <h1>9.2 Priorização do Backlog Geral</h1>
 
