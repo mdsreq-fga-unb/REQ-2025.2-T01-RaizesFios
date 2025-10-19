@@ -1745,554 +1745,682 @@
       <h1>9.2 Priorização do Backlog Geral</h1>
       <p>Nesta seção, foi realizada a priorização dos itens do backlog utilizando uma técnica de atribuição de valor de numérico para a análise de valor de negócio, realizada pelo casal de artesãos, e para a análise de viabilidade técnica, realizada pela equipe de desenvolvedores. Os critérios considerados para a avaliação de cada requisito são apresentados abaixo. </p>
 
+      <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; margin: 1rem 0;">
+  
+    <!-- Tabela 1: Análise Técnica (Esforço) -->
+  <div style="flex: 1; min-width: 300px;">
+    <table aria-label="Tabela de Análise Técnica de Esforço"
+      style="width:100%; border-collapse:collapse; font-size:0.95rem; border:1px solid #ddd;">
+      <caption style="text-align:left; padding:0.5rem 0; font-weight:600; background-color:#f5f5f5; padding:0.75rem;">
+      Análise Técnica (Viabilidade)
+      </caption>
+      <thead>
+        <tr>
+          <th style="border-bottom:2px solid #ccc; text-align:left; padding:0.75rem; background-color:#f9f9f9;">Prioridade</th>
+          <th style="border-bottom:2px solid #ccc; text-align:left; padding:0.75rem; background-color:#f9f9f9;">Classificação</th>
+          <th style="border-bottom:2px solid #ccc; text-align:left; padding:0.75rem; background-color:#f9f9f9;">Critérios Objetivos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="border-bottom:1px solid #eee; padding:0.75rem; font-weight:bold;">P1</td>
+          <td style="border-bottom:1px solid #eee; padding:0.75rem; font-weight:bold;">ESFORÇO MUITO ALTO</td>
+          <td style="border-bottom:1px solid #eee; padding:0.75rem;">
+            • Tempo: >12 dias<br>
+            • APIs externas críticas<br>
+            • Mudança arquitetural significativa<br>
+            • Múltiplas dependências complexas<br>
+            • Alto risco de impacto em cascata
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom:1px solid #eee; padding:0.75rem; font-weight:bold;">P2</td>
+          <td style="border-bottom:1px solid #eee; padding:0.75rem; font-weight:bold;">ESFORÇO ALTO</td>
+          <td style="border-bottom:1px solid #eee; padding:0.75rem;">
+            • Tempo: 8-11 dias<br>
+            • 3+ entidades/sistemas envolvidos<br>
+            • Lógica de negócio complexa<br>
+            • Dependências moderadas de outros requisitos<br>
+            • Riscos moderados de implementação
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom:1px solid #eee; padding:0.75rem; font-weight:bold;">P3</td>
+          <td style="border-bottom:1px solid #eee; padding:0.75rem; font-weight:bold;">ESFORÇO MODERADO</td>
+          <td style="border-bottom:1px solid #eee; padding:0.75rem;">
+            • Tempo: 4-7 dias<br>
+            • 2-3 componentes relacionados<br>
+            • Tecnologia dominada pela equipe<br>
+            • Dependências simples e bem definidas<br>
+            • Baixo risco de implementação
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom:1px solid #eee; padding:0.75rem; font-weight:bold;">P4</td>
+          <td style="border-bottom:1px solid #eee; padding:0.75rem; font-weight:bold;">ESFORÇO BAIXO</td>
+          <td style="border-bottom:1px solid #eee; padding:0.75rem;">
+            • Tempo: 1-3 dias<br>
+            • CRUD básico em tabela única<br>
+            • Componente isolado ou funcionalidade independente<br>
+            • Poucas ou nenhuma dependência<br>
+            • Risco mínimo de problemas
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- Tabela 2: Análise de Valor de Negócio -->
+  <div style="flex: 1; min-width: 300px;">
+    <table aria-label="Tabela de Análise de Valor de Negócio"
+      style="width:100%; border-collapse:collapse; font-size:0.95rem; border:1px solid #ddd;">
+      <caption style="text-align:left; padding:0.5rem 0; font-weight:600; background-color:#f5f5f5; padding:0.75rem;">
+        Análise de Valor de Negócio
+      </caption>
+      <thead>
+        <tr>
+          <th style="border-bottom:2px solid #ccc; text-align:left; padding:0.75rem; background-color:#f9f9f9;">Prioridade</th>
+          <th style="border-bottom:2px solid #ccc; text-align:left; padding:0.75rem; background-color:#f9f9f9;">Classificação</th>
+          <th style="border-bottom:2px solid #ccc; text-align:left; padding:0.75rem; background-color:#f9f9f9;">Critérios Objetivos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="border-bottom:1px solid #eee; padding:0.75rem; font-weight:bold;">P4</td>
+          <td style="border-bottom:1px solid #eee; padding:0.75rem; font-weight:bold;">ALTO VALOR</td>
+          <td style="border-bottom:1px solid #eee; padding:0.75rem;">
+            • Pré-requisito absoluto para operação<br>
+            • Geração direta de receita<br>
+            • Core business<br>
+            • Bloqueador de venda
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom:1px solid #eee; padding:0.75rem; font-weight:bold;">P3</td>
+          <td style="border-bottom:1px solid #eee; padding:0.75rem; font-weight:bold;">VALOR MODERADO</td>
+          <td style="border-bottom:1px solid #eee; padding:0.75rem;">
+            • Expectativa do mercado<br>
+            • Alto impacto na experiência<br>
+            • Eficiência operacional<br>
+            • Retenção de usuários
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom:1px solid #eee; padding:0.75rem; font-weight:bold;">P2</td>
+          <td style="border-bottom:1px solid #eee; padding:0.75rem; font-weight:bold;">POUCO VALOR</td>
+          <td style="border-bottom:1px solid #eee; padding:0.75rem;">
+            • Melhoria incremental<br>
+            • Caminho alternativo viável<br>
+            • Público específico<br>
+            • Valor indireto
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom:1px solid #eee; padding:0.75rem; font-weight:bold;">P1</td>
+          <td style="border-bottom:1px solid #eee; padding:0.75rem; font-weight:bold;">SEM VALOR</td>
+          <td style="border-bottom:1px solid #eee; padding:0.75rem;">
+            • Nice to have<br>
+            • Uso interno apenas<br>
+            • Alcance limitado (&lt;10% usuários)<br>
+            • Valor questionável
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------------->
       <p>Em seguida, o cruzamento de dados das tabelas de análise de valor de negócio e de análise de viabilidade técnica, resultou na seguinte matriz de Complexidade vs Esforço, onde atribuímos um score para cada requisito. </p>
       <table aria-label="Priorização do backlog" style="width:100%; border-collapse:collapse; margin:1rem 0; font-size:0.95rem; border:1px solid #ccc;">
   <thead>
     <tr>
-      <th style="border-bottom:2px solid #ccc; border-right:1px solid #ddd; text-align:center; padding:0.5rem; background-color:#f5f5f5;" rowspan="2">Código</th>
-      <th style="border-bottom:2px solid #ccc; border-right:1px solid #ddd; text-align:center; padding:0.5rem; background-color:#f5f5f5;" rowspan="2">Nome do Requisito</th>
-      <th style="border-bottom:2px solid #ccc; border-right:1px solid #ddd; text-align:center; padding:0.5rem; background-color:#f5f5f5;" colspan="4">Análise Técnica</th>
-      <th style="border-bottom:2px solid #ccc; border-right:1px solid #ddd; text-align:center; padding:0.5rem; background-color:#f5f5f5;" colspan="4">Análise Valor de Negócio</th>
-      <th style="border-bottom:2px solid #ccc; border-right:1px solid #ddd; text-align:center; padding:0.5rem; background-color:#f5f5f5;" rowspan="2">Score</th>
+      <th style="border-bottom:2px solid #ccc; border-right:4px solid #ddd; text-align:center; padding:0.5rem; background-color:#f5f5f5;" rowspan="2">Código</th>
+      <th style="border-bottom:2px solid #ccc; border-right:4px solid #ddd; text-align:center; padding:0.5rem; background-color:#f5f5f5;" rowspan="2">Nome do Requisito</th>
+      <th style="border-bottom:2px solid #ccc; border-right:4px solid #ddd; text-align:center; padding:0.5rem; background-color:#f5f5f5;" colspan="4">Análise Técnica</th>
+      <th style="border-bottom:2px solid #ccc; border-right:4px solid #ddd; text-align:center; padding:0.5rem; background-color:#f5f5f5;" colspan="4">Análise Valor de Negócio</th>
+      <th style="border-bottom:2px solid #ccc; border-right:4px solid #ddd; text-align:center; padding:0.5rem; background-color:#f5f5f5;" rowspan="2">Score</th>
       <th style="border-bottom:2px solid #ccc; text-align:center; padding:0.5rem; background-color:#f5f5f5;" rowspan="2">Prioridade</th>
     </tr>
     <tr>
-      <th style="border-bottom:2px solid #ccc; border-right:1px solid #ddd; text-align:center; padding:0.25rem; background-color:#f9f9f9;">P1</th>
-      <th style="border-bottom:2px solid #ccc; border-right:1px solid #ddd; text-align:center; padding:0.25rem; background-color:#f9f9f9;">P2</th>
-      <th style="border-bottom:2px solid #ccc; border-right:1px solid #ddd; text-align:center; padding:0.25rem; background-color:#f9f9f9;">P3</th>
-      <th style="border-bottom:2px solid #ccc; border-right:1px solid #ddd; text-align:center; padding:0.25rem; background-color:#f9f9f9;">P4</th>
-      <th style="border-bottom:2px solid #ccc; border-right:1px solid #ddd; text-align:center; padding:0.25rem; background-color:#f9f9f9;">  </th>
-      <th style="border-bottom:2px solid #ccc; border-right:1px solid #ddd; text-align:center; padding:0.25rem; background-color:#f9f9f9;">P1</th>
-      <th style="border-bottom:2px solid #ccc; border-right:1px solid #ddd; text-align:center; padding:0.25rem; background-color:#f9f9f9;">P2</th>
-      <th style="border-bottom:2px solid #ccc; border-right:1px solid #ddd; text-align:center; padding:0.25rem; background-color:#f9f9f9;">P3</th>
-      <th style="border-bottom:2px solid #ccc; border-right:1px solid #ddd; text-align:center; padding:0.25rem; background-color:#f9f9f9;">P4</th>
+      <th style="border-bottom:2px solid #ccc; border-right:4px solid #ddd; text-align:center; padding:0.25rem; background-color:#f9f9f9;">P1</th>
+      <th style="border-bottom:2px solid #ccc; border-right:4px solid #ddd; text-align:center; padding:0.25rem; background-color:#f9f9f9;">P2</th>
+      <th style="border-bottom:2px solid #ccc; border-right:4px solid #ddd; text-align:center; padding:0.25rem; background-color:#f9f9f9;">P3</th>
+      <th style="border-bottom:2px solid #ccc; border-right:4px solid #ddd; text-align:center; padding:0.25rem; background-color:#f9f9f9;">P4</th>
+      <th style="border-bottom:2px solid #ccc; border-right:4px solid #ddd; text-align:center; padding:0.25rem; background-color:#f9f9f9;">P1</th>
+      <th style="border-bottom:2px solid #ccc; border-right:4px solid #ddd; text-align:center; padding:0.25rem; background-color:#f9f9f9;">P2</th>
+      <th style="border-bottom:2px solid #ccc; border-right:4px solid #ddd; text-align:center; padding:0.25rem; background-color:#f9f9f9;">P3</th>
+      <th style="border-bottom:2px solid #ccc; border-right:4px solid #ddd; text-align:center; padding:0.25rem; background-color:#f9f9f9;">P4</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF01</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Registrar produto</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF01</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Registrar produto</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">16</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">16</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#d4edda; font-weight:bold;">🥇 MÁXIMA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF02</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Editar produto</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF02</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Editar produto</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">8</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">8</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#fff3cd; font-weight:bold;">🥈 ALTA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF03</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Consultar produto</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF03</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Consultar produto</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">8</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">8</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#fff3cd; font-weight:bold;">🥈 ALTA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF04</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Excluir produto</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF04</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Excluir produto</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">12</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">12</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#d4edda; font-weight:bold;">🥇 MÁXIMA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF05</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Gerar alerta de estoque máximo</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF05</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Gerar alerta de estoque máximo</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">6</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">6</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#ffe5d0; font-weight:bold;">🥉 MÉDIA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF06</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Gerar alerta de estoque mínimo</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF06</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Gerar alerta de estoque mínimo</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">9</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;">x</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">9</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#fff3cd; font-weight:bold;">🥈 ALTA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF07</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Criar categoria de produto</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF07</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Criar categoria de produto</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">9</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;">x</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">9</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#fff3cd; font-weight:bold;">🥈 ALTA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF08</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Editar categoria de produto</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF08</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Editar categoria de produto</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">6</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">6</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#ffe5d0; font-weight:bold;">🥉 MÉDIA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF09</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Filtrar produto por categoria</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF09</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Filtrar produto por categoria</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">6</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;">x</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">6</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#ffe5d0; font-weight:bold;">🥉 MÉDIA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF10</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Pesquisar produto por nome ou palavra-chave</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF10</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Pesquisar produto por nome ou palavra-chave</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">12</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">12</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#d4edda; font-weight:bold;">🥇 MÁXIMA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF11</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Avaliar produto</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF11</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Avaliar produto</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">4</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">4</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#ffe5d0; font-weight:bold;">🥉 MÉDIA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF12</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Exibir produtos recomendados</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF12</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Exibir produtos recomendados</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">4</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">4</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#ffe5d0; font-weight:bold;">🥉 MÉDIA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF13</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Exibir produtos mais vendidos</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF13</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Exibir produtos mais vendidos</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">4</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">4</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#ffe5d0; font-weight:bold;">🥉 MÉDIA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF14</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Adicionar produto ao carrinho</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF14</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Adicionar produto ao carrinho</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">12</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;">x</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">12</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#d4edda; font-weight:bold;">🥇 MÁXIMA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF15</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Remover produto do carrinho</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF15</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Remover produto do carrinho</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">12</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;">x</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">12</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#d4edda; font-weight:bold;">🥇 MÁXIMA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF16</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Calcular valor total do carrinho</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF16</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Calcular valor total do carrinho</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">16</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;">x</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">16</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#d4edda; font-weight:bold;">🥇 MÁXIMA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF17</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Atualizar status do pedido</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF17</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Atualizar status do pedido</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">9</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">9</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#fff3cd; font-weight:bold;">🥈 ALTA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF18</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Enviar notificação de pedido</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF18</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Enviar notificação de pedido</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">3</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">3</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#f8d7da; font-weight:bold;">🔶 BAIXA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF19</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Cancelar pedido</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF19</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Cancelar pedido</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">3</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">3</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#f8d7da; font-weight:bold;">🔶 BAIXA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF20</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Acompanhar pedido</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF20</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Acompanhar pedido</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">9</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">9</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#fff3cd; font-weight:bold;">🥈 ALTA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF21</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Fornecer histórico de pedidos ao usuário</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF21</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Fornecer histórico de pedidos ao usuário</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">4</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">4</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#ffe5d0; font-weight:bold;">🥉 MÉDIA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF22</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Calcular frete</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF22</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Calcular frete</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">4</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;">x</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">4</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#ffe5d0; font-weight:bold;">🥉 MÉDIA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF23</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Verificar pagamento</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF23</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Verificar pagamento</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">4</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;">x</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">4</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#ffe5d0; font-weight:bold;">🥉 MÉDIA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF24</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Gerar QRCode Pix</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF24</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Gerar QRCode Pix</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">8</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;">x</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">8</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#fff3cd; font-weight:bold;">🥈 ALTA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF25</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Selecionar forma de pagamento</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF25</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Selecionar forma de pagamento</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">12</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;">x</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">12</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#d4edda; font-weight:bold;">🥇 MÁXIMA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF26</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Emitir comprovante de pagamento</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF26</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Emitir comprovante de pagamento</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">6</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">6</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#ffe5d0; font-weight:bold;">🥉 MÉDIA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF27</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Registrar usuário</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF27</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Registrar usuário</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">16</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;">x</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">16</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#d4edda; font-weight:bold;">🥇 MÁXIMA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF28</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Editar usuário</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF28</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Editar usuário</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">8</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">8</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#fff3cd; font-weight:bold;">🥈 ALTA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF29</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Realizar login de usuário</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF29</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Realizar login de usuário</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">16</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;">x</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">16</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#d4edda; font-weight:bold;">🥇 MÁXIMA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF30</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Realizar autenticação de usuário</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF30</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Realizar autenticação de usuário</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">8</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">8</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#fff3cd; font-weight:bold;">🥈 ALTA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF31</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Recuperar senha do usuário</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF31</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Recuperar senha do usuário</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">4</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">4</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#ffe5d0; font-weight:bold;">🥉 MÉDIA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF32</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Validar endereço de entrega</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF32</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Validar endereço de entrega</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">6</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">6</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#ffe5d0; font-weight:bold;">🥉 MÉDIA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF33</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Cadastrar endereço de entrega</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF33</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Cadastrar endereço de entrega</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">12</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;">x</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">12</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#d4edda; font-weight:bold;">🥇 MÁXIMA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF34</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Controlar acesso por perfil de usuário</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF34</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Controlar acesso por perfil de usuário</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">2</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">2</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#f8d7da; font-weight:bold;">🔶 BAIXA</td>
     </tr>
     <tr>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; font-weight:bold;">RF35</td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem;">Direcionar cliente ao artesão</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; font-weight:bold;">RF35</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem;">Direcionar cliente ao artesão</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;">x</td>
       <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center;"></td>
-      <td style="border-bottom:1px solid #eee; border-right:1px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">4</td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center;"></td>
+      <td style="border-bottom:1px solid #eee; border-right:4px solid #ddd; padding:0.5rem; text-align:center; font-weight:bold;">4</td>
       <td style="border-bottom:1px solid #eee; padding:0.5rem; background-color:#ffe5d0; font-weight:bold;">🥉 MÉDIA</td>
+    </tr>
+  </tbody>
+</table>
+<table aria-label="Regra de Priorização por Score"
+  style="width:100%; border-collapse:collapse; margin:1rem 0; font-size:0.95rem; border:1px solid #ddd;">
+  <caption style="text-align:left; padding:0.75rem; font-weight:600; background-color:#f8f9fa; border-bottom:1px solid #ddd;">
+    📈 Regra de Priorização por Score
+  </caption>
+  <thead>
+    <tr>
+      <th style="border-bottom:2px solid #ccc; text-align:center; padding:0.75rem; background-color:#f9f9f9; width:25%;">Faixa de Score</th>
+      <th style="border-bottom:2px solid #ccc; text-align:center; padding:0.75rem; background-color:#f9f9f9; width:25%;">Classificação</th>
+      <th style="border-bottom:2px solid #ccc; text-align:center; padding:0.75rem; background-color:#f9f9f9; width:20%;">Prioridade</th>
+      <th style="border-bottom:2px solid #ccc; text-align:center; padding:0.75rem; background-color:#f9f9f9; width:30%;">Ícone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border-bottom:2px solid #e74c3c; padding:0.75rem; text-align:center; font-weight:bold; background-color:#fff5f5;">16-12</td>
+      <td style="border-bottom:2px solid #e74c3c; padding:0.75rem; text-align:center; font-weight:bold;">Prioridade Máxima</td>
+      <td style="border-bottom:2px solid #e74c3c; padding:0.75rem; text-align:center; font-weight:bold;">Crítica</td>
+      <td style="border-bottom:2px solid #e74c3c; padding:0.75rem; text-align:center; font-size:1.2rem;">🥇</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:2px solid #f39c12; padding:0.75rem; text-align:center; font-weight:bold; background-color:#fef9e7;">11-8</td>
+      <td style="border-bottom:2px solid #f39c12; padding:0.75rem; text-align:center; font-weight:bold;">Prioridade Alta</td>
+      <td style="border-bottom:2px solid #f39c12; padding:0.75rem; text-align:center; font-weight:bold;">Alta</td>
+      <td style="border-bottom:2px solid #f39c12; padding:0.75rem; text-align:center; font-size:1.2rem;">🥈</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:2px solid #3498db; padding:0.75rem; text-align:center; font-weight:bold; background-color:#f0f8ff;">7-4</td>
+      <td style="border-bottom:2px solid #3498db; padding:0.75rem; text-align:center; font-weight:bold;">Prioridade Média</td>
+      <td style="border-bottom:2px solid #3498db; padding:0.75rem; text-align:center; font-weight:bold;">Média</td>
+      <td style="border-bottom:2px solid #3498db; padding:0.75rem; text-align:center; font-size:1.2rem;">🥉</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.75rem; text-align:center; font-weight:bold; background-color:#f8f9fa;">3-1</td>
+      <td style="border-bottom:1px solid #eee; padding:0.75rem; text-align:center; font-weight:bold;">Prioridade Baixa</td>
+      <td style="border-bottom:1px solid #eee; padding:0.75rem; text-align:center; font-weight:bold;">Baixa</td>
+      <td style="border-bottom:1px solid #eee; padding:0.75rem; text-align:center; font-size:1.2rem;">🔶</td>
     </tr>
   </tbody>
 </table>
