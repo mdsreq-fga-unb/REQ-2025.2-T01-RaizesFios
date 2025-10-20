@@ -234,9 +234,7 @@
           </tr>
           <tr>
             <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">OE2</td>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">Implementar e integrar um sistema de comunicação
-              direta (ex.: chat interno) na plataforma, permitindo a negociação de pedidos personalizados e o
-              esclarecimento de dúvidas entre clientes e artesãos.</td>
+            <td style="border-bottom:1px solid #eee; padding:0.5rem;">Comunicação via WhatsApp — Implementar um link na plataforma que redirecione o cliente diretamente para o WhatsApp dos artesãos, permitindo a negociação de pedidos personalizados e o esclarecimento de dúvidas de forma prática e segura.</td>
           </tr>
           <tr>
             <td style="border-bottom:1px solid #eee; padding:0.5rem; font-weight:bold;">OE3</td>
@@ -279,11 +277,8 @@
 
       <h2>Canal Integrado para Pedidos Personalizados</h2>
       <ul>
-        <li><strong>Característica:</strong> Ferramenta de comunicação direta (chat) dentro da plataforma, vinculada a
-          cada produto ou pedido.</li>
-        <li><strong>Como atende à necessidade:</strong> Facilita e estrutura o processo de negociação, que hoje é feito
-          de forma dispersa em aplicativos de mensagem. Isso atende à necessidade de clareza e registro para o artesão e
-          à demanda por flexibilidade e exclusividade por parte do cliente.</li>
+        <li><strong>Característica:</strong> Link direto para WhatsApp em cada produto ou pedido</li>
+        <li><strong>Como atende à necessidade:</strong>Facilita a comunicação entre cliente e artesão, permitindo tirar dúvidas e negociar pedidos personalizados de forma rápida e prática.</li>
       </ul>
 
       <h2>Diversidade de Meios de Pagamento Seguros</h2>
@@ -1476,77 +1471,38 @@
           Um requisito é considerado “concluído” (Done) quando atende aos critérios abaixo:
         </caption>
         <thead>
-          <tr>
-            <th style="border-bottom:2px solid #ccc; text-align:left; padding:0.5rem;">#</th>
-            <th style="border-bottom:2px solid #ccc; text-align:left; padding:0.5rem;">Critério</th>
-            <th style="border-bottom:2px solid #ccc; text-align:left; padding:0.5rem;">Descrição</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">1</td>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">Implementação concluída</td>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">O requisito foi totalmente desenvolvido e
-              integrado à base de código principal, sem partes pendentes ou funcionalidades incompletas.</td>
-          </tr>
-          <tr>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">2</td>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">Testes realizados e aprovados</td>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">Todos os testes funcionais, de interface e de
-              integração foram executados com sucesso, garantindo que o comportamento esteja conforme os critérios de
-              aceite definidos no DoR.</td>
-          </tr>
-          <tr>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">3</td>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">Sem erros críticos</td>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">O sistema não apresenta falhas que impeçam o uso
-              da funcionalidade ou prejudiquem outras partes da plataforma.</td>
-          </tr>
-          <tr>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">4</td>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">Revisão de código e boas práticas</td>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">O código foi revisado, segue os padrões definidos
-              (organização, nomeação, modularização) e está devidamente versionado.</td>
-          </tr>
-          <tr>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">5</td>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">Interface conforme mockup/fluxo</td>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">O layout e os elementos visuais estão de acordo
-              com os protótipos aprovados e funcionam corretamente em diferentes dispositivos.</td>
-          </tr>
-          <tr>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">6</td>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">Integrações validadas</td>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">Quando aplicável, as integrações com APIs externas
-              (como pagamento PIX/cartão ou QR Code) foram testadas e confirmadas como funcionais.</td>
-          </tr>
-          <tr>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">7</td>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">Critérios de aceite atendidos</td>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">Todos os critérios definidos no DoR foram
-              validados pelo Product Owner ou responsável de negócio.</td>
-          </tr>
-          <tr>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">8</td>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">Documentação atualizada</td>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">A documentação técnica e/ou de uso (README, guia
-              de configuração, manual do usuário) foi atualizada conforme as alterações realizadas.</td>
-          </tr>
-          <tr>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">9</td>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">Versão entregue em ambiente de testes ou produção
-            </td>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">A funcionalidade foi publicada e verificada no
-              ambiente adequado (Render ou Vercel), garantindo sua operação completa.</td>
-          </tr>
-          <tr>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">10</td>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">Aprovação final do Product Owner / cliente</td>
-            <td style="border-bottom:1px solid #eee; padding:0.5rem;">O requisito foi apresentado e validado pelo
-              cliente ou responsável, confirmando que atende à necessidade proposta.</td>
-          </tr>
-        </tbody>
-      </table>
+           </caption>
+  <thead>
+    <tr>
+      <th style="border-bottom:2px solid #ccc; text-align:left; padding:0.5rem;">#</th>
+      <th style="border-bottom:2px solid #ccc; text-align:left; padding:0.5rem;">Critério</th>
+      <th style="border-bottom:2px solid #ccc; text-align:left; padding:0.5rem;">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">1</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Implementação completa e funcional</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O requisito foi desenvolvido integralmente e cumpre o comportamento esperado conforme definido no requisito, agregando valor à experiência do usuário e ao funcionamento da plataforma.</td>
+    </tr>
+    <tr>
+    
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">2</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Testes realizados com sucesso</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">A funcionalidade foi testada e passou nos testes unitários e de integração, assegurando estabilidade e qualidade.</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">3</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Interface conforme mockup/fluxo</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">O layout e os elementos visuais estão de acordo com os protótipos aprovados e funcionam corretamente em diferentes dispositivos.</td>
+    </tr>
+
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">4</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">Funcionalidade documentada</td>
+      <td style="border-bottom:1px solid #eee; padding:0.5rem;">	A documentação técnica e/ou de uso (README, guia de configuração, manual do usuário) foi atualizada conforme as alterações realizadas.</td>
+    </tr>
+  </tbody>
+</table>
     </section>
 
     <section id="topiconove">
