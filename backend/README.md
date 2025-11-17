@@ -26,6 +26,18 @@ docker-compose up -d
 
 Acesse: http://localhost:3000/api/health
 
+### 4. Criar as tabelas Prisma no Container
+No terminal:
+```shell
+docker exec -it rf_api sh
+```
+```shell
+npx prisma migrate dev
+```
+```shell
+exit
+```
+
 
 ---
 
@@ -35,5 +47,4 @@ Acesse: http://localhost:3000/api/health
 - `/prisma` → modelagem do banco de dados
 - `Dockerfile` → imagem da API
 - `docker-compose.yml` → Orquestra a subida tanto da api quanto do banco de dados
-
 
