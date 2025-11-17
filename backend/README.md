@@ -26,6 +26,18 @@ docker-compose up -d
 
 Acesse: http://localhost:3000/api/health
 
+### 4. Criar as tabelas Prisma no Container
+No terminal:
+```shell
+docker exec -it rf_api sh
+```
+```shell
+npx prisma migrate dev
+```
+```shell
+exit
+```
+
 
 ---
 
