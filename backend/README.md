@@ -48,4 +48,3 @@ exit
 - `Dockerfile` → imagem da API
 - `docker-compose.yml` → Orquestra a subida tanto da api quanto do banco de dados
 
-
