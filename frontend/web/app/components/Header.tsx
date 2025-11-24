@@ -46,18 +46,18 @@ export default function Header() {
             {/* LOGIN / CADASTRO */}
             <div className="flex items-center gap-2">
               {/* O Ícone leva para o Login */}
-              <Link href="/login" aria-label="Acessar conta" className="hover:opacity-80 transition">
+              <Link href="/auth/login" aria-label="Acessar conta" className="hover:opacity-80 transition">
                 <User className="w-5 h-5 md:w-6 md:h-6" />
               </Link>
               
               <div className="text-xs md:text-sm hidden md:block leading-tight">
                 {/* Link  p Login */}
-                <Link href="/login" className="underline hover:text-orange-200 transition">
+                <Link href="/auth/login" className="underline hover:text-orange-200 transition">
                   Entre
                 </Link>
                 {" "}ou <br />
                 {/* Link p Cadastro */}
-                <Link href="/register" className="underline hover:text-orange-200 transition">
+                <Link href="/auth/register" className="underline hover:text-orange-200 transition">
                   Cadastre-se
                 </Link>
               </div>

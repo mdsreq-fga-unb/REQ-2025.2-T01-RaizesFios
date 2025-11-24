@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 export default function LoginPage() {
@@ -17,7 +18,7 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
-      const res = await fetch("/api/users",  {
+      const res = await fetch("/api/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -85,6 +86,13 @@ export default function LoginPage() {
               >
                 {loading ? "Entrando..." : "Entrar"}
               </button>
+            </div>
+
+            <div className="text-center text-white">
+              <p className="font-bold">Esqueci minha senha</p>
+                 <Link href="/auth/register" className="underline hover:text-orange-200 transition">
+                  Fazer Cadastro
+                </Link>
             </div>
           </form>
         </div>
