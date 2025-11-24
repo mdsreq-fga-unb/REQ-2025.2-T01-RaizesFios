@@ -62,8 +62,6 @@ export default function Header() {
                 </Link>
               </div>
             </div>
-            {/* Fim da atualização */}
-
           </div>
         </div>
       </div>
