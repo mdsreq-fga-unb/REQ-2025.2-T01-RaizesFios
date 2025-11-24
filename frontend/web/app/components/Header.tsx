@@ -37,30 +37,44 @@ export default function Header() {
              <Search className="absolute right-3 top-2 text-gray-500 w-4 h-4 pointer-events-none" />
            </div>
 
-          {/* Icons */}
+          {/* Icons Area */}
           <div className="flex gap-3 md:gap-6 items-center">
             <button className="hover:opacity-80 transition" aria-label="Carrinho">
               <ShoppingBag className="w-5 h-5 md:w-6 md:h-6" />
             </button>
-            <button className="hover:opacity-80 transition flex items-center gap-2" aria-label="Login ou Cadastro">
-              <User className="w-5 h-5 md:w-6 md:h-6" />
-              <span className="text-xs md:text-sm hidden md:block leading-tight">
-                <span className="underline">Entre</span> ou <br />
-                <span className="underline">Cadastre-se</span>
-              </span>
-            </button>
+
+            {/* LOGIN / CADASTRO */}
+            <div className="flex items-center gap-2">
+              {/* O Ícone leva para o Login */}
+              <Link href="/login" aria-label="Acessar conta" className="hover:opacity-80 transition">
+                <User className="w-5 h-5 md:w-6 md:h-6" />
+              </Link>
+              
+              <div className="text-xs md:text-sm hidden md:block leading-tight">
+                {/* Link  p Login */}
+                <Link href="/login" className="underline hover:text-orange-200 transition">
+                  Entre
+                </Link>
+                {" "}ou <br />
+                {/* Link p Cadastro */}
+                <Link href="/register" className="underline hover:text-orange-200 transition">
+                  Cadastre-se
+                </Link>
+              </div>
+            </div>
+            {/* Fim da atualização */}
+
           </div>
         </div>
       </div>
 
       {/* Navigation */}
       <nav className="mt-3 md:mt-4 border-t border-white/20 pt-2 md:pt-3 flex justify-center gap-4 md:gap-32 text-sm md:text-lg font-light uppercase tracking-wide px-2 md:px-6 flex-wrap" aria-label="Navegação principal">
-        <a href="#hero" className="hover:text-orange-100 transition whitespace-nowrap">Início</a>
-        <a href="#sobre" className="hover:text-orange-100 transition whitespace-nowrap">Sobre</a>
-        <a href="#produtos" className="hover:text-orange-100 transition whitespace-nowrap">Produtos</a>
-        <a href="#contatos" className="hover:text-orange-100 transition whitespace-nowrap">Contatos</a>
+        <Link href="/" className="hover:text-orange-100 transition whitespace-nowrap">Início</Link>
+        <Link href="/#sobre" className="hover:text-orange-100 transition whitespace-nowrap">Sobre</Link>
+        <Link href="/#produtos" className="hover:text-orange-100 transition whitespace-nowrap">Produtos</Link>
+        <Link href="/#contatos" className="hover:text-orange-100 transition whitespace-nowrap">Contatos</Link>
       </nav>
     </header>
   );
 }
-
