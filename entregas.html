@@ -18,6 +18,106 @@
       display: block;
       opacity: 1;
     }
+
+    /* Estilos para o menu com subitens */
+    .menu-item-with-sub {
+      position: relative;
+    }
+
+    .submenu-toggle {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-right: 15px;
+    }
+
+    .submenu-toggle::after {
+      content: "›";
+      font-size: 0.8em;
+      transition: transform 0.3s ease;
+      margin-left: 10px;
+      display: inline-block; /* ← ESTA LINHA É IMPORTANTE */
+    }
+
+    .submenu-toggle.expanded::after {
+      transform: rotate(90deg);
+    }
+
+    .submenu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      padding-left: 0;
+      list-style: none;
+      margin: 0;
+    }
+
+    .submenu.show {
+      max-height: 500px;
+    }
+
+    .submenu li {
+      margin: 5px 0;
+    }
+
+    .submenu a {
+      font-size: 0.9em;
+      color: #666;
+      text-decoration: none;
+      display: block;
+      padding: 8px 15px 8px 25px; /* Mais padding à esquerda para indentação */
+      border-radius: 0 4px 4px 0;
+      transition: all 0.3s;
+      border-left: 3px solid transparent;
+      margin-left: 5px;
+    }
+
+    .submenu a:hover {
+     background-color: #f0f0f0;
+     color: #333;
+     border-left-color: #8B4513;
+    }
+
+    .submenu a.active {
+     background-color: #E8D5B5; /* Tom ligeiramente diferente para subitens */
+     color: #654321;            /* Marrom escuro para texto */
+     border-left-color: #8B4513; /* Marrom médio para borda */
+     font-weight: bold;
+    }
+
+    /* Estilo para todos os itens do menu */
+    .sidebar ul li a {
+      transition: all 0.3s;
+      display: block;
+      padding: 10px 15px;
+      text-decoration: none;
+      color: #333;
+      border-left: 3px solid transparent;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .sidebar ul li a:hover {
+      background-color: #f0f0f0;
+      border-left-color: #8B4513;
+    }
+
+    /* Estilo para item de menu ativo */
+    .sidebar ul li a.active {
+      background-color: #D2B48C;
+      color: #654321;
+      border-left-color: #8B4513;
+      font-weight: bold;
+    }
+
+    /* Estilo específico para o item principal quando subitens estão ativos */
+    .submenu-toggle.active {
+      background-color: #D2B48C;
+      color: #654321;
+      border-left-color: #8B4513;
+      font-weight: bold;
+    }
+
   </style>
 </head>
 
@@ -37,13 +137,23 @@
   </header>
 
   <!-- Menu lateral -->
-  <nav class="sidebar">
-    <h2>Menu</h2>
-    <ul>
-      <li><a href="#" onclick="showSection('entregaum')">Entrega 1</a></li>
-      <li><a href="#" onclick="showSection('entregadois')">Entrega 2</a></li>
-    </ul>
-  </nav>
+<nav class="sidebar">
+  <h2>Menu</h2>
+  <ul>
+    <li><a href="#" onclick="showSection('entregaum')">Unidade I</a></li>
+    <li><a href="#" onclick="showSection('entregadois')">Unidade II</a></li>
+    <li class="menu-item-with-sub">
+      <a href="#" class="submenu-toggle" onclick="toggleSubmenu(event, 'submenu-entrega3')">Unidade III</a>
+      <ul id="submenu-entrega3" class="submenu">
+        <li><a href="#" onclick="showSubSection('entregatres_arquitetura', this)">• Apresentação da Unidade III</a></li>
+        <li><a href="#" onclick="showSubSection('entregatres_prototipo', this)">• Feedback Raízes&Fios</a></li>
+        <li><a href="#" onclick="showSubSection('entregatres_banco', this)">• Estudo de caso: InovaHUB </a></li>
+        <li><a href="#" onclick="showSubSection('entregatres_backend', this)">• Estudo de caso: EcoMove</a></li>
+        <li><a href="#" onclick="showSubSection('entregatres_frontend', this)">• Estudo de caso: ConnectCare</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
   <!-- Conteúdo principal -->
   <main>
@@ -65,6 +175,32 @@
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
     </section>
 
+    <!-- Novas seções para a Entrega 3 -->
+    <section id="entregatres_arquitetura">
+      <h1>Unidade III</h1>
+      <p>Vídeo de apresentação da unidade...</p>
+    </section>
+
+    <section id="entregatres_prototipo">
+      <h1>Feedback Raízes&Fios</h1>
+      <p>vídeo de feedback dos clientes...</p>
+    </section>
+
+    <section id="entregatres_banco">
+      <h1>Estudo de caso: InovaHUB</h1>
+      <p>CANVAS PBB, US, Critérios de Aceitação e BDDs...</p>
+    </section>
+
+    <section id="entregatres_backend">
+      <h1>Estudo de caso: EcoMove</h1>
+      <p>USM, MAPA, US e Critérios de Aceitação...</p>
+    </section>
+
+    <section id="entregatres_frontend">
+      <h1>Estudo de caso: ConnectCare</h1>
+      <p>Diagrama de casos de uso, especificações de casos de uso...</p>
+    </section>
+
     <footer>
       <p>© 2025 Raízes & Fios | Projeto UnB</p>
     </footer>
@@ -72,11 +208,29 @@
 
   <!-- Script para alternar seções -->
   <script>
+    let currentMainItem = null;
+    let currentSubItem = null;
+
     function showSection(sectionId) {
       // Esconde todas as seções
       document.querySelectorAll("main section").forEach(section => {
         section.classList.remove("active");
       });
+
+      // Remove a classe active de todos os itens do menu
+      document.querySelectorAll('.sidebar ul li a').forEach(item => {
+        item.classList.remove('active');
+      });
+
+      // Remove a classe active de todos os subitens
+      document.querySelectorAll('.submenu a').forEach(item => {
+        item.classList.remove('active');
+      });
+
+      // Adiciona classe active ao item clicado
+      const clickedItem = event.target;
+      clickedItem.classList.add('active');
+      currentMainItem = clickedItem;
 
       // Mostra a seção clicada
       const sectionToShow = document.getElementById(sectionId);
@@ -86,6 +240,86 @@
         sectionToShow.scrollIntoView({ behavior: "smooth" });
       }
     }
+
+    function toggleSubmenu(event, submenuId) {
+      console.log("toggleSubmenu chamada!");
+      event.preventDefault();
+      event.stopPropagation();
+      
+      const submenu = document.getElementById(submenuId);
+      const toggleButton = event.target;
+      
+      // Esconde todas as seções
+      document.querySelectorAll("main section").forEach(section => {
+        section.classList.remove("active");
+      });
+
+      // Remove a classe active de TODOS os itens do menu
+      document.querySelectorAll('.sidebar ul li a').forEach(item => {
+        item.classList.remove('active');
+      });
+      
+      // Fecha todos os submenus primeiro
+      document.querySelectorAll('.submenu').forEach(menu => {
+        menu.classList.remove('show');
+      });
+      
+      document.querySelectorAll('.submenu-toggle').forEach(button => {
+        button.classList.remove('expanded');
+      });
+      
+      // Abre este submenu e marca como ativo
+      submenu.classList.add('show');
+      toggleButton.classList.add('expanded');
+      toggleButton.classList.add('active');
+    }
+
+    // E TAMBÉM ADICIONE A FUNÇÃO showSubSection
+    function showSubSection(sectionId, clickedElement) {
+      event.preventDefault();
+      event.stopPropagation();
+
+      // Esconde todas as seções
+      document.querySelectorAll("main section").forEach(section => {
+        section.classList.remove("active");
+      });
+
+      // Remove a classe active de TODOS os itens do menu
+      document.querySelectorAll('.sidebar ul li a').forEach(item => {
+        item.classList.remove('active');
+      });
+
+      // Adiciona classe active ao item principal (Unidade III)
+      const mainItem = document.querySelector('.submenu-toggle');
+      mainItem.classList.add('active');
+      mainItem.classList.add('expanded');
+
+      // Adiciona classe active ao subitem clicado
+      clickedElement.classList.add('active');
+
+      // Garante que o submenu esteja aberto
+      const submenu = document.getElementById('submenu-entrega3');
+      submenu.classList.add('show');
+
+      // Mostra a seção clicada
+      const sectionToShow = document.getElementById(sectionId);
+      if (sectionToShow) {
+        sectionToShow.classList.add("active");
+        sectionToShow.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+
+    // E ADICIONE ESTE EVENT LISTENER NO FINAL
+    document.addEventListener('click', function(event) {
+      if (!event.target.matches('.submenu-toggle') && !event.target.closest('.submenu')) {
+        document.querySelectorAll('.submenu').forEach(menu => {
+          menu.classList.remove('show');
+        });
+        document.querySelectorAll('.submenu-toggle').forEach(button => {
+          button.classList.remove('expanded');
+        });
+      }
+    });
   </script>
 </body>
 
