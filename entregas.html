@@ -19,7 +19,7 @@
       opacity: 1;
     }
 
-    /* Estilos para o menu com subitens */
+    /* SUBMENU - Segundo Nível */
     .menu-item-with-sub {
       position: relative;
     }
@@ -86,6 +86,62 @@
      font-weight: bold;
     }
 
+    /* SUB-SUBMENU - Terceiro nível */
+
+    .subsubmenu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      padding-left: 0;
+      list-style: none;
+      margin: 0;
+    }
+
+    .subsubmenu.show {
+      max-height: 400px;
+    }
+
+    .subsubmenu li {
+      margin: 0;
+      padding: 0;
+    }
+
+    .subsubmenu a {
+      font-size: 0.70em;
+      color: #777;
+      padding: 2px 12px 2px 100px;
+      background-color: transparent;
+      border-left: 2px solid transparent;
+      line-height: 1.2; /* Altura da linha menor */
+      min-height: auto; /* Remove altura mínima */
+    }
+
+    .subsubmenu a:hover {
+      background-color: #f8f8f8;
+      color: #555;
+      border-left-color: #A0522D;
+    }
+
+    .subsubmenu a.active {
+      background-color: #EDDBC0;
+      color: #654321;
+      border-left-color: #A0522D;
+      font-weight: normal;
+    }
+
+    .has-subsubmenu::after {
+      content: "›";
+      font-size: 0.7em;
+      transition: transform 0.3s ease;
+      margin-left: 10px;
+      display: inline-block;
+      transform-origin: center;
+    }
+
+    .has-subsubmenu.expanded::after {
+      transform: rotate(90deg);
+    }
+
     /* Estilo para todos os itens do menu */
     .sidebar ul li a {
       transition: all 0.3s;
@@ -147,7 +203,17 @@
       <ul id="submenu-entrega3" class="submenu">
         <li><a href="#" onclick="showSubSection('entregatres_arquitetura', this)">• Apresentação da Unidade III</a></li>
         <li><a href="#" onclick="showSubSection('entregatres_prototipo', this)">• Feedback Raízes&Fios</a></li>
-        <li><a href="#" onclick="showSubSection('entregatres_banco', this)">• Estudo de caso: InovaHUB </a></li>
+
+        <li class="menu-item-with-subsub">
+          <a href="#" class="has-subsubmenu" onclick="toggleSubsubmenu(event, 'subsubmenu-inovahub')">• Estudo de caso: InovaHUB</a>
+          <ul id="subsubmenu-inovahub" class="subsubmenu">
+            <li><a href="#" onclick="showSubSubSection('inovahub_canvas', this)">- CANVAS PBB</a></li>
+            <li><a href="#" onclick="showSubSubSection('inovahub_us', this)">- US</a></li>
+            <li><a href="#" onclick="showSubSubSection('inovahub_criterios', this)">- CRITÉRIOS DE ACEITAÇÃO</a></li>
+            <li><a href="#" onclick="showSubSubSection('inovahub_bdd', this)">- BDDs</a></li>
+          </ul>
+        </li>
+
         <li><a href="#" onclick="showSubSection('entregatres_backend', this)">• Estudo de caso: EcoMove</a></li>
         <li><a href="#" onclick="showSubSection('entregatres_frontend', this)">• Estudo de caso: ConnectCare</a></li>
       </ul>
@@ -186,9 +252,25 @@
       <p>vídeo de feedback dos clientes...</p>
     </section>
 
-    <section id="entregatres_banco">
-      <h1>Estudo de caso: InovaHUB</h1>
-      <p>CANVAS PBB, US, Critérios de Aceitação e BDDs...</p>
+    <!-- NOVAS SEÇÕES PARA INOVAHUB -->
+    <section id="inovahub_canvas">
+      <h1>CANVAS PBB - InovaHUB</h1>
+      <p>Conteúdo do Canvas PBB...</p>
+    </section>
+
+    <section id="inovahub_us">
+      <h1>User Stories - InovaHUB</h1>
+      <p>Conteúdo das User Stories...</p>
+    </section>
+
+    <section id="inovahub_criterios">
+      <h1>Critérios de Aceitação - InovaHUB</h1>
+      <p>Conteúdo dos critérios de aceitação...</p>
+    </section>
+
+    <section id="inovahub_bdd">
+      <h1>BDDs - InovaHUB</h1>
+      <p>Conteúdo dos BDDs...</p>
     </section>
 
     <section id="entregatres_backend">
@@ -309,6 +391,88 @@
       }
     }
 
+//SUBSUBMENU
+function toggleSubsubmenu(event, subsubmenuId) {
+  event.preventDefault();
+  event.stopPropagation();
+  
+  const subsubmenu = document.getElementById(subsubmenuId);
+  const toggleButton = event.target;
+  const isShowing = subsubmenu.classList.contains('show');
+  
+  // Remove a classe active de TODOS os itens do menu
+  document.querySelectorAll('.sidebar ul li a').forEach(item => {
+    item.classList.remove('active');
+  });
+  
+  // Fecha todos os sub-submenus primeiro
+  document.querySelectorAll('.subsubmenu').forEach(menu => {
+    menu.classList.remove('show');
+  });
+  
+  document.querySelectorAll('.has-subsubmenu').forEach(button => {
+    button.classList.remove('expanded');
+  });
+  
+  // Se não estava mostrando, abre este
+  if (!isShowing) {
+    subsubmenu.classList.add('show');
+    toggleButton.classList.add('expanded');
+    toggleButton.classList.add('active');
+    
+    // Também mantém o menu principal ativo
+    const mainItem = document.querySelector('.submenu-toggle');
+    mainItem.classList.add('active');
+    mainItem.classList.add('expanded');
+    
+    const submenu = document.getElementById('submenu-entrega3');
+    submenu.classList.add('show');
+  }
+}
+
+function showSubSubSection(sectionId, clickedElement) {
+  event.preventDefault();
+  event.stopPropagation();
+
+  // Esconde todas as seções
+  document.querySelectorAll("main section").forEach(section => {
+    section.classList.remove("active");
+  });
+
+  // Remove a classe active de TODOS os itens do menu
+  document.querySelectorAll('.sidebar ul li a').forEach(item => {
+    item.classList.remove('active');
+  });
+
+  // Mantém o menu principal ATIVO (Unidade III)
+  const mainItem = document.querySelector('.submenu-toggle');
+  mainItem.classList.add('active');
+  mainItem.classList.add('expanded');
+
+  // Mantém o submenu ABERTO
+  const submenu = document.getElementById('submenu-entrega3');
+  submenu.classList.add('show');
+
+  // Mantém o item pai ATIVO (Estudo de caso: InovaHUB)
+  const parentItem = clickedElement.closest('.menu-item-with-subsub').querySelector('.has-subsubmenu');
+  parentItem.classList.add('active');
+  parentItem.classList.add('expanded');
+
+  // Mantém o sub-submenu ABERTO
+  const subsubmenu = document.getElementById('subsubmenu-inovahub');
+  subsubmenu.classList.add('show');
+
+  // Adiciona classe active ao subitem clicado
+  clickedElement.classList.add('active');
+
+  // Mostra a seção clicada
+  const sectionToShow = document.getElementById(sectionId);
+  if (sectionToShow) {
+    sectionToShow.classList.add("active");
+    sectionToShow.scrollIntoView({ behavior: "smooth" });
+  }
+}
+    
     // E ADICIONE ESTE EVENT LISTENER NO FINAL
     document.addEventListener('click', function(event) {
       if (!event.target.matches('.submenu-toggle') && !event.target.closest('.submenu')) {
