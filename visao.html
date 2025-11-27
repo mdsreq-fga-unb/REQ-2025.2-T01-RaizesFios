@@ -655,108 +655,187 @@
     <section id="topicocinco">
      <h2>5. CRONOGRAMA DE ENTREGAS</h2>
 
-      <table class="tabela-custom5" aria-label="Cronograma de Entregas do Projeto">
-        <thead>
-          <tr>
-            <th>Fase RAD</th>
-            <th>Fase do Projeto</th>
-            <th>Período</th>
-            <th>Iteração</th>
-            <th>Objetivo</th>
-            <th>Entregas</th>
-            <th>Feedback</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td rowspan="7" style="text-align: center; vertical-align: middle;">Planejamento e Análise de Requisitos
-            </td>
-            <td rowspan="2">Pré-Desenvolvimento</td>
-            <td rowspan="2">-</td>
-            <td rowspan="2">-</td>
-            <td rowspan="2">Definir tecnologias a serem utilizadas; Definir o papel de cada integrante da equipe.</td>
-            <td>Visão de Produto</td>
-            <td rowspan="2">-</td>
-          </tr>
-          <tr>
-            <td>Gitpages</td>
-          </tr>
-          <tr>
-            <td rowspan="5">Planejamento Detalhado & MVP</td>
-            <td>16/09 – 20/09</td>
-            <td>-</td>
-            <td>Definição de Requisitos e Planejamento</td>
-            <td>- Entrevistas detalhadas com os artesãos<br>- Especificação de requisitos funcionais e não
-              funcionais<br>- Definição de personas e fluxo de usuários</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>23/09 – 27/09</td>
-            <td>-</td>
-            <td>Definição MVP & Backlog</td>
-            <td>- Priorização com base na Engenharia de Requisitos<br>- Criação do Backlog do Produto<br>- Definição dos
-              critérios de DoR</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>30/09 - 04/10</td>
-            <td>-</td>
-            <td>Prototipo Figma Parte 1</td>
-            <td>Criação dos protótipos das páginas: home, Sobre nós, Catálogo (sem carrinho), contato.</td>
-            <td>Reunião de feedback com os clientes</td>
-          </tr>
-          <tr>
-            <td>07/10 - 11/10</td>
-            <td>-</td>
-            <td>Finalização prototipagem Figma e Planejamento Técnico</td>
-            <td>- Finalização dos protótipos do MVP<br>- Definição das ferramentas de programação<br>- Setup inicial do
-              ambiente de desenvolvimento</td>
-            <td>Reunião de feedback com os clientes</td>
-          </tr>
-          <tr>
-            <td>14/10 - 18/10</td>
-            <td>-</td>
-            <td>Atualização de documentação</td>
-            <td>- Atualização da Visão do Produto (Gitpages)<br>- Consolidação de evidências em andamento</td>
-            <td>-</td>
-          </tr>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cronograma RAD - Projeto</title>
+<style>
+    /* ESCOPADO APENAS PARA O CRONOGRAMA */
+    #cronograma * {
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
 
-          <tr>
-            <td rowspan="3" style="text-align: center; vertical-align: middle;">User Design / Construção</td>
-            <td rowspan="3">Implementação</td>
-            <td>14/10 - 28/10</td>
-            <td>1</td>
-            <td>Implementação MVP</td>
-            <td>- Módulo Produto: RF01, RF04, RF10;<br>- Módulo Carrinho: RF14, RF15, RF16;<br>- Módulo Pagamento:
-              RF25;<br>- Módulo Usuário: RF27, RF29, RF33;</td>
-            <td>Reunião de feedback com os clientes</td>
-          </tr>
-          <tr>
-            <td>28/10 - 11/11</td>
-            <td>2</td>
-            <td>Implementação de Funcionalidades de Prioridade Alta</td>
-            <td>Requisitos de Alta Prioridade</td>
-            <td>Reunião de feedback com os clientes</td>
-          </tr>
-          <tr>
-            <td>11/11 - 25/11</td>
-            <td>3</td>
-            <td>Implementação de Funcionalidades de Prioridade Média e Baixa</td>
-            <td>Requisitos de Média e Baixa Prioridade</td>
-            <td>Reunião de feedback com os clientes</td>
-          </tr>
+    #cronograma {
+        margin: 20px 0;
+    }
 
-          <tr>
-            <td style="text-align: center; vertical-align: middle;">Entrega Final</td>
-            <td>-</td>
-            <td>01/dez</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-          </tr>
-        </tbody>
-      </table>
+    #cronograma .fase {
+        background: #5a352d;
+        color: white;
+        padding: 12px 18px;
+        font-size: 20px;
+        border-radius: 10px;
+        margin-top: 40px;
+        text-align: center;
+    }
+
+    #cronograma .fase .titulo {
+        font-weight: bold;
+        font-size: 22px;
+    }
+
+    #cronograma .fase .periodo {
+        font-size: 15px;
+        margin-top: 5px;
+        opacity: 0.9;
+    }
+
+    #cronograma table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    #cronograma th {
+        background: #d8c1b4;
+        padding: 12px;
+        text-align: left;
+        font-size: 15px;
+    }
+
+    #cronograma td {
+        padding: 12px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+    }
+
+    #cronograma tr:nth-child(even) td {
+        background: #f7f2ef;
+    }
+</style>
+</head>
+<body>
+
+<div id="cronograma">
+
+<h1>Cronograma do Projeto - Metodologia RAD</h1>
+
+<!-- Requirements Planning -->
+<div class="fase"><div class="titulo">Requirements Planning</div><div class="periodo">(16/09 – 27/09) — 2 semanas</div></div>
+<table>
+    <tr>
+        <th>Atividade</th>
+        <th>Entregas</th>
+        <th>Feedback</th>
+    </tr>
+    <tr>
+        <td>Definição de requisitos e entrevistas com artesãos</td>
+        <td>Documento de requisitos (funcionais e não funcionais)</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td>Modelagem de personas e fluxos do usuário</td>
+        <td>Mapa de fluxo + personas</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td>Definição do MVP e priorização com base na Engenharia de Requisitos</td>
+        <td>Backlog priorizado + Critérios DoR</td>
+        <td>-</td>
+    </tr>
+</table>
+
+<!-- User Design -->
+<div class="fase"><div class="titulo">User Design</div><div class="periodo">(30/09 – 18/10) — 3 semanas</div></div>
+<table>
+    <tr>
+        <th>Atividade</th>
+        <th>Entregas</th>
+        <th>Feedback</th>
+    </tr>
+    <tr>
+        <td>Protótipo Figma – Parte 1</td>
+        <td>Telas do MVP (Home, Sobre, Catálogo, Contato)</td>
+        <td>Reunião com clientes</td>
+    </tr>
+    <tr>
+        <td>Finalização do protótipo</td>
+        <td>Protótipo final revisado</td>
+        <td>Reunião com clientes</td>
+    </tr>
+    <tr>
+        <td>Planejamento técnico e definição de ferramentas</td>
+        <td>Setup inicial do ambiente + escolha das tecnologias</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td>Atualização de documentação</td>
+        <td>Visão do Produto + consolidação de evidências</td>
+        <td>-</td>
+    </tr>
+</table>
+
+<!-- Construction -->
+<div class="fase"><div class="titulo">Construction</div><div class="periodo">(14/10 – 25/11) — 6 semanas</div></div>
+<table>
+    <tr>
+        <th>Atividade</th>
+        <th>Entregas</th>
+        <th>Feedback</th>
+    </tr>
+    <tr>
+        <td>Iteração 1 – Implementação do MVP</td>
+        <td>Módulo Produto + Módulo Usuário</td>
+        <td>Reunião com clientes</td>
+    </tr>
+    <tr>
+        <td>Iteração 2 – Implementação do MVP</td>
+        <td>Módulo Carrinho</td>
+        <td>Reunião com clientes</td>
+    </tr>
+    <tr>
+        <td>Iteração 3 – Implementação do MVP</td>
+        <td>Módulo Pagamento (RF25)</td>
+        <td>Reunião com clientes</td>
+    </tr>
+</table>
+
+<!-- Cutover -->
+<div class="fase"><div class="titulo">Cutover</div><div class="periodo">(26/11 – 01/12) — 1 semana</div></div>
+<table>
+    <tr>
+        <th>Atividade</th>
+        <th>Entregas</th>
+        <th>Feedback</th>
+    </tr>
+    <tr>
+        <td>Testes finais</td>
+        <td>Software funcional e estável</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td>Treinamento do usuário e suporte</td>
+        <td>Manual básico + acompanhamento inicial</td>
+        <td>Reunião com clientes</td>
+    </tr>
+    <tr>
+        <td>Atualização de documentação</td>
+        <td>Visão do Produto + consolidação final de evidências</td>
+        <td>-</td>
+    </tr>
+</table>
+
+</div>
+
+</body>
+</html>
 
 
     </section>
