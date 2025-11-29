@@ -43,45 +43,45 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#FDF6EB] p-6">
+    <div className="min-h-screen flex items-center justify-center bg-cream p-6">
       <div className="w-full max-w-md">
-        <h1 className="text-4xl font-bold text-center mb-8 text-[#4A3B32]">Login</h1>
+        <h1 className="text-4xl font-bold text-center mb-8 text-brown-text font-serif">Login</h1>
 
-        <div className="bg-[#A67C6D] p-8 rounded-xl shadow-lg">
+        <div className="bg-terracotta p-8 rounded-xl shadow-lg">
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
-              <label className="block text-sm text-[#FDF6EB] font-semibold mb-2">E-mail:</label>
+              <label className="block text-sm text-cream font-semibold mb-2">E-mail:</label>
               <input
                 name="email"
                 type="email"
                 value={form.email}
                 onChange={handleChange}
                 placeholder="email@exemplo.com"
-                className="w-full rounded-md px-3 py-2 text-[#4A3B32] bg-white placeholder-gray-400 focus:outline-none"
+                className="w-full rounded-md px-3 py-2 text-brown-text bg-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cream/50"
                 required
               />
             </div>
 
             <div>
-              <label className="block text-sm text-[#FDF6EB] font-semibold mb-2">Senha:</label>
+              <label className="block text-sm text-cream font-semibold mb-2">Senha:</label>
               <input
                 name="password"
                 type="password"
                 value={form.password}
                 onChange={handleChange}
                 placeholder="********"
-                className="w-full rounded-md px-3 py-2 text-[#4A3B32] bg-white placeholder-gray-400 focus:outline-none"
+                className="w-full rounded-md px-3 py-2 text-brown-text bg-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cream/50"
                 required
               />
             </div>
 
-            {errorMsg && <div className="text-sm text-red-600 mt-1">{errorMsg}</div>}
+            {errorMsg && <div className="text-sm text-red-200 mt-1 bg-red-900/20 p-2 rounded">{errorMsg}</div>}
 
             <div className="pt-4">
               <button
                 type="submit"
                 disabled={loading}
-                className="w-32 mx-auto block bg-[#4A3B32] text-white py-2 rounded-full text-sm hover:bg-[#3d312b] transition"
+                className="w-32 mx-auto block bg-brown-text text-white py-2 rounded-full text-sm hover:opacity-90 transition transform hover:scale-105 disabled:opacity-70"
               >
                 {loading ? "Entrando..." : "Entrar"}
               </button>
