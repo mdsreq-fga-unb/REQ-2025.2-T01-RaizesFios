@@ -1,20 +1,23 @@
 @import "tailwindcss";
 
+@theme {
+  /* Cores Personalizadas */
+  --color-cream: #FDF6EB;
+  --color-brown-text: #4A3B32;
+  --color-terracotta: #A67C6D;
+  --color-terracotta-dark: #8F6A5C;
+
+  /* Fontes Personalizadas (vinculadas às variáveis do next/font) */
+  --font-serif: var(--font-playfair), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: var(--font-lato), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
 /* Configuração global */
 * {
   scroll-behavior: smooth;
 }
 
-/* Configuração de fontes */
-.font-serif { 
-  font-family: 'Playfair Display', serif; 
-}
-
-.font-sans { 
-  font-family: 'Lato', sans-serif; 
-}
-
-/* Estilos do carrossel */
+/* Estilos do carrossel (mantendo compatibilidade) */
 .carousel-container {
   width: 100%;
 }
@@ -24,22 +27,22 @@
 }
 
 .custom-dot-list-style li button {
-  border: 2px solid #A67C6D;
+  border: 2px solid var(--color-terracotta);
   background-color: transparent;
 }
 
 .custom-dot-list-style li.react-multi-carousel-dot--active button {
-  background-color: #A67C6D;
+  background-color: var(--color-terracotta);
 }
 
 .react-multiple-carousel__arrow {
-  background: #A67C6D !important;
+  background: var(--color-terracotta) !important;
   min-width: 40px !important;
   min-height: 40px !important;
 }
 
 .react-multiple-carousel__arrow:hover {
-  background: #8F6A5C !important;
+  background: var(--color-terracotta-dark) !important;
 }
 
 .react-multiple-carousel__arrow::before {

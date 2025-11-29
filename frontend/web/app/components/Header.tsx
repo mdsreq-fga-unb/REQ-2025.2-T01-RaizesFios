@@ -7,7 +7,7 @@ import { Search, ShoppingBag, User } from 'lucide-react';
 
 export default function Header() {
   return (
-    <header className="bg-[#A67C6D] text-white px-4 md:px-6 py-3 md:py-4">
+    <header className="bg-terracotta text-white px-4 md:px-6 py-3 md:py-4">
       <div className="flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4">
         
         {/* Logo Area */}
@@ -31,7 +31,7 @@ export default function Header() {
              <input 
                type="search" 
                placeholder="Buscar produtos..." 
-               className="w-full md:w-80 py-2 px-3 md:px-4 pr-10 rounded bg-[#FDF6EB] text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-200 text-sm"
+               className="w-full md:w-80 py-2 px-3 md:px-4 pr-10 rounded bg-cream text-brown-text placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-200 text-sm"
                aria-label="Buscar produtos"
              />
              <Search className="absolute right-3 top-2 text-gray-500 w-4 h-4 pointer-events-none" />
