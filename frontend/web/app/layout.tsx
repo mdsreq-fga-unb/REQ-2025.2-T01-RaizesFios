@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Lato } from "next/font/google";
 import "./globals.css";
+import CartDrawer from "./components/CartDrawer";
 
 // Configuração das fontes otimizadas
 const playfair = Playfair_Display({
@@ -44,7 +45,9 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${playfair.variable} ${lato.variable}`}>
       <body className="antialiased font-sans bg-cream text-brown-text">
+        {/* Zustand não precisa de Provider envolvendo a aplicação */}
         {children}
+        <CartDrawer />
       </body>
     </html>
   );
