@@ -17,9 +17,19 @@
   scroll-behavior: smooth;
 }
 
+/* 
+  Ajuste global para compensar o Header Fixo (sticky).
+  Isso adiciona uma margem invisível acima de qualquer elemento com ID quando ele é alvo de um link âncora.
+  Valor aproximado da altura do novo Header (120px - 140px).
+*/
+:target {
+  scroll-margin-top: 160px;
+}
+
 /* Estilos do carrossel (mantendo compatibilidade) */
 .carousel-container {
   width: 100%;
+  z-index: 10; /* Z-Index baixo para não sobrepor elementos fixos */
 }
 
 .custom-dot-list-style {
@@ -39,6 +49,7 @@
   background: var(--color-terracotta) !important;
   min-width: 40px !important;
   min-height: 40px !important;
+  z-index: 20 !important; /* Garante que setas fiquem acima do slide mas abaixo do drawer */
 }
 
 .react-multiple-carousel__arrow:hover {

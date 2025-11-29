@@ -30,17 +30,15 @@ export default function RegisterPage() {
 
     setLoading(true);
     try {
-      // Ajustar a URL do endpoint se o back estiver em outra porta
       const res = await fetch("/api/users", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({
-    name: form.name,
-    email: form.email,
-    password: form.password,
-  }),
-});
-
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          password: form.password,
+        }),
+      });
 
       const data = await res.json().catch(() => ({}));
 
@@ -62,49 +60,49 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#FDF6EB] p-6">
+    <div className="min-h-screen flex items-center justify-center bg-cream p-6">
       <div className="w-full max-w-xl">
-        <h1 className="text-4xl font-bold text-center mb-8 text-[#4A3B32]">Cadastro</h1>
+        <h1 className="text-4xl font-bold text-center mb-8 text-brown-text font-serif">Cadastro</h1>
 
-        <div className="bg-[#9E7262] p-8 rounded-xl shadow-lg">
+        <div className="bg-terracotta-dark p-8 rounded-xl shadow-lg">
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Nome */}
             <div>
-              <label className="block text-sm text-[#FDF6EB] font-semibold mb-2">Nome completo:</label>
+              <label className="block text-sm text-cream font-semibold mb-2">Nome completo:</label>
               <input
                 name="name"
                 value={form.name}
                 onChange={handleChange}
                 placeholder="Nome completo"
-                className="w-full rounded-md px-3 py-2 text-[#4A3B32] bg-white placeholder-gray-400 focus:outline-none"
+                className="w-full rounded-md px-3 py-2 text-brown-text bg-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cream/50"
                 required
               />
             </div>
 
             {/* Email */}
             <div>
-              <label className="block text-sm text-[#FDF6EB] font-semibold mb-2">E-mail:</label>
+              <label className="block text-sm text-cream font-semibold mb-2">E-mail:</label>
               <input
                 name="email"
                 type="email"
                 value={form.email}
                 onChange={handleChange}
                 placeholder="email@exemplo.com"
-                className="w-full rounded-md px-3 py-2 text-[#4A3B32] bg-white placeholder-gray-400 focus:outline-none"
+                className="w-full rounded-md px-3 py-2 text-brown-text bg-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cream/50"
                 required
               />
             </div>
 
             {/* Senha */}
             <div>
-              <label className="block text-sm text-[#FDF6EB] font-semibold mb-2">Senha:</label>
+              <label className="block text-sm text-cream font-semibold mb-2">Senha:</label>
               <input
                 name="password"
                 type="password"
                 value={form.password}
                 onChange={handleChange}
                 placeholder="********"
-                className="w-full rounded-md px-3 py-2 text-[#4A3B32] bg-white placeholder-gray-400 focus:outline-none"
+                className="w-full rounded-md px-3 py-2 text-brown-text bg-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cream/50"
                 required
                 minLength={8}
               />
@@ -112,55 +110,33 @@ export default function RegisterPage() {
 
             {/* Confirmar senha */}
             <div>
-              <label className="block text-sm text-[#FDF6EB] font-semibold mb-2">Confirmar senha:</label>
+              <label className="block text-sm text-cream font-semibold mb-2">Confirmar senha:</label>
               <input
                 name="confirmPassword"
                 type="password"
                 value={form.confirmPassword}
                 onChange={handleChange}
                 placeholder="********"
-                className="w-full rounded-md px-3 py-2 text-[#4A3B32] bg-white placeholder-gray-400 focus:outline-none"
+                className="w-full rounded-md px-3 py-2 text-brown-text bg-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cream/50"
                 required
                 minLength={8}
               />
             </div>
 
             {/* Mensagens */}
-            {errorMsg && <div className="text-sm text-red-600 mt-1">{errorMsg}</div>}
-            {successMsg && <div className="text-sm text-green-700 mt-1">{successMsg}</div>}
+            {errorMsg && <div className="text-sm text-red-200 mt-1 bg-red-900/20 p-2 rounded">{errorMsg}</div>}
+            {successMsg && <div className="text-sm text-green-200 mt-1 bg-green-900/20 p-2 rounded">{successMsg}</div>}
 
             {/* Botão */}
             <div className="pt-4">
              <button
               type="submit"
-              className="w-32 mx-auto block bg-[#4A3B32] text-white py-2 rounded-full text-sm hover:bg-[#3d312b] transition">
-              Cadastrar
+              disabled={loading}
+              className="w-32 mx-auto block bg-brown-text text-white py-2 rounded-full text-sm hover:opacity-90 transition transform hover:scale-105 disabled:opacity-70">
+              {loading ? "Cadastrando..." : "Cadastrar"}
             </button>
             </div>
           </form>
-        </div>
-
-        {}
-        <div className="mt-6 text-center text-xs text-gray-500">
-          Referência visual (Figma):{" "}
-          <a
-            href="/_next/static/media/figma-ref"
-            target="_blank"
-            rel="noreferrer"
-            className="underline"
-          >
-            ver imagem
-          </a>
-        </div>
-
-        {/* se desejar ver o screenshot que você enviou ao bot */}
-        <div className="mt-4 text-center">
-          <img
-            src="/mnt/data/355a6c78-c121-4b0f-b9d8-6358a4ddea49.png"
-            alt="Figma reference"
-            className="mx-auto mt-2 rounded shadow-sm max-w-full"
-            style={{ maxHeight: 360 }}
-          />
         </div>
       </div>
     </div>

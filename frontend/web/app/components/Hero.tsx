@@ -74,7 +74,7 @@ export default function Hero() {
             <div key={slide.id} className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 px-2 md:px-4">
               {/* Image (Left) */}
               <div className="w-full md:w-1/2 flex justify-center">
-                <div className="relative w-full max-w-[300px] md:max-w-[500px] aspect-4/3 overflow-hidden rounded-2xl md:rounded-[3rem] shadow-xl bg-[#E8DCC8]">
+                <div className="relative w-full max-w-[300px] md:max-w-[500px] aspect-4/3 overflow-hidden rounded-2xl md:rounded-[3rem] shadow-xl bg-terracotta/20">
                   <Image 
                     src={slide.image}
                     alt={slide.alt}
@@ -87,7 +87,7 @@ export default function Hero() {
 
               {/* Text (Right) */}
               <div className="w-full md:w-1/2 text-center space-y-4 md:space-y-6 px-4">
-                <h1 className="font-serif text-2xl md:text-4xl lg:text-6xl font-bold leading-tight text-[#5C4033]">
+                <h1 className="font-serif text-2xl md:text-4xl lg:text-6xl font-bold leading-tight text-brown-text">
                   {slide.title} <br/>
                   {slide.subtitle} <br/>
                   <span className="font-light text-xl md:text-3xl lg:text-5xl">{slide.description1}</span> <br/>
@@ -95,7 +95,7 @@ export default function Hero() {
                 </h1>
                 
                 <div className="pt-2 md:pt-4 flex justify-center">
-                  <button className="bg-[#A67C6D] hover:bg-[#8F6A5C] text-white px-6 py-2 md:px-8 md:py-3 rounded-full text-base md:text-lg font-medium shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
+                  <button className="bg-terracotta hover:bg-terracotta-dark text-white px-6 py-2 md:px-8 md:py-3 rounded-full text-base md:text-lg font-medium shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
                     {slide.buttonText}
                   </button>
                 </div>
@@ -107,4 +107,3 @@ export default function Hero() {
     </section>
   );
 }
-
