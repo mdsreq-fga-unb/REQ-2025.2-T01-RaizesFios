@@ -86,7 +86,11 @@ export default function CartDrawer() {
                 <div className="flex-1 flex flex-col justify-between">
                   <div>
                     <h3 className="font-medium text-brown-text line-clamp-1">{item.name}</h3>
-                    <p className="text-sm text-gray-500">{item.category}</p>
+                    <p className="text-sm text-gray-500">
+                      {typeof item.category === 'object' && item.category !== null 
+                        ? item.category.name 
+                        : item.category}
+                    </p>
                   </div>
                   
                   <div className="flex items-center justify-between mt-2">
