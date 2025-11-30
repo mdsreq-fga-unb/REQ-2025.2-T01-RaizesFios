@@ -20,6 +20,7 @@ model User {
   role          Role           @default(USER)
   createdAt     DateTime       @default(now())
   refreshTokens RefreshToken[]
+  addresses     Address[]
 }
 
 model RefreshToken {
@@ -29,4 +30,26 @@ model RefreshToken {
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   expiresAt DateTime
   createdAt DateTime @default(now())
+}
+
+model Address {
+  id             String   @id @default(uuid())
+  recipientName  String   @map("recipient_name") // Nome do destinatário
+  phone          String // Telefone de contato
+  street         String
+  number         String
+  complement     String?
+  referencePoint String?  @map("reference_point") // Ponto de referência
+  district       String
+  city           String
+  state          String
+  zipCode        String
+  isDefault      Boolean  @default(false) @map("is_default")
+  userId         String   @map("user_id")
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
+
+  @@index([userId])
+  @@map("addresses")
 }
