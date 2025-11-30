@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, Mail, Lock, User, CheckCircle } from "lucide-react";
-import { authService } from "../services/authService";
+import { authService } from "@/app/services/authService";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -44,7 +44,7 @@ export default function RegisterPage() {
 
       setSuccessMsg("Cadastro realizado com sucesso! Redirecionando para o login...");
       setTimeout(() => {
-        router.push("/login");
+        router.push("/auth/login");
       }, 2000);
     } catch (err: any) {
       setErrorMsg(err.response?.data?.message || "Erro ao cadastrar.");
@@ -194,7 +194,7 @@ export default function RegisterPage() {
         <div className="mt-8 pt-6 border-t border-gray-100 text-center text-sm text-gray-600">
           <p>
             Já possui uma conta?{" "}
-            <Link href="/login" className="text-terracotta font-bold hover:underline hover:text-terracotta-dark transition">
+            <Link href="/auth/login" className="text-terracotta font-bold hover:underline hover:text-terracotta-dark transition">
               Faça login
             </Link>
           </p>

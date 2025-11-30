@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, Mail, Lock } from "lucide-react";
-import { useAuthStore } from "../stores/useAuthStore";
-import { authService } from "../services/authService";
+import { useAuthStore } from "@/app/stores/useAuthStore";
+import { authService } from "@/app/services/authService";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -159,7 +159,7 @@ export default function LoginPage() {
         <div className="mt-8 pt-6 border-t border-gray-100 text-center text-sm text-gray-600">
           <p>
             Não tem uma conta?{" "}
-            <Link href="/register" className="text-terracotta font-bold hover:underline hover:text-terracotta-dark transition">
+            <Link href="/auth/register" className="text-terracotta font-bold hover:underline hover:text-terracotta-dark transition">
               Cadastre-se
             </Link>
           </p>

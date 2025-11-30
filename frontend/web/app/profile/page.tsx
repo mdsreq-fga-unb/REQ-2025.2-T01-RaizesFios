@@ -31,7 +31,7 @@ export default function ProfilePage() {
   // Redirecionar se não estiver logado (apenas após hidratação)
   useEffect(() => {
     if (hasHydrated && !isAuthenticated) {
-      router.push("/login");
+      router.push("/auth/login");
     }
   }, [hasHydrated, isAuthenticated, router]);
 
@@ -49,7 +49,7 @@ export default function ProfilePage() {
       console.error("Erro no logout", error);
     }
     logout();
-    router.push("/login");
+    router.push("/auth/login");
   };
 
   const handleSaveAddress = async (data: AddressFormData) => {

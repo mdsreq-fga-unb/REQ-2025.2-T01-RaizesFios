@@ -27,7 +27,7 @@ export default function CartDrawer() {
   // Handler para checkout
   const handleCheckout = () => {
     toggleCart(); 
-    router.push('/carrinho');
+    router.push('/cart');
   };
 
   return (

@@ -42,14 +42,14 @@ export default function CartPage() {
     <div className="min-h-screen font-sans bg-cream flex flex-col">
       <Header />
 
-      <main className="flex-grow px-4 md:px-8 py-8 md:py-12">
+      <main className="grow px-4 md:px-8 py-8 md:py-12">
         <div className="max-w-7xl mx-auto">
           
           {items.length === 0 ? (
              <div className="text-center py-20">
               <h1 className="text-3xl font-serif text-brown-text mb-4">Seu carrinho está vazio</h1>
               <Link 
-                href="/produtos" 
+                href="/products" 
                 className="inline-block px-8 py-3 bg-terracotta text-white rounded-full hover:opacity-90 transition"
               >
                 Ver Produtos
@@ -67,7 +67,7 @@ export default function CartPage() {
                     {items.map((item) => (
                       <div key={item.id} className="flex flex-col sm:flex-row gap-6 items-start sm:items-center border-b border-white/20 pb-8 last:border-0 last:pb-0">
                         {/* Imagem */}
-                        <div className="relative w-full sm:w-32 h-32 bg-white/10 rounded-2xl overflow-hidden flex-shrink-0">
+                        <div className="relative w-full sm:w-32 h-32 bg-white/10 rounded-2xl overflow-hidden shrink-0">
                           <Image
                             src={item.image}
                             alt={item.name}
@@ -77,7 +77,7 @@ export default function CartPage() {
                         </div>
 
                         {/* Detalhes */}
-                        <div className="flex-grow space-y-2 w-full">
+                        <div className="grow space-y-2 w-full">
                           <div className="flex justify-between items-start">
                             <h3 className="text-xl md:text-2xl text-brown-text font-medium">{item.name}</h3>
                             <p className="text-xl md:text-2xl text-brown-text font-medium">
@@ -95,7 +95,7 @@ export default function CartPage() {
                               >
                                 <Minus size={16} />
                               </button>
-                              <span className="px-2 text-brown-text font-medium min-w-[2rem] text-center">{item.quantity}</span>
+                              <span className="px-2 text-brown-text font-medium min-w-8 text-center">{item.quantity}</span>
                               <button 
                                 onClick={() => updateQuantity(item.id, item.quantity + 1)}
                                 className="p-2 px-3 hover:bg-white/10 transition text-brown-text"
@@ -128,7 +128,7 @@ export default function CartPage() {
                         placeholder="Digite o CEP" 
                         value={cep}
                         onChange={(e) => setCep(e.target.value)}
-                        className="flex-grow bg-white rounded-full px-6 py-3 text-brown-text placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brown-text/50"
+                        className="grow bg-white rounded-full px-6 py-3 text-brown-text placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brown-text/50"
                       />
                       <button 
                         onClick={handleCalculateShipping}
@@ -179,9 +179,18 @@ export default function CartPage() {
                     </span>
                   </div>
 
-                  <button className="w-full bg-brown-text text-white py-4 rounded-2xl font-medium text-lg hover:opacity-90 transition transform hover:scale-[1.02] shadow-md">
-                    Continuar compra
+                  <button 
+                    onClick={() => alert("Checkout será implementado em breve!")}
+                    className="w-full bg-brown-text text-white py-4 rounded-2xl font-medium text-lg hover:opacity-90 transition transform hover:scale-[1.02] shadow-md"
+                  >
+                    Finalizar Pedido
                   </button>
+                  
+                  <div className="mt-4 flex justify-center">
+                    <Link href="/products" className="text-sm text-brown-text/80 hover:text-terracotta underline transition">
+                        Continuar comprando
+                    </Link>
+                  </div>
 
                 </div>
               </div>

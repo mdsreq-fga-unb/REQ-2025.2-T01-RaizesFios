@@ -35,7 +35,7 @@ export default function ProductCard({ id, image, title, subtitle, price }: Produ
 
   const handleCardClick = () => {
     if (id) {
-      router.push(`/produtos/${id}`);
+      router.push(`/products/${id}`);
     }
   };
 

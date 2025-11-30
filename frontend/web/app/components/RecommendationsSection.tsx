@@ -6,7 +6,7 @@ export default function RecommendationsSection() {
   const recommendations = MOCK_PRODUCTS.slice(0, 3);
 
   return (
-    <section id="produtos" className="scroll-mt-40 py-8 md:py-16 px-4">
+    <section id="products" className="scroll-mt-40 py-8 md:py-16 px-4">
       <div className="max-w-7xl mx-auto">
         <h2 className="font-serif text-3xl md:text-4xl font-bold text-brown-text mb-8 md:mb-12 text-center">Recomendações</h2>
         
