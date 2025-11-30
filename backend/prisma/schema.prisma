@@ -1,0 +1,50 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-arm64-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String    @id @default(uuid())
+  name      String
+  email     String    @unique
+  password  String
+  createdAt  DateTime  @default(now())
+}
+
+model Produto {
+  id          Int       @id @default(autoincrement()) @map("produto_id")
+  nome        String    @db.VarChar(255)
+  descricao   String?
+  preco       Decimal   @db.Decimal(10, 2)
+  sku         String    @unique @db.VarChar(50)
+  imagemUrl   String?   @db.VarChar(255)
+  ativo       Boolean   @default(true)
+  categoriaId Int       @map("categoria_id")
+  estoque     Estoque?
+  categoria   Categoria @relation(fields: [categoriaId], references: [id])
+
+  @@map("produtos")
+}
+
+model Estoque {
+  id              Int      @id @default(autoincrement()) @map("estoque_id")
+  quantidade      Int
+  dataAtualizacao DateTime @updatedAt @map("data_atualizacao")
+  produtoId       Int      @unique @map("produto_id")
+  produto         Produto  @relation(fields: [produtoId], references: [id])
+
+  @@map("estoque")
+}
+
+model Categoria {
+  id       Int       @id @default(autoincrement())
+  nome     String    @unique
+  produtos Produto[]
+
+  @@map("categorias")
+}
