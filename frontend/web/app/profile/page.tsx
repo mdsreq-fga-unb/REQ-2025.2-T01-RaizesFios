@@ -6,8 +6,44 @@ import { useAuthStore } from "../stores/useAuthStore";
 import { useAddressStore } from "../stores/useAddressStore";
 import AddressForm, { AddressFormData } from "../components/AddressForm";
 import Header from "../components/Header";
-import { User, MapPin, LogOut, Plus, Trash2, Loader2, ChevronRight, Edit2, Package } from "lucide-react";
+import AdminProducts from "../components/admin/AdminProducts";
+import AdminCategories from "../components/admin/AdminCategories";
+import { 
+  User, MapPin, LogOut, Plus, Trash2, Loader2, 
+  ChevronRight, Edit2, Package, Settings, Tag, ShoppingBag 
+} from "lucide-react";
 import { authService } from "../services/authService";
+
+type TabType = "profile" | "addresses" | "admin-products" | "admin-categories";
+
+interface SidebarItemProps {
+  id: TabType | "orders";
+  label: string;
+  icon: React.ElementType;
+  disabled?: boolean;
+  activeTab: TabType;
+  setActiveTab: (id: TabType) => void;
+}
+
+const SidebarItem = ({ id, label, icon: Icon, disabled = false, activeTab, setActiveTab }: SidebarItemProps) => (
+  <button
+    onClick={() => !disabled && setActiveTab(id as TabType)}
+    disabled={disabled}
+    className={`w-full text-left px-4 py-3 rounded-lg flex items-center justify-between group transition duration-200 ${
+      activeTab === id
+        ? "bg-terracotta text-white shadow-md"
+        : disabled 
+          ? "text-gray-400 cursor-not-allowed hover:bg-gray-50" 
+          : "text-brown-text hover:bg-orange-50"
+    }`}
+  >
+    <div className="flex items-center gap-3">
+      <Icon className={`w-5 h-5 ${activeTab === id ? 'text-white' : disabled ? 'text-gray-400' : 'text-terracotta'}`} />
+      <span className="font-medium">{label}</span>
+    </div>
+    {activeTab === id && <ChevronRight className="w-4 h-4 opacity-50" />}
+  </button>
+);
 
 export default function ProfilePage() {
   const router = useRouter();
@@ -26,7 +62,7 @@ export default function ProfilePage() {
     closeForm
   } = useAddressStore();
 
-  const [activeTab, setActiveTab] = useState<"profile" | "addresses">("profile");
+  const [activeTab, setActiveTab] = useState<TabType>("profile");
 
   // Redirecionar se não estiver logado (apenas após hidratação)
   useEffect(() => {
@@ -85,6 +121,8 @@ export default function ProfilePage() {
     return null; 
   }
 
+  const isAdmin = user.role === 'ADMIN';
+
   return (
     <div className="min-h-screen bg-gray-50/50">
       <Header />
@@ -106,45 +144,21 @@ export default function ProfilePage() {
               </div>
 
               <nav className="p-2 space-y-1">
-                <button
-                  onClick={() => setActiveTab("profile")}
-                  className={`w-full text-left px-4 py-3 rounded-lg flex items-center justify-between group transition duration-200 ${
-                    activeTab === "profile"
-                      ? "bg-terracotta text-white shadow-md"
-                      : "text-brown-text hover:bg-orange-50"
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <User className={`w-5 h-5 ${activeTab === 'profile' ? 'text-white' : 'text-terracotta'}`} />
-                    <span className="font-medium">Meus Dados</span>
-                  </div>
-                  {activeTab === "profile" && <ChevronRight className="w-4 h-4 opacity-50" />}
-                </button>
-                
-                <button
-                  onClick={() => setActiveTab("addresses")}
-                  className={`w-full text-left px-4 py-3 rounded-lg flex items-center justify-between group transition duration-200 ${
-                    activeTab === "addresses"
-                      ? "bg-terracotta text-white shadow-md"
-                      : "text-brown-text hover:bg-orange-50"
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <MapPin className={`w-5 h-5 ${activeTab === 'addresses' ? 'text-white' : 'text-terracotta'}`} />
-                    <span className="font-medium">Endereços</span>
-                  </div>
-                   {activeTab === "addresses" && <ChevronRight className="w-4 h-4 opacity-50" />}
-                </button>
+                <SidebarItem id="profile" label="Meus Dados" icon={User} activeTab={activeTab} setActiveTab={setActiveTab} />
+                <SidebarItem id="addresses" label="Endereços" icon={MapPin} activeTab={activeTab} setActiveTab={setActiveTab} />
+                <SidebarItem id="orders" label="Meus Pedidos (Em breve)" icon={Package} disabled activeTab={activeTab} setActiveTab={setActiveTab} />
 
-                 <button
-                  disabled
-                  className="w-full text-left px-4 py-3 rounded-lg flex items-center justify-between text-gray-400 cursor-not-allowed hover:bg-gray-50 transition"
-                >
-                  <div className="flex items-center gap-3">
-                    <Package className="w-5 h-5" />
-                    <span className="font-medium">Meus Pedidos (Em breve)</span>
-                  </div>
-                </button>
+                {isAdmin && (
+                  <>
+                    <div className="my-2 pt-2 pb-1 px-4 border-t border-gray-100">
+                      <p className="text-xs font-bold text-gray-400 uppercase tracking-wider flex items-center gap-2">
+                        <Settings className="w-3 h-3" /> Administração
+                      </p>
+                    </div>
+                    <SidebarItem id="admin-products" label="Produtos" icon={ShoppingBag} activeTab={activeTab} setActiveTab={setActiveTab} />
+                    <SidebarItem id="admin-categories" label="Categorias" icon={Tag} activeTab={activeTab} setActiveTab={setActiveTab} />
+                  </>
+                )}
 
                 <div className="my-2 border-t border-gray-100 mx-4"></div>
 
@@ -160,9 +174,11 @@ export default function ProfilePage() {
           </aside>
 
           {/* Conteúdo Principal */}
-          <main className="flex-1">
+          <main className="flex-1 bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100 min-h-[500px]">
+            
+            {/* Profile Content */}
             {activeTab === "profile" && (
-              <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100 animate-fade-in">
+              <div className="animate-fade-in">
                 <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-100">
                    <h2 className="text-2xl font-serif font-bold text-brown-text">Dados Pessoais</h2>
                    <button className="text-terracotta hover:text-terracotta-dark text-sm font-bold flex items-center gap-1 transition">
@@ -183,16 +199,17 @@ export default function ProfilePage() {
 
                   <div className="bg-gray-50 p-4 rounded-xl border border-gray-100">
                      <label className="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">Tipo de Conta</label>
-                     <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mt-1 ${user.role === 'ADMIN' ? 'bg-purple-100 text-purple-700' : 'bg-green-100 text-green-700'}`}>
-                        {user.role === 'ADMIN' ? 'Administrador' : 'Cliente'}
+                     <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mt-1 ${isAdmin ? 'bg-purple-100 text-purple-700' : 'bg-green-100 text-green-700'}`}>
+                        {isAdmin ? 'Administrador' : 'Cliente'}
                      </span>
                   </div>
                 </div>
               </div>
             )}
 
+            {/* Address Content */}
             {activeTab === "addresses" && (
-              <div className="space-y-6 animate-fade-in">
+              <div className="animate-fade-in space-y-6">
                 <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
                   <div>
                     <h2 className="text-2xl font-serif font-bold text-brown-text">Meus Endereços</h2>
@@ -317,6 +334,11 @@ export default function ProfilePage() {
                 )}
               </div>
             )}
+
+            {/* Admin Content */}
+            {isAdmin && activeTab === "admin-products" && <AdminProducts />}
+            {isAdmin && activeTab === "admin-categories" && <AdminCategories />}
+
           </main>
         </div>
       </div>

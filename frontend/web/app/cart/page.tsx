@@ -69,7 +69,7 @@ export default function CartPage() {
                         {/* Imagem */}
                         <div className="relative w-full sm:w-32 h-32 bg-white/10 rounded-2xl overflow-hidden shrink-0">
                           <Image
-                            src={item.image}
+                            src={item.imageUrl || item.image || '/placeholder.png'}
                             alt={item.name}
                             fill
                             className="object-cover"

@@ -75,7 +75,7 @@ export default function CartDrawer() {
                 {/* Imagem */}
                 <div className="relative w-20 h-20 shrink-0 bg-gray-100 rounded-lg overflow-hidden">
                   <Image
-                    src={item.image}
+                    src={item.imageUrl || item.image || '/placeholder.png'}
                     alt={item.name}
                     fill
                     className="object-cover"
