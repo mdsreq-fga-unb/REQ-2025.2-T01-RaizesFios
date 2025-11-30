@@ -17,8 +17,14 @@ export async function create(req: Request, res: Response) {
 
     return res.status(201).json(newCategory);
 
-  } catch (error) {
+  } catch (error: any) {
     console.error("Erro ao criar categoria:", error);
+
+    // Erro de unicidade do Prisma (P2002)
+    if (error.code === 'P2002' && error.meta?.target?.includes('name')) {
+      return res.status(409).json({ error: "Já existe uma categoria com este nome." });
+    }
+
     return res.status(500).json({ error: "Falha interna ao criar categoria." });
   }
 }

@@ -1,25 +1,11 @@
-import { prisma } from '../../config/db';
+import productRepository from '../repositories/product.repository';
 import { ProductData } from '../../api/schemas/product.schema';
 
 // ---------------------
 // US001 - Criar Produto
 // ---------------------
 export async function createProduct(productData: ProductData) {
-  const newProduct = await prisma.produto.create({
-    data: {
-      nome: productData.nome,
-      descricao: productData.descricao,
-      preco: productData.preco,
-      sku: productData.sku,
-      imagemUrl: productData.imagemUrl,
-      ativo: productData.ativo,
-      categoria: {
-        connect: { id: productData.categoriaId },
-      },
-    },
-  });
-
-  return newProduct;
+  return productRepository.create(productData);
 }
 
 // ---------------------------
@@ -28,34 +14,12 @@ export async function createProduct(productData: ProductData) {
 
 // Buscar por ID
 export async function getProductById(id: number) {
-  const product = await prisma.produto.findUnique({
-    where: { id },
-    include: {
-      categoria: true, // Se quiser trazer dados da categoria junto
-    },
-  });
-
-  return product;
+  return productRepository.findById(id);
 }
 
 // Buscar produtos com filtro
-export async function searchProducts(search?: string) {
-  const products = await prisma.produto.findMany({
-    where: search
-      ? {
-          nome: {
-            contains: search,
-            mode: 'insensitive', // busca case-insensitive
-          },
-        }
-      : {},
-    include: {
-      categoria: true,
-    },
-    orderBy: { nome: 'asc' },
-  });
-
-  return products;
+export async function searchProducts(search?: string, onlyActive?: boolean) {
+  return productRepository.search(search, onlyActive);
 }
 
 // ---------------------------
@@ -63,9 +27,7 @@ export async function searchProducts(search?: string) {
 // ---------------------------
 
 export async function deleteProduct(id: number) {
-  return prisma.produto.delete({
-    where: { id },
-  });
+  return productRepository.delete(id);
 }
 
 // ------------------------------
@@ -73,17 +35,9 @@ export async function deleteProduct(id: number) {
 // ------------------------------
 
 export async function updateProduct(id: number, data: any) {
-  const exists = await prisma.produto.findUnique({ where: { id } });
+  const exists = await productRepository.findById(id);
 
   if (!exists) return null;
 
-  const updated = await prisma.produto.update({
-    where: { id },
-    data: {
-      ...data,
-      categoriaId: data.categoriaId ? data.categoriaId : undefined,
-    },
-  });
-
-  return updated;
+  return productRepository.update(id, data);
 }

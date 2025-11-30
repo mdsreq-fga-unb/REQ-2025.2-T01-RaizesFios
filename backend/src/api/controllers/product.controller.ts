@@ -90,7 +90,8 @@ async function search(req: Request, res: Response) {
     }
 
     const searchTerm = parsed.data.query.search;
-    const products = await productService.searchProducts(searchTerm);
+    const onlyActive = parsed.data.query.active;
+    const products = await productService.searchProducts(searchTerm, onlyActive);
 
     return res.json(products);
   } catch (error) {
@@ -168,8 +169,15 @@ async function update(req: Request, res: Response) {
       message: "Produto atualizado com sucesso.",
       updated,
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Erro ao atualizar produto:", error);
+
+    if (error.code === "P2002") {
+      return res.status(409).json({
+        error: "Já existe um produto com este SKU.",
+      });
+    }
+
     return res.status(500).json({ error: "Falha interna ao atualizar produto." });
   }
 }

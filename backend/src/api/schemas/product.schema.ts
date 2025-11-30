@@ -5,13 +5,13 @@ import { z } from "zod";
 // ------------------------------
 
 export const productSchema = z.object({
-  nome: z.string(),
-  descricao: z.string().optional(),
-  preco: z.number(),
+  name: z.string(),
+  description: z.string().optional(),
+  price: z.number(),
   sku: z.string(),
-  imagemUrl: z.string().optional(),
-  ativo: z.boolean().optional(),
-  categoriaId: z.number()
+  imageUrl: z.string().optional(),
+  active: z.boolean().optional(),
+  categoryId: z.number()
 });
 
 // Tipo gerado automaticamente
@@ -32,6 +32,7 @@ export const getProductByIdSchema = z.object({
 export const searchProductsSchema = z.object({
   query: z.object({
     search: z.string().optional(),
+    active: z.string().transform((val) => val === 'true').optional(),
   }),
 });
 
@@ -54,13 +55,13 @@ export const updateProductSchema = z.object({
   }),
   body: z
     .object({
-      nome: z.string().optional(),
-      descricao: z.string().optional(),
-      preco: z.number().optional(),
+      name: z.string().optional(),
+      description: z.string().optional(),
+      price: z.number().optional(),
       sku: z.string().optional(),
-      imagemUrl: z.string().optional(),
-      ativo: z.boolean().optional(),
-      categoriaId: z.number().optional(),
+      imageUrl: z.string().optional(),
+      active: z.boolean().optional(),
+      categoryId: z.number().optional(),
     })
     .refine((data) => Object.keys(data).length > 0, {
       message: "Nenhum campo para atualizar.",

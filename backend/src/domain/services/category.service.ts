@@ -1,16 +1,10 @@
-import { prisma } from '../../config/db';
+import categoryRepository from '../repositories/category.repository';
 import { CategoryData } from "../../api/schemas/category.schema";
 
 export async function createCategory(data: CategoryData) {
-  const category = await prisma.categoria.create({
-    data: {
-      nome: data.nome
-    }
-  });
-
-  return category;
+  return categoryRepository.create(data);
 }
 
 export async function listCategories() {
-  return prisma.categoria.findMany();
+  return categoryRepository.list();
 }
