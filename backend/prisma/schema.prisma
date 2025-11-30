@@ -55,35 +55,35 @@ model Address {
   @@map("addresses")
 }
 
-model Produto {
-  id          Int       @id @default(autoincrement()) @map("produto_id")
-  nome        String    @db.VarChar(255)
-  descricao   String?
-  preco       Decimal   @db.Decimal(10, 2)
+model Product {
+  id          Int       @id @default(autoincrement()) @map("product_id")
+  name        String    @db.VarChar(255)
+  description String?
+  price       Decimal   @db.Decimal(10, 2)
   sku         String    @unique @db.VarChar(50)
-  imagemUrl   String?   @db.VarChar(255)
-  ativo       Boolean   @default(true)
-  categoriaId Int       @map("categoria_id")
-  estoque     Estoque?
-  categoria   Categoria @relation(fields: [categoriaId], references: [id])
+  imageUrl    String?   @map("image_url") @db.VarChar(255)
+  active      Boolean   @default(true)
+  categoryId  Int       @map("category_id")
+  inventory   Inventory?
+  category    Category  @relation(fields: [categoryId], references: [id])
 
-  @@map("produtos")
+  @@map("products")
 }
 
-model Estoque {
-  id              Int      @id @default(autoincrement()) @map("estoque_id")
-  quantidade      Int
-  dataAtualizacao DateTime @updatedAt @map("data_atualizacao")
-  produtoId       Int      @unique @map("produto_id")
-  produto         Produto  @relation(fields: [produtoId], references: [id])
+model Inventory {
+  id        Int      @id @default(autoincrement()) @map("inventory_id")
+  quantity  Int
+  updatedAt DateTime @updatedAt @map("updated_at")
+  productId Int      @unique @map("product_id")
+  product   Product  @relation(fields: [productId], references: [id])
 
-  @@map("estoque")
+  @@map("inventory")
 }
 
-model Categoria {
+model Category {
   id       Int       @id @default(autoincrement())
-  nome     String    @unique
-  produtos Produto[]
+  name     String    @unique
+  products Product[]
 
-  @@map("categorias")
+  @@map("categories")
 }
