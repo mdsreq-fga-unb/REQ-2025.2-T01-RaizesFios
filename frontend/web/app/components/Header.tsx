@@ -13,7 +13,7 @@ import { useRouter } from 'next/navigation';
 export default function Header() {
   const router = useRouter();
   const toggleCart = useCartStore((state) => state.toggleCart);
-  const getItemCount = useCartStore((state) => state.getItemCount);
+  const itemCount = useCartStore((state) => state.items.reduce((acc, item) => acc + item.quantity, 0));
   const { user, isAuthenticated, logout } = useAuthStore();
   
   const isClient = useIsClient();
@@ -25,7 +25,7 @@ export default function Header() {
       console.error('Erro ao fazer logout no servidor', error);
     }
     logout();
-    router.push('/login');
+    router.push('/auth/login');
   }
 
   return (
@@ -67,9 +67,9 @@ export default function Header() {
               onClick={toggleCart}
             >
               <ShoppingBag className="w-5 h-5 md:w-6 md:h-6" />
-              {isClient && getItemCount() > 0 && (
+              {isClient && itemCount > 0 && (
                 <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
-                  {getItemCount()}
+                  {itemCount}
                 </span>
               )}
             </button>
@@ -77,7 +77,7 @@ export default function Header() {
             {/* LOGIN / CADASTRO / LOGOUT */}
             <div className="flex items-center gap-2">
               {/* O Ícone leva para o Login ou Perfil */}
-              <Link href={isAuthenticated ? "/perfil" : "/login"} aria-label="Acessar conta" className="hover:opacity-80 transition">
+              <Link href={isAuthenticated ? "/profile" : "/auth/login"} aria-label="Acessar conta" className="hover:opacity-80 transition">
                 <User className="w-5 h-5 md:w-6 md:h-6" />
               </Link>
               
@@ -94,11 +94,11 @@ export default function Header() {
                   </div>
                 ) : (
                   <>
-                    <Link href="/login" className="underline hover:text-orange-200 transition">
+                    <Link href="/auth/login" className="underline hover:text-orange-200 transition">
                       Entre
                     </Link>
                     {" "}ou <br />
-                    <Link href="/register" className="underline hover:text-orange-200 transition">
+                    <Link href="/auth/register" className="underline hover:text-orange-200 transition">
                       Cadastre-se
                     </Link>
                   </>
@@ -114,9 +114,9 @@ export default function Header() {
       {/* Navigation */}
       <nav className="mt-2 md:mt-2 border-t border-white/20 pt-2 flex justify-center gap-4 md:gap-32 text-sm md:text-base font-light uppercase tracking-wide px-2 md:px-6 flex-wrap" aria-label="Navegação principal">
         <Link href="/" className="hover:text-orange-100 transition whitespace-nowrap">Início</Link>
-        <Link href="/#sobre" className="hover:text-orange-100 transition whitespace-nowrap">Sobre</Link>
-        <Link href="/produtos" className="hover:text-orange-100 transition whitespace-nowrap">Produtos</Link>
-        <Link href="/#contatos" className="hover:text-orange-100 transition whitespace-nowrap">Contatos</Link>
+        <Link href="/#about" className="hover:text-orange-100 transition whitespace-nowrap">Sobre</Link>
+        <Link href="/products" className="hover:text-orange-100 transition whitespace-nowrap">Produtos</Link>
+        <Link href="/#contacts" className="hover:text-orange-100 transition whitespace-nowrap">Contatos</Link>
       </nav>
     </header>
   );
