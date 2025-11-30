@@ -1,7 +1,6 @@
-export enum Role {
-  USER = 'USER',
-  ADMIN = 'ADMIN'
-}
+import { Role } from "@prisma/client";
+
+export { Role };
 
 export interface User {
   id: string;

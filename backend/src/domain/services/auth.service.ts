@@ -1,5 +1,5 @@
 import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
+import jwt, { SignOptions } from "jsonwebtoken";
 import crypto from "crypto";
 import userRepository from "../repositories/user.repository";
 import refreshTokenRepository from "../repositories/refreshToken.repository";
@@ -7,7 +7,8 @@ import { UnauthorizedError } from "../errors/unauthorized.error";
 import { TokenPayload } from "../types/jwt.types";
 
 const JWT_SECRET = process.env.JWT_SECRET || "default_secret";
-const ACCESS_TOKEN_EXPIRY = process.env.ACCESS_TOKEN_EXPIRY || "15m";
+// Casting explícito para garantir compatibilidade com SignOptions['expiresIn']
+const ACCESS_TOKEN_EXPIRY = (process.env.ACCESS_TOKEN_EXPIRY || "15m") as jwt.SignOptions["expiresIn"];
 const REFRESH_TOKEN_EXPIRY_DAYS = Number(process.env.REFRESH_TOKEN_EXPIRY_DAYS) || 7;
 
 export default {
@@ -29,11 +30,15 @@ export default {
       role: user.role
     };
 
+    const signOptions: SignOptions = {
+      expiresIn: ACCESS_TOKEN_EXPIRY
+    };
+
     // 1. Gerar Access Token (JWT) - Curta duração
     const accessToken = jwt.sign(
-      payload,
+      { ...payload },
       JWT_SECRET,
-      { expiresIn: ACCESS_TOKEN_EXPIRY }
+      signOptions
     );
 
     // 2. Gerar Refresh Token (Opaque) - Longa duração
@@ -70,10 +75,14 @@ export default {
       role: storedToken.user.role
     };
 
+    const signOptions: SignOptions = {
+      expiresIn: ACCESS_TOKEN_EXPIRY
+    };
+
     const newAccessToken = jwt.sign(
-      payload,
+      { ...payload },
       JWT_SECRET,
-      { expiresIn: ACCESS_TOKEN_EXPIRY }
+      signOptions
     );
 
     // Opcional: Rotacionar Refresh Token (emitir um novo e deletar o velho)
