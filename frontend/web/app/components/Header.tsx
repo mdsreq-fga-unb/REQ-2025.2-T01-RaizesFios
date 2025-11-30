@@ -5,14 +5,28 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Search, ShoppingBag, User } from 'lucide-react';
 import { useCartStore } from '../stores/useCartStore';
+import { useAuthStore } from '../stores/useAuthStore';
 import { useIsClient } from '../hooks/useIsClient';
+import { authService } from '../services/authService';
+import { useRouter } from 'next/navigation';
 
 export default function Header() {
+  const router = useRouter();
   const toggleCart = useCartStore((state) => state.toggleCart);
   const getItemCount = useCartStore((state) => state.getItemCount);
+  const { user, isAuthenticated, logout } = useAuthStore();
   
-  // Hydration fix via useSyncExternalStore
   const isClient = useIsClient();
+
+  async function handleLogout() {
+    try {
+      await authService.logout();
+    } catch (error) {
+      console.error('Erro ao fazer logout no servidor', error);
+    }
+    logout();
+    router.push('/login');
+  }
 
   return (
     <header className="bg-terracotta text-white px-4 md:px-6 py-2 sticky top-0 z-30 shadow-sm">
@@ -60,23 +74,35 @@ export default function Header() {
               )}
             </button>
 
-            {/* LOGIN / CADASTRO */}
+            {/* LOGIN / CADASTRO / LOGOUT */}
             <div className="flex items-center gap-2">
-              {/* O Ícone leva para o Login */}
-              <Link href="/login" aria-label="Acessar conta" className="hover:opacity-80 transition">
+              {/* O Ícone leva para o Login ou Perfil */}
+              <Link href={isAuthenticated ? "/perfil" : "/login"} aria-label="Acessar conta" className="hover:opacity-80 transition">
                 <User className="w-5 h-5 md:w-6 md:h-6" />
               </Link>
               
               <div className="text-xs md:text-sm hidden md:block leading-tight">
-                {/* Link  p Login */}
-                <Link href="/login" className="underline hover:text-orange-200 transition">
-                  Entre
-                </Link>
-                {" "}ou <br />
-                {/* Link p Cadastro */}
-                <Link href="/register" className="underline hover:text-orange-200 transition">
-                  Cadastre-se
-                </Link>
+                {isClient && isAuthenticated && user ? (
+                  <div className="flex flex-col items-start">
+                    <span className="font-bold text-cream text-base drop-shadow-sm">Olá, {user.name.split(' ')[0]}!</span>
+                    <button 
+                      onClick={handleLogout}
+                      className="text-xs text-white/80 hover:text-white hover:underline transition"
+                    >
+                      Sair da conta
+                    </button>
+                  </div>
+                ) : (
+                  <>
+                    <Link href="/login" className="underline hover:text-orange-200 transition">
+                      Entre
+                    </Link>
+                    {" "}ou <br />
+                    <Link href="/register" className="underline hover:text-orange-200 transition">
+                      Cadastre-se
+                    </Link>
+                  </>
+                )}
               </div>
             </div>
             {/* Fim da atualização */}
