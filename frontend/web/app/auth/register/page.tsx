@@ -4,42 +4,40 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, Mail, Lock, User, CheckCircle } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { ArrowLeft, Mail, Lock, User, CheckCircle, AlertCircle } from "lucide-react";
 import { authService } from "@/app/services/authService";
+import { registerSchema, RegisterFormData } from "@/app/schemas/auth.schema";
 
 export default function RegisterPage() {
   const router = useRouter();
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
-
-  const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
-  }
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<RegisterFormData>({
+    resolver: zodResolver(registerSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    },
+  });
 
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
+  async function onSubmit(data: RegisterFormData) {
     setErrorMsg("");
     setSuccessMsg("");
 
-    if (form.password !== form.confirmPassword) {
-      setErrorMsg("As senhas não conferem.");
-      return;
-    }
-
-    setLoading(true);
     try {
       await authService.register({
-        name: form.name,
-        email: form.email,
-        password: form.password
+        name: data.name,
+        email: data.email,
+        password: data.password,
       });
 
       setSuccessMsg("Cadastro realizado com sucesso! Redirecionando para o login...");
@@ -48,8 +46,6 @@ export default function RegisterPage() {
       }, 2000);
     } catch (err: any) {
       setErrorMsg(err.response?.data?.message || "Erro ao cadastrar.");
-    } finally {
-      setLoading(false);
     }
   }
 
@@ -81,7 +77,7 @@ export default function RegisterPage() {
           <p className="text-gray-500 text-sm mt-2">Preencha seus dados para se cadastrar</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
           
           {/* Nome */}
           <div>
@@ -92,14 +88,12 @@ export default function RegisterPage() {
               <User className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
                 id="name"
-                name="name"
-                value={form.name}
-                onChange={handleChange}
+                {...register("name")}
                 placeholder="Seu nome completo"
-                className="w-full rounded-lg pl-10 pr-4 py-3 border border-gray-200 text-brown-text placeholder-gray-400 focus:outline-none focus:border-terracotta focus:ring-1 focus:ring-terracotta transition bg-gray-50"
-                required
+                className={`w-full rounded-lg pl-10 pr-4 py-3 border ${errors.name ? "border-red-500" : "border-gray-200"} text-brown-text placeholder-gray-400 focus:outline-none focus:border-terracotta focus:ring-1 focus:ring-terracotta transition bg-gray-50`}
               />
             </div>
+            {errors.name && <span className="text-xs text-red-500 mt-1">{errors.name.message}</span>}
           </div>
 
           {/* Email */}
@@ -111,15 +105,13 @@ export default function RegisterPage() {
               <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
                 id="email"
-                name="email"
                 type="email"
-                value={form.email}
-                onChange={handleChange}
+                {...register("email")}
                 placeholder="seu@email.com"
-                className="w-full rounded-lg pl-10 pr-4 py-3 border border-gray-200 text-brown-text placeholder-gray-400 focus:outline-none focus:border-terracotta focus:ring-1 focus:ring-terracotta transition bg-gray-50"
-                required
+                className={`w-full rounded-lg pl-10 pr-4 py-3 border ${errors.email ? "border-red-500" : "border-gray-200"} text-brown-text placeholder-gray-400 focus:outline-none focus:border-terracotta focus:ring-1 focus:ring-terracotta transition bg-gray-50`}
               />
             </div>
+            {errors.email && <span className="text-xs text-red-500 mt-1">{errors.email.message}</span>}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -132,16 +124,13 @@ export default function RegisterPage() {
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
                 <input
                   id="password"
-                  name="password"
                   type="password"
-                  value={form.password}
-                  onChange={handleChange}
+                  {...register("password")}
                   placeholder="********"
-                  className="w-full rounded-lg pl-10 pr-4 py-3 border border-gray-200 text-brown-text placeholder-gray-400 focus:outline-none focus:border-terracotta focus:ring-1 focus:ring-terracotta transition bg-gray-50"
-                  required
-                  minLength={8}
+                  className={`w-full rounded-lg pl-10 pr-4 py-3 border ${errors.password ? "border-red-500" : "border-gray-200"} text-brown-text placeholder-gray-400 focus:outline-none focus:border-terracotta focus:ring-1 focus:ring-terracotta transition bg-gray-50`}
                 />
               </div>
+              {errors.password && <span className="text-xs text-red-500 mt-1">{errors.password.message}</span>}
             </div>
 
             {/* Confirmar Senha */}
@@ -153,23 +142,20 @@ export default function RegisterPage() {
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
                 <input
                   id="confirmPassword"
-                  name="confirmPassword"
                   type="password"
-                  value={form.confirmPassword}
-                  onChange={handleChange}
+                  {...register("confirmPassword")}
                   placeholder="********"
-                  className="w-full rounded-lg pl-10 pr-4 py-3 border border-gray-200 text-brown-text placeholder-gray-400 focus:outline-none focus:border-terracotta focus:ring-1 focus:ring-terracotta transition bg-gray-50"
-                  required
-                  minLength={8}
+                  className={`w-full rounded-lg pl-10 pr-4 py-3 border ${errors.confirmPassword ? "border-red-500" : "border-gray-200"} text-brown-text placeholder-gray-400 focus:outline-none focus:border-terracotta focus:ring-1 focus:ring-terracotta transition bg-gray-50`}
                 />
               </div>
+              {errors.confirmPassword && <span className="text-xs text-red-500 mt-1">{errors.confirmPassword.message}</span>}
             </div>
           </div>
 
           {/* Mensagens */}
           {errorMsg && (
             <div className="text-sm text-red-600 bg-red-50 p-3 rounded border border-red-100 flex items-center gap-2 animate-pulse">
-              <span>⚠️</span> {errorMsg}
+              <AlertCircle className="w-4 h-4" /> {errorMsg}
             </div>
           )}
 
@@ -183,10 +169,10 @@ export default function RegisterPage() {
           <div className="pt-4">
             <button
               type="submit"
-              disabled={loading}
+              disabled={isSubmitting}
               className="w-full bg-terracotta text-white font-bold py-3 rounded-lg hover:bg-terracotta-dark transition duration-200 transform hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed shadow-md"
             >
-              {loading ? "Cadastrando..." : "Criar conta"}
+              {isSubmitting ? "Cadastrando..." : "Criar conta"}
             </button>
           </div>
         </form>
