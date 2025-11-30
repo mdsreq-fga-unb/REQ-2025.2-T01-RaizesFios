@@ -5,11 +5,12 @@ export const registerUserSchema = z.object({
     .min(1, "Nome é obrigatório"),
 
   email: z
+    .string({ error: "Email é obrigatório" })
     .email("E-mail inválido"),
 
   password: z
     .string({ error: "Senha é obrigatória" })
-    .min(8, "Senha deve ter pelo menos 8 caracteres")
+    .min(8, "Senha deve ter pelo menos 8 caracteres"),
 });
 
 export type RegisterUserDTO = z.infer<typeof registerUserSchema>;
