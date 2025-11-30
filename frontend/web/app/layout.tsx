@@ -1,6 +1,22 @@
 import type { Metadata, Viewport } from "next";
+import { Playfair_Display, Lato } from "next/font/google";
 import "./globals.css";
-import { GOOGLE_FONTS_URL } from "./constants/fonts";
+import CartDrawer from "./components/CartDrawer";
+
+// Configuração das fontes otimizadas
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+  weight: ["400", "600", "700"],
+});
+
+const lato = Lato({
+  subsets: ["latin"],
+  variable: "--font-lato",
+  display: "swap",
+  weight: ["300", "400", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Raízes & Fios - Artesanato em Crochê",
@@ -27,14 +43,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href={GOOGLE_FONTS_URL} rel="stylesheet" />
-      </head>
-      <body className="antialiased font-sans">
+    <html lang="pt-BR" className={`${playfair.variable} ${lato.variable}`}>
+      <body className="antialiased font-sans bg-cream text-brown-text">
+        {/* Zustand não precisa de Provider envolvendo a aplicação */}
         {children}
+        <CartDrawer />
       </body>
     </html>
   );

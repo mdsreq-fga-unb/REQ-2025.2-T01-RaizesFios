@@ -9,7 +9,7 @@ import {
 
 export default function Home() {
   return (
-    <div className="min-h-screen font-sans" style={{ backgroundColor: '#FDF6EB', color: '#4A3B32' }}>
+    <div className="min-h-screen font-sans bg-cream text-brown-text">
       <Header />
       
       <main className="px-2 md:px-6">
