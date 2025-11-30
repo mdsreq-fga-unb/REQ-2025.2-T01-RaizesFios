@@ -34,3 +34,35 @@ export const searchProductsSchema = z.object({
     search: z.string().optional(),
   }),
 });
+
+// ------------------------------
+// US003 - Excluir Produto
+// ------------------------------
+
+export const deleteProductSchema = z.object({
+  params: z.object({
+    id: z.string().transform(Number),
+  }),
+});
+
+// ------------------------------
+// Adicionei Atualizar Produto
+// ------------------------------
+export const updateProductSchema = z.object({
+  params: z.object({
+    id: z.string().transform(Number),
+  }),
+  body: z
+    .object({
+      nome: z.string().optional(),
+      descricao: z.string().optional(),
+      preco: z.number().optional(),
+      sku: z.string().optional(),
+      imagemUrl: z.string().optional(),
+      ativo: z.boolean().optional(),
+      categoriaId: z.number().optional(),
+    })
+    .refine((data) => Object.keys(data).length > 0, {
+      message: "Nenhum campo para atualizar.",
+    }),
+});

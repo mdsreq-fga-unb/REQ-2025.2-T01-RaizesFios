@@ -57,3 +57,33 @@ export async function searchProducts(search?: string) {
 
   return products;
 }
+
+// ---------------------------
+// US003 - Excluir Produto
+// ---------------------------
+
+export async function deleteProduct(id: number) {
+  return prisma.produto.delete({
+    where: { id },
+  });
+}
+
+// ------------------------------
+// Adicionei Atualizar Produto
+// ------------------------------
+
+export async function updateProduct(id: number, data: any) {
+  const exists = await prisma.produto.findUnique({ where: { id } });
+
+  if (!exists) return null;
+
+  const updated = await prisma.produto.update({
+    where: { id },
+    data: {
+      ...data,
+      categoriaId: data.categoriaId ? data.categoriaId : undefined,
+    },
+  });
+
+  return updated;
+}

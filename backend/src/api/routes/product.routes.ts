@@ -10,4 +10,10 @@ productRouter.post("/", productController.create);
 productRouter.get("/:id", productController.getById);
 productRouter.get("/", productController.search); // Exemplo: GET /products/search?search=creme
 
+// US003 - Excluir Produto
+productRouter.delete("/:id", productController.remove);
+
+// Adicionei Atualiar Produto
+productRouter.put("/:id", productController.update);
+
 export default productRouter;

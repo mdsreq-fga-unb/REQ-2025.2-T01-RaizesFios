@@ -4,6 +4,8 @@ import {
   productSchema,
   getProductByIdSchema,
   searchProductsSchema,
+  deleteProductSchema,
+  updateProductSchema,
 } from "../schemas/product.schema";
 
 // --------------------------------------
@@ -100,8 +102,84 @@ async function search(req: Request, res: Response) {
   }
 }
 
+// --------------------------------------
+// US003 - Excluir Produto 
+// --------------------------------------
+async function remove(req: Request, res: Response) {
+  const parsed = deleteProductSchema.safeParse(req);
+
+  if (!parsed.success) {
+    return res.status(400).json({
+      error: "ID inválido.",
+      issues: parsed.error.issues,
+    });
+  }
+
+  const id = parsed.data.params.id;
+
+  try {
+    const deleted = await productService.deleteProduct(id);
+
+    return res.json({
+      message: "Produto excluído com sucesso.",
+      deleted,
+    });
+  } catch (error: any) {
+    if (error.code === "P2025") {
+      return res.status(404).json({
+        error: "Produto não encontrado.",
+      });
+    }
+
+    return res.status(500).json({
+      error: "Erro interno ao excluir produto.",
+    });
+  }
+}
+
+// ------------------------------
+// Adicionei Atualizar Produto
+// ------------------------------
+
+async function update(req: Request, res: Response) {
+  const parsed = updateProductSchema.safeParse({
+    params: req.params,
+    body: req.body,
+  });
+
+  if (!parsed.success) {
+    return res.status(400).json({
+      error: "Dados inválidos.",
+      issues: parsed.error.issues,
+    });
+  }
+
+  const { id } = parsed.data.params;
+  const updatedData = parsed.data.body;
+
+  try {
+    const updated = await productService.updateProduct(id, updatedData);
+
+    if (!updated) {
+      return res.status(404).json({ error: "Produto não encontrado." });
+    }
+
+    return res.json({
+      message: "Produto atualizado com sucesso.",
+      updated,
+    });
+  } catch (error) {
+    console.error("Erro ao atualizar produto:", error);
+    return res.status(500).json({ error: "Falha interna ao atualizar produto." });
+  }
+}
+
+
+
 export default {
   create,
   getById,
   search,
+  remove,
+  update,
 };
