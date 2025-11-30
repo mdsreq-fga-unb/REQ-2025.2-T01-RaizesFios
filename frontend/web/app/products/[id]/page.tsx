@@ -1,14 +1,14 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { notFound, useParams } from 'next/navigation';
-import { Star, ShoppingBag, Truck, ShieldCheck, Ruler, PenTool, Info } from 'lucide-react';
+import { Star, ShoppingBag, Truck, ShieldCheck, Info, Loader2 } from 'lucide-react';
 import { Header, Footer } from '../../components';
 import { useCartStore } from '../../stores/useCartStore';
-import { MOCK_PRODUCTS } from '../../mocks/products';
+import { productService, Product } from '../../services/productService';
 
-// Mock de avaliações para exemplo
+// Mock de avaliações para exemplo (mantido estático por enquanto)
 const REVIEWS = [
   {
     id: 1,
@@ -37,22 +37,47 @@ export default function ProductDetailsPage() {
   const params = useParams();
   const addToCart = useCartStore((state) => state.addToCart);
   
-  // Conversão segura do ID
   const productId = Number(params.id);
-  const product = MOCK_PRODUCTS.find(p => p.id === productId);
+  const [product, setProduct] = useState<Product | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [selectedImage, setSelectedImage] = useState('');
 
-  // Estado para a imagem selecionada
-  // Inicializa com a primeira imagem do array ou a imagem principal
-  const [selectedImage, setSelectedImage] = useState(product?.image || '');
+  useEffect(() => {
+    const loadProduct = async () => {
+      if (!productId) return;
+      try {
+        const data = await productService.getById(productId);
+        setProduct(data);
+        setSelectedImage(data.imageUrl || '/placeholder.png');
+      } catch (err) {
+        console.error("Erro ao carregar produto", err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    loadProduct();
+  }, [productId]);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-cream flex items-center justify-center">
+         <Loader2 className="w-10 h-10 animate-spin text-terracotta" />
+      </div>
+    );
+  }
 
   if (!product) {
     return notFound();
   }
 
-  // Garante que sempre tenhamos um array de imagens, mesmo que seja só a principal
-  const images = product.images && product.images.length > 0 
-    ? product.images 
-    : [product.image];
+  // Adaptação para o layout de galeria (backend atual só tem 1 imagem)
+  const mainImage = product.imageUrl || '/placeholder.png';
+  const images = [mainImage]; 
+
+  // Função auxiliar para adicionar ao carrinho com compatibilidade de tipos
+  const handleAddToCart = () => {    
+    addToCart(product);
+  };
 
   return (
     <div className="min-h-screen font-sans bg-cream flex flex-col">
@@ -67,37 +92,45 @@ export default function ProductDetailsPage() {
               
               {/* Galeria de Imagens (Esquerda) */}
               <div className="w-full lg:w-1/2 flex flex-col-reverse md:flex-row gap-4">
-                {/* Thumbnails (Lista Vertical no Desktop, Horizontal no Mobile) */}
-                <div className="flex md:flex-col gap-3 overflow-x-auto md:overflow-y-auto md:max-h-[500px] scrollbar-hide">
-                  {images.map((img, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setSelectedImage(img)}
-                      className={`relative w-20 h-20 shrink-0 rounded-xl overflow-hidden border-2 transition-all ${
-                        selectedImage === img 
-                          ? 'border-terracotta opacity-100 ring-2 ring-terracotta/30' 
-                          : 'border-transparent opacity-70 hover:opacity-100'
-                      }`}
-                    >
-                      <Image
-                        src={img}
-                        alt={`${product.name} - View ${index + 1}`}
-                        fill
-                        className="object-cover"
-                      />
-                    </button>
-                  ))}
-                </div>
+                {/* Thumbnails */}
+                {images.length > 1 && (
+                  <div className="flex md:flex-col gap-3 overflow-x-auto md:overflow-y-auto md:max-h-[500px] scrollbar-hide">
+                    {images.map((img, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setSelectedImage(img)}
+                        className={`relative w-20 h-20 shrink-0 rounded-xl overflow-hidden border-2 transition-all ${
+                          selectedImage === img 
+                            ? 'border-terracotta opacity-100 ring-2 ring-terracotta/30' 
+                            : 'border-transparent opacity-70 hover:opacity-100'
+                        }`}
+                      >
+                        <Image
+                          src={img}
+                          alt={`${product.name} - View ${index + 1}`}
+                          fill
+                          className="object-cover"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                )}
 
                 {/* Imagem Principal */}
                 <div className="grow relative aspect-square rounded-2xl overflow-hidden bg-gray-100 shadow-inner">
-                  <Image
-                    src={selectedImage || product.image}
-                    alt={product.name}
-                    fill
-                    className="object-cover transition-opacity duration-300"
-                    priority
-                  />
+                  {product.imageUrl ? (
+                    <Image
+                      src={selectedImage}
+                      alt={product.name}
+                      fill
+                      className="object-cover transition-opacity duration-300"
+                      priority
+                    />
+                  ) : (
+                    <div className="flex items-center justify-center h-full text-gray-400">
+                      Sem imagem
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -105,7 +138,7 @@ export default function ProductDetailsPage() {
               <div className="w-full lg:w-1/2 flex flex-col justify-center space-y-6">
                 <div>
                   <span className="text-sm text-terracotta font-bold uppercase tracking-wider">
-                    {product.category}
+                    {product.category?.name || "Artesanato"}
                   </span>
                   <h1 className="text-3xl md:text-4xl font-serif font-bold text-brown-text mt-2 mb-2">
                     {product.name}
@@ -122,17 +155,13 @@ export default function ProductDetailsPage() {
                   </div>
 
                   <p className="text-3xl font-bold text-terracotta">
-                    {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(product.price || 0)}
+                    {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(Number(product.price))}
                   </p>
                 </div>
 
-                <p className="text-gray-600 leading-relaxed text-lg">
-                  {product.description}
-                </p>
-
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   <button 
-                    onClick={() => addToCart(product)}
+                    onClick={handleAddToCart}
                     className="flex-1 bg-terracotta text-white py-4 px-6 rounded-full font-bold hover:opacity-90 transition flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform active:scale-[0.98]"
                   >
                     <ShoppingBag size={20} />
@@ -167,39 +196,8 @@ export default function ProductDetailsPage() {
                     </h2>
                   </div>
                   <p className="text-gray-600 leading-relaxed text-lg text-justify">
-                    {product.longDescription || product.description}
+                    {product.description}
                   </p>
-                </div>
-
-                {/* Coluna de Detalhes Técnicos (Tamanho/Material) */}
-                <div className="bg-cream/50 rounded-2xl p-6 h-fit border border-terracotta/10">
-                   <h3 className="font-serif font-bold text-xl text-brown-text mb-6">Detalhes Técnicos</h3>
-                   
-                   <div className="space-y-6">
-                      {product.dimensions && (
-                        <div className="flex gap-4 items-start">
-                          <div className="bg-white p-2 rounded-lg shadow-sm text-terracotta">
-                             <Ruler size={20} />
-                          </div>
-                          <div>
-                            <h4 className="font-bold text-brown-text text-sm uppercase tracking-wide">Dimensões</h4>
-                            <p className="text-gray-600 mt-1">{product.dimensions}</p>
-                          </div>
-                        </div>
-                      )}
-
-                      {product.material && (
-                        <div className="flex gap-4 items-start">
-                          <div className="bg-white p-2 rounded-lg shadow-sm text-terracotta">
-                             <PenTool size={20} />
-                          </div>
-                          <div>
-                            <h4 className="font-bold text-brown-text text-sm uppercase tracking-wide">Material</h4>
-                            <p className="text-gray-600 mt-1">{product.material}</p>
-                          </div>
-                        </div>
-                      )}
-                   </div>
                 </div>
              </div>
           </div>
@@ -225,7 +223,7 @@ export default function ProductDetailsPage() {
                     </div>
                   </div>
                   <p className="text-gray-600 text-sm italic">
-                    "{review.comment}"
+                    &quot;{review.comment}&quot;
                   </p>
                 </div>
               ))}
