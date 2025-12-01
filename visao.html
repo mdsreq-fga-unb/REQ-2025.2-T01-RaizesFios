@@ -6,6 +6,149 @@
   <title>Visão do Produto e Projeto - Raízes & Fios</title>
   <link rel="stylesheet" href="style.css">
   <style>
+    /* Estilos para as fases RAD */
+.rad-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.phase-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
+
+.phase-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.12);
+}
+
+.phase-header {
+    background-color: #B87333;
+    color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.phase-header h3 {
+    font-size: 1.6rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+.phase-number {
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.phase-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.phase-table th {
+    background-color: #E6D3A7;
+    color: #333;
+    text-align: left;
+    padding: 15px;
+    font-weight: 600;
+    border-bottom: 2px solid #B87333;
+}
+
+.phase-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+}
+
+.phase-table tr:last-child td {
+    border-bottom: none;
+}
+
+.phase-table tr:hover {
+    background-color: rgba(230, 211, 167, 0.1);
+}
+
+.technique-tag {
+    display: inline-block;
+    background-color: rgba(184, 115, 51, 0.15);
+    color: #B87333;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin: 3px 0;
+    font-weight: 500;
+    border: 1px solid rgba(184, 115, 51, 0.3);
+}
+
+/* Estilos para o resumo */
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.technique-card {
+    border-left: 4px solid #B87333;
+    padding: 15px;
+    background-color: rgba(230, 211, 167, 0.1);
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 15px;
+}
+
+.technique-name {
+    font-weight: 600;
+    color: #B87333;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.technique-phases {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.phase-badge {
+    background-color: #E6D3A7;
+    color: #333;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .rad-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .phase-table {
+        display: block;
+        overflow-x: auto;
+    }
+}
     /* Esconde todas as seções por padrão */
     section {
       display: none;
@@ -543,114 +686,192 @@
     </section>
 
     <section id="topicoquatro">
-      <h2>4. ENGENHARIA DE REQUISITOS </h2>
+      <div class="rad-section">
+        <h2>4. ENGENHARIA DE REQUISITOS</h2>
+        <p class="section-subtitle">Organização completa das atividades, práticas, técnicas e resultados esperados</p>
 
-      <h1>4.1 Atividades e Técnicas de ER</h1>
+        <div class="phase-card">
+          <div class="phase-header">
+          <h3>Fase 1: Planejamento</h3>
+          <div class="phase-number">1</div>
+          </div>
+    <div class="phase-body">
+        <table class="phase-table">
+            <thead>
+                <tr>
+                    <th>Atividade ER</th>
+                    <th>Prática</th>
+                    <th>Técnica</th>
+                    <th>Resultado Esperado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Elicitação e Descoberta</strong></td>
+                    <td>Levantamento de Requisito</td>
+                    <td>
+                        <div class="technique-tag">Entrevista com o casal</div>
+                    </td>
+                    <td>Lista validada de requisitos funcionais e não funcionais, priorizados conforme necessidades do cliente.</td>
+                </tr>
+                <tr>
+                    <td><strong>Análise e Consenso</strong></td>
+                    <td>Refinamento de Requisitos</td>
+                    <td>
+                        <div class="technique-tag">Análise de Concorrentes</div>
+                    </td>
+                    <td>Estudar os serviços dos concorrentes para buscar diferenciais e entender o rumo do mercado.</td>
+                </tr>
+                <tr>
+                    <td><strong>Análise e Consenso</strong></td>
+                    <td>Refinamento de Requisitos</td>
+                    <td>
+                        <div class="technique-tag">Reuniões de Alinhamento</div>
+                    </td>
+                    <td>Requisitos revisados e acordados, eliminando ambiguidades e conflitos.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+        </div><br>
 
-      <h3>Elicitação e Descoberta</h3>
-      <p><strong>Entrevista com o casal:</strong> será utilizada para compreender as necessidades, expectativas e
-        preferências do casal em relação ao sistema, coletando informações sobre funcionalidades desejadas, estilo
-        visual e usabilidade.</p>
-      <p><strong>Análise de Concorrentes:</strong> será aplicada para identificar como outros sistemas semelhantes
-        funcionam, destacando boas práticas, oportunidades de inovação e diferenciais competitivos a serem incorporados
-        ao projeto.</p>
+        <div class="phase-card">
+    <div class="phase-header">
+        <h3>Fase 2: User Design</h3>
+        <div class="phase-number">2</div>
+    </div>
+    <div class="phase-body">
+        <table class="phase-table">
+            <thead>
+                <tr>
+                    <th>Atividade ER</th>
+                    <th>Prática</th>
+                    <th>Técnica</th>
+                    <th>Resultado Esperado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Organização e Atualização</strong></td>
+                    <td>Priorização de Requisitos</td>
+                    <td>
+                        <div class="technique-tag">Matriz de Complexidade</div>
+                    </td>
+                    <td>Classificar e priorizar requisitos com base no grau de esforço e impacto, identificando funcionalidades simples ou complexas para planejamento eficiente.</td>
+                </tr>
+                <tr>
+                    <td><strong>Declaração</strong></td>
+                    <td>Registro de Requisitos</td>
+                    <td>
+                        <div class="technique-tag">User Story (US)</div>
+                    </td>
+                    <td>Documentação estruturada dos requisitos em formato de User Stories, pronta para uso pela equipe de desenvolvimento.</td>
+                </tr>
+                <tr>
+                    <td><strong>Representação</strong></td>
+                    <td>Elaboração do design do produto</td>
+                    <td>
+                        <div class="technique-tag">Prototipagem</div>
+                    </td>
+                    <td>Transformar requisitos em modelos visuais, facilitando o entendimento e a evolução do produto.</td>
+                </tr>
+                <tr>
+                    <td><strong>Verificação e Validação</strong></td>
+                    <td>Validação dos Requisitos</td>
+                    <td>
+                        <div class="technique-tag">Prototipagem</div>
+                        <div class="technique-tag">Feedback do Cliente</div>
+                    </td>
+                    <td>Protótipo validado pelo cliente, garantindo que o design e as funcionalidades representem corretamente os requisitos definidos.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+        </div><br>
 
-      <h3>Análise e Consenso</h3>
-      <p><strong>Reuniões de Alinhamento:</strong> serão realizadas para discutir, revisar e validar as informações
-        coletadas na fase de elicitação, garantindo consenso entre os membros da equipe e o cliente sobre o escopo e as
-        prioridades do projeto.</p>
+        <div class="phase-card">
+    <div class="phase-header">
+        <h3>Fase 3: Construção</h3>
+        <div class="phase-number">3</div>
+    </div>
+    <div class="phase-body">
+        <table class="phase-table">
+            <thead>
+                <tr>
+                    <th>Atividade ER</th>
+                    <th>Prática</th>
+                    <th>Técnica</th>
+                    <th>Resultado Esperado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Verificação e Validação</strong></td>
+                    <td>Verificação dos requisitos levantados</td>
+                    <td>
+                        <div class="technique-tag">Checklists</div>
+                    </td>
+                    <td>Conjunto de requisitos confirmados e aprovados pelo cliente, assegurando alinhamento com as expectativas e objetivos do projeto.</td>
+                </tr>
+                <tr>
+                    <td><strong>Verificação e Validação</strong></td>
+                    <td>Validação dos Requisitos</td>
+                    <td>
+                        <div class="technique-tag">Feedback do Cliente</div>
+                    </td>
+                    <td>Validação contínua durante o desenvolvimento.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+        </div><br>
 
-      <h3>Organização e Atualização</h3>
-      <p><strong>Matriz de Complexidade:</strong> será utilizada para classificar e priorizar os requisitos levantados com base no grau de esforço e impacto, permitindo identificar quais funcionalidades são mais simples ou complexas de implementar e auxiliar no planejamento das entregas de forma mais eficiente e alinhada às necessidades do casal.</p>
+        <div class="phase-card">
+    <div class="phase-header">
+        <h3>Fase 4: Fechamento</h3>
+        <div class="phase-number">4</div>
+    </div>
+    <div class="phase-body">
+        <table class="phase-table">
+            <thead>
+                <tr>
+                    <th>Atividade ER</th>
+                    <th>Prática</th>
+                    <th>Técnica</th>
+                    <th>Resultado Esperado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Verificação e Validação</strong></td>
+                    <td>Verificação dos requisitos levantados</td>
+                    <td>
+                        <div class="technique-tag">Checklists (final)</div>
+                    </td>
+                    <td>Verificação final da implementação completa dos requisitos.</td>
+                </tr>
+                <tr>
+                    <td><strong>Verificação e Validação</strong></td>
+                    <td>Validação dos Requisitos</td>
+                    <td>
+                        <div class="technique-tag">Feedback do Cliente (final)</div>
+                    </td>
+                    <td>Validação final com o casal para confirmação do atendimento às necessidades.</td>
+                </tr>
+                <tr>
+                    <td><strong>Análise e Consenso</strong></td>
+                    <td>Refinamento de Requisitos</td>
+                    <td>
+                        <div class="technique-tag">Reuniões de Alinhamento (final)</div>
+                    </td>
+                    <td>Aceitação formal do sistema e encerramento do projeto.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+        </div>
 
-      <h3>Declaração</h3>
-      <p><strong>User Story (US):</strong> os requisitos serão registrados em formato de histórias de usuário,
-        descrevendo as funcionalidades sob a perspectiva do cliente final, de forma simples e objetiva.</p>
 
-      <h3>Representação</h3>
-      <p><strong>Prototipagem:</strong> será utilizada para transformar os requisitos em representações visuais
-        (protótipos de baixa e média fidelidade), permitindo ao casal visualizar antecipadamente o produto e fornecer
-        feedback sobre o design e fluxo de navegação.</p>
-
-      <h3>Verificação e Validação</h3>
-      <p><strong>Checklists:</strong> serão empregados para revisar se todos os requisitos levantados foram
-        implementados e atendem aos critérios estabelecidos.</p>
-      <p><strong>Feedback do Cliente:</strong> será coletado por meio de reuniões e testes com o casal, para confirmar
-        se o sistema reflete corretamente suas necessidades e expectativas antes da entrega final.</p>
-
-      <h1>4.2 Engenharia de Requisitos e o RAD</h1>
-
-      <table class="tabela-custom5">
-        <tr>
-          <th>Fases do Processo</th>
-          <th>Atividades ER</th>
-          <th>Prática</th>
-          <th>Técnica</th>
-          <th>Resultado Esperado</th>
-        </tr>
-        <tr>
-          <td>Planejamento de Requisitos</td>
-          <td>Elicitação e Descoberta</td>
-          <td>Levantamento de Requisito</td>
-          <td>Entrevista com o casal</td>
-          <td>Lista validada de requisitos funcionais e não funcionais, priorizados conforme necessidades do cliente.
-          </td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>Análise de Concorrentes</td>
-          <td>Estudar os serviços dos concorrentes para buscar diferenciais e entender o rumo do mercado.</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>Análise e Consenso</td>
-          <td>Refinamento de Requisitos</td>
-          <td>Reuniões de Alinhamento</td>
-          <td>Requisitos revisados e acordados, eliminando ambiguidades e conflitos.</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>Organização e Atualização</td>
-          <td>Priorização de Requisitos</td>
-          <td>Matriz de Complexidade</td>
-          <td>Utilizada para classificar e priorizar os requisitos levantados com base no grau de esforço e impacto, permitindo identificar quais funcionalidades são mais simples ou complexas de implementar e auxiliar no planejamento das entregas de forma mais eficiente e alinhada às necessidades do casal.</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>Declaração</td>
-          <td>Registro de Requisitos</td>
-          <td>User Story (US)</td>
-          <td>Documentação estruturada dos requisitos em formato de User Stories, pronta para uso pela equipe de
-            desenvolvimento.</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>Verificação e Validação</td>
-          <td>Verificar e validar os requisitos levantados</td>
-          <td>Checklists, Feedback do Cliente</td>
-          <td>Conjunto de requisitos confirmados e aprovados pelo cliente, assegurando alinhamento com as expectativas e
-            objetivos do projeto.</td>
-        </tr>
-        <tr>
-          <td>User Design</td>
-          <td>Representação</td>
-          <td>Elaboração do design do produto</td>
-          <td>Prototipagem</td>
-          <td>Transformar requisitos em modelos visuais, facilitando o entendimento e a evolução do produto.</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>Verificação e Validação</td>
-          <td>Validação dos Requisitos</td>
-          <td>Checklists, Feedback do Cliente</td>
-          <td>Protótipo validado pelo cliente, garantindo que o design e as funcionalidades representem corretamente os
-            requisitos definidos.</td>
-        </tr>
-      </table>
-
-    </section>
 
     <section id="topicocinco">
      <h2>5. CRONOGRAMA DE ENTREGAS</h2>
