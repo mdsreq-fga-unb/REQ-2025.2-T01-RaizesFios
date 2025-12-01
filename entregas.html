@@ -1227,25 +1227,202 @@
 
     <section id="entregatres_backend">
       <h1>Estudo de caso: EcoMove</h1>
-      
+      <p>Este estudo de caso aborda os desafios operacionais e de experiência no setor de mobilidade urbana sustentável, cenário vivido pela startup fictícia "EcoMove". O problema central reside na fragmentação e na operação reativa que caracterizam os atuais serviços de bicicletas e patinetes compartilhados, resultando em uma frota mal distribuída, processos de manutenção ineficientes que sobrecarregam técnicas como Marina, e uma experiência frustrante para usuários como Lucas, que enfrentam dificuldades para localizar e utilizar os veículos. Para enfrentar essa problemática de forma centrada no usuário, a atividade proposta consiste na elaboração de um User Story Mapping (USM), uma ferramenta visual que organiza horizontalmente a jornada do usuário e verticalmente a priorização de funcionalidades. O objetivo é mapear de forma colaborativa as Atividades e Tarefas de todas as personas envolvidas - do usuário urbano à gestora pública Fernanda - decompondo-as em User Stories granularizadas e acompanhadas de Critérios de Aceitação claros e mensuráveis. Este artefato servirá como base para um backlog estruturado e alinhado com os objetivos de negócio, garantindo que o desenvolvimento da plataforma EcoMove seja guiado pelas reais necessidades de seu ecossistema de usuários e operadores.</p>
+      <br>
       <div class="topics-container">
-        <h2>1. User Story Mapping</h2>
-        <div class="topic-content">
-          <p>TEXTO AQUI</p>
-        </div>         
+    <!-- Tópico 1: USM -->
+    <div class="topic">
+      <h2>1. User Story Map (USM)</h2>
+      <div class="topic-content">
+        <div class="mural-container">
+          <iframe 
+            src='https://app.mural.co/embed/1fede127-d5a6-4687-8e89-7dd0e3241244' 
+            width='100%' 
+            height='600px' 
+            style='background-color: #f4f4f4; border: 1px solid #efefef; border-radius: 8px;' 
+            sandbox='allow-same-origin allow-scripts allow-modals allow-popups allow-popups-to-escape-sandbox'
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>      
       </div>
 
-      <div class="topics-container">
-        <h2>2. User Stories</h2>
-        <div class="topic-content">
-          <p>TEXTO AQUI</p>
-        </div>  
-      </div>
 
       <div class="topics-container">
-        <h2>3. Critérios de Aceitação</h2>
+        <h2>2. Critérios de Aceitação</h2>
         <div class="topic-content">
-          <p>TEXTO AQUI</p>
+
+    <div class="criteria-grid">
+
+      <!-- US: Registrar manutenção realizada -->
+      <div class="criteria-card">
+        <div class="criteria-header">
+          <h4>US: Registrar manutenção realizada</h4>
+        </div>
+        <div class="criteria-body">
+          <div class="criterion">O registro só pode ser feito se o veículo estiver em estado de manutenção</div>
+          <div class="criterion">O sistema deve permitir preencher o tipo de manutenção realizada</div>
+        </div>
+      </div>
+
+      <!-- US: Localizar falha -->
+      <div class="criteria-card">
+        <div class="criteria-header">
+          <h4>US: Localizar falha</h4>
+        </div>
+        <div class="criteria-body">
+          <div class="criterion">Ao marcar uma falha, o sistema deve abrir campo de descrição e foto obrigatória</div>
+          <div class="criterion">Se houver mais de uma falha, o sistema deve permitir múltiplas ocorrências</div>
+        </div>
+      </div>
+
+      <!-- US: Receber uma roteirização eficiente para o recolhimento -->
+      <div class="criteria-card">
+        <div class="criteria-header">
+          <h4>US: Receber roteirização eficiente para recolhimento</h4>
+        </div>
+        <div class="criteria-body">
+          <div class="criterion">O sistema deve calcular automaticamente uma rota otimizada</div>
+          <div class="criterion">A rota deve ser exibida em um mapa interativo</div>
+        </div>
+      </div>
+
+      <!-- US: Ver painel com mapa em tempo real da frota ativa -->
+      <div class="criteria-card">
+        <div class="criteria-header">
+          <h4>US: Ver painel com mapa em tempo real da frota</h4>
+        </div>
+        <div class="criteria-body">
+          <div class="criterion">O painel deve mostrar um mapa interativo com todos os veículos da frota</div>
+          <div class="criterion">A posição de cada veículo deve ser atualizada a cada 15 segundos</div>
+        </div>
+      </div>
+
+      <!-- US: Ver o status dos veículos -->
+      <div class="criteria-card">
+        <div class="criteria-header">
+          <h4>US: Ver o status dos veículos</h4>
+        </div>
+        <div class="criteria-body">
+          <div class="criterion">Cada veículo deve exibir status com ícone ou cor visual</div>
+          <div class="criterion">O usuário deve poder filtrar os veículos pelos status</div>
+        </div>
+      </div>
+
+      <!-- US: Gerar relatórios consolidados de desempenho -->
+      <div class="criteria-card">
+        <div class="criteria-header">
+          <h4>US: Gerar relatórios consolidados de desempenho</h4>
+        </div>
+        <div class="criteria-body">
+          <div class="criterion">O relatório deve exibir gráficos, tabelas e métricas agregadas</div>
+          <div class="criterion">O relatório deve poder ser exportado no formato de PDF e CSV</div>
+        </div>
+      </div>
+
+      <!-- US: Atribuir digitalmente uma ordem de serviço -->
+      <div class="criteria-card">
+        <div class="criteria-header">
+          <h4>US: Atribuir digitalmente ordem de serviço</h4>
+        </div>
+        <div class="criteria-body">
+          <div class="criterion">O sistema deve permitir a criação de uma OS manualmente</div>
+          <div class="criterion">A OS deve estar vinculada a um responsável</div>
+        </div>
+      </div>
+
+      <!-- US: Publicar relatórios no portal público -->
+      <div class="criteria-card">
+        <div class="criteria-header">
+          <h4>US: Publicar relatórios no portal público</h4>
+        </div>
+        <div class="criteria-body">
+          <div class="criterion">Cada relatório publicado deve conter identificação da autora</div>
+          <div class="criterion">Antes da publicação o sistema deve exibir uma prévia do relatório</div>
+        </div>
+      </div>
+
+      <!-- US: Acessar um painel com dados consolidados de uso -->
+      <div class="criteria-card">
+        <div class="criteria-header">
+          <h4>US: Acessar painel com dados consolidados de uso</h4>
+        </div>
+        <div class="criteria-body">
+          <div class="criterion">Apenas usuários com permissão podem acessar o painel</div>
+          <div class="criterion">O painel deve exibir indicadores consolidados da frota, agrupados por categorias</div>
+        </div>
+      </div>
+
+      <!-- US: Criar Conta -->
+      <div class="criteria-card">
+        <div class="criteria-header">
+          <h4>US: Criar Conta</h4>
+        </div>
+        <div class="criteria-body">
+          <div class="criterion">O sistema deve permitir o cadastro com e-mail, CPF e número de celular</div>
+          <div class="criterion">O sistema deve enviar um código de verificação por SMS ou e-mail</div>
+        </div>
+      </div>
+
+      <!-- US: Cadastrar um método de pagamento -->
+      <div class="criteria-card">
+        <div class="criteria-header">
+          <h4>US: Cadastrar método de pagamento</h4>
+        </div>
+        <div class="criteria-body">
+          <div class="criterion">O sistema deve permitir cartão, Pix e carteira digital</div>
+          <div class="criterion">O usuário pode cadastrar múltiplos métodos e definir um como padrão</div>
+        </div>
+      </div>
+
+      <!-- US: Desbloquear o veículo escaneando um QR Code -->
+      <div class="criteria-card">
+        <div class="criteria-header">
+          <h4>US: Desbloquear veículo escaneando QR Code</h4>
+        </div>
+        <div class="criteria-body">
+          <div class="criterion">Ao reconhecer, o sistema deve exibir o ID do veículo</div>
+          <div class="criterion">Se o QR estiver danificado, deve existir entrada manual do código curto</div>
+        </div>
+      </div>
+
+      <!-- US: Ver a localização exata dos veículos com defeito -->
+      <div class="criteria-card">
+        <div class="criteria-header">
+          <h4>US: Ver localização exata dos veículos com defeito</h4>
+        </div>
+        <div class="criteria-body">
+          <div class="criterion">A precisão exibida deve ter precisão <= 30 metros</div>
+          <div class="criterion">Atualização em tempo real: mapa atualiza a cada 30 segundos</div>
+        </div>
+      </div>
+
+      <!-- US: Realizar "check-out" do veículo -->
+      <div class="criteria-card">
+        <div class="criteria-header">
+          <h4>US: Realizar "check-out" do veículo</h4>
+        </div>
+        <div class="criteria-body">
+          <div class="criterion">O sistema deve exigir confirmação do veículo por QR Code</div>
+          <div class="criterion">O sistema deve exigir evidências no formato de captura de fotos</div>
+        </div>
+      </div>
+
+      <!-- US: Receber uma lista de veículos que precisam de manutenção -->
+      <div class="criteria-card">
+        <div class="criteria-header">
+          <h4>US: Receber lista de veículos para manutenção</h4>
+        </div>
+        <div class="criteria-body">
+          <div class="criterion">A lista deve conter: ID do veículo, tipo de veículo, localização e defeito</div>
+          <div class="criterion">Apenas motoristas autenticados e ativos podem acessar a lista</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
         </div>  
       </div>
 
