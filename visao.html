@@ -1666,7 +1666,7 @@
     <section id="topiconove">
       <h2>9. BACKLOG DE PRODUTO </h2>
 
-      <h1>9.1 Backlog Geral</h1>
+      <h1 id="historias-de-usuario">9.1 Backlog Geral</h1>
 
       <p>Neste tópico será descrito o backlog do produto, organizado hierarquicamente para garantir clareza e rastreabilidade dos requisitos. A estrutura será mantida através do framework de <strong>Temas, Épicos e User Stories</strong>, que desdobra iniciativas estratégicas em partes executáveis, alinhando a visão do produto com o trabalho de desenvolvimento.</p>
 
@@ -2026,7 +2026,7 @@
   </tbody>
 </table>
 
-      <h1>9.2 Priorização do Backlog Geral</h1>
+      <h1 id="matriz-complexidade">9.2 Priorização do Backlog Geral</h1>
       <p>Nesta seção, foi realizada a priorização dos itens do backlog utilizando uma técnica de atribuição de valor de numérico para a análise de valor de negócio, realizada pelo casal de artesãos, e para a análise de viabilidade técnica, realizada pela equipe de desenvolvedores. Os critérios considerados para a avaliação de cada requisito são apresentados abaixo. </p>
 
       <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; margin: 1rem 0;">
@@ -2705,9 +2705,37 @@
       document.querySelectorAll("main section").forEach(sec => {
         sec.classList.remove("active");
       });
-      // mostra só a clicada
-      document.getElementById(id).classList.add("active");
+      // mostra só a clicada, se existir
+      const target = document.getElementById(id);
+      if (target) {
+        target.classList.add("active");
+        window.scrollTo(0, 0); // Rola para o topo da seção
+      }
     }
+
+    // Lógica para lidar com âncoras ao carregar a página
+    document.addEventListener("DOMContentLoaded", () => {
+      const hash = window.location.hash;
+      if (hash) {
+        // Tenta encontrar o elemento alvo da âncora (ex: #analise-de-concorrentes)
+        // Remove o # do início
+        const targetId = hash.substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          // Sobe na árvore DOM para encontrar a <section> pai
+          const parentSection = targetElement.closest("section");
+          
+          if (parentSection && parentSection.id) {
+            showSection(parentSection.id);
+            // Pequeno delay para garantir que a seção esteja visível antes de rolar
+            setTimeout(() => {
+              targetElement.scrollIntoView({ behavior: "smooth" });
+            }, 100);
+          }
+        }
+      }
+    });
   </script>
 </body>
 
