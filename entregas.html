@@ -6,6 +6,215 @@
   <title>Entregas - Raízes & Fios</title>
   <link rel="stylesheet" href="style.css">
   <style>
+    /* Estilo para Cards de Especificação de Casos de Uso */
+.usecase-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.usecase-header {
+  background: linear-gradient(135deg, #D2691E 0%, #CD853F 100%);
+  color: white;
+  padding: 25px 30px;
+}
+
+.usecase-header h3 {
+  margin: 0;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+.usecase-section {
+  padding: 25px 30px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.usecase-section:last-child {
+  border-bottom: none;
+}
+
+.usecase-section h4 {
+  color: #2d3748;
+  margin: 0 0 20px 0;
+  font-size: 1.2em;
+  border-left: 4px solid #667eea;
+  padding-left: 12px;
+}
+
+.usecase-content {
+  line-height: 1.6;
+  color: #4a5568;
+}
+
+/* Fluxo de Eventos */
+.flow-subsection {
+  margin-bottom: 30px;
+}
+
+.flow-subsection h5 {
+  color: #4a5568;
+  margin: 0 0 15px 0;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.flow-list {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.flow-list li {
+  margin-bottom: 10px;
+  padding-left: 5px;
+}
+
+.flow-card {
+  background: #f7fafc;
+  border-left: 4px solid #4299e1;
+  padding: 15px 20px;
+  margin: 10px 0;
+  border-radius: 0 6px 6px 0;
+}
+
+.flow-card.error {
+  border-left-color: #f56565;
+  background: #fff5f5;
+}
+
+.flow-card strong {
+  color: #2d3748;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.flow-card em {
+  color: #718096;
+  font-style: normal;
+  font-size: 0.9em;
+}
+
+/* Requisitos Especiais */
+.requirements-list {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.requirements-list li {
+  margin-bottom: 12px;
+  padding-left: 5px;
+}
+
+/* Regras de Negócio */
+.rules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.rule-card {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 15px;
+  transition: transform 0.2s ease;
+}
+
+.rule-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.rule-card strong {
+  color: #2d3748;
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.95em;
+}
+
+.rule-card p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #4a5568;
+}
+
+/* Pré/Pós-condições */
+.conditions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.condition-card {
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.condition-card.pre {
+  border: 2px solid #4299e1;
+  background: #ebf8ff;
+}
+
+.condition-card.post {
+  border: 2px solid #48bb78;
+  background: #f0fff4;
+}
+
+.condition-card h5 {
+  margin: 0 0 15px 0;
+  font-size: 1.1em;
+  color: #2d3748;
+}
+
+.condition-card ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.condition-card li {
+  margin-bottom: 8px;
+  font-size: 0.95em;
+  line-height: 1.4;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .usecase-header {
+    padding: 20px;
+  }
+  
+  .usecase-section {
+    padding: 20px;
+  }
+  
+  .rules-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .conditions-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .flow-card {
+    padding: 12px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .usecase-header h3 {
+    font-size: 1.2em;
+  }
+  
+  .usecase-section h4 {
+    font-size: 1.1em;
+  }
+}
 
     /* Estilo para User Stories organizadas por persona */
 .persona-section {
@@ -1450,10 +1659,362 @@
   </div>
 </div>
 
-      <div class="topics-container">
-        <h2>2. Especificações de caso de uso</h2>
-        <div class="topic-content">
-          <p>TEXTO AQUI</p>
+          <!-- Tópico 2: Especificação de Casos de Uso -->
+<div class="topic">
+  <h2>2. Especificações de Casos de Uso</h2>
+  <div class="topic-content">
+    
+    <!-- Card principal do Caso de Uso -->
+    <div class="usecase-card">
+      <div class="usecase-header">
+        <h3>📋 Caso de Uso: Cadastrar campanhas</h3>
+      </div>
+      
+      <!-- Seção 1: Descrição -->
+      <div class="usecase-section">
+        <h4>1. Descrição</h4>
+        <div class="usecase-content">
+          <p><strong>Breve Descrição:</strong> O caso de uso Cadastrar Campanhas permite que organizações parceiras registrem ações de saúde na plataforma, como campanhas de vacinação ou mutirões de atendimento. O objetivo do ator é divulgar iniciativas comunitárias de forma acessível e organizada.</p>
+          <p><strong>Ator Principal:</strong> Organizações Parceiras</p>
+        </div>
+      </div>
+
+      <!-- Seção 2: Fluxo de Eventos -->
+      <div class="usecase-section">
+        <h4>2. Fluxo de Eventos</h4>
+        <div class="usecase-content">
+          
+          <div class="flow-subsection">
+            <h5>2.1 Fluxo Principal</h5>
+            <ol class="flow-list">
+              <li>O caso de uso inicia quando a Organização Parceira seleciona a opção "Cadastrar Campanha" no sistema.</li>
+              <li>O sistema exibe o formulário de cadastro de campanha.</li>
+              <li>A Organização Parceira informa os dados obrigatórios da campanha (RN01).</li>
+              <li>A Organização Parceira confirma o envio das informações para cadastro.</li>
+              <li>O sistema valida os dados fornecidos (FA01, FE01, FE02).</li>
+              <li>O sistema registra a nova campanha na base de dados (FE03).</li>
+              <li>O sistema exibe a mensagem de sucesso e mostra o resumo da campanha cadastrada.</li>
+              <li>O caso de uso é encerrado com o cadastro concluído.</li>
+            </ol>
+          </div>
+
+          <div class="flow-subsection">
+            <h5>2.2 Fluxos Alternativos</h5>
+            <div class="flow-card">
+              <strong>[FA01] Dados opcionais não preenchidos</strong>
+              <p><em>Origem:</em> passo 2.1.5</p>
+              <p>Os dados opcionais não foram informados pela Organização Parceira. O sistema aceita o cadastro normalmente, desde que os campos obrigatórios estejam corretos (RN01).</p>
+              <p><em>Retorno:</em> volta para o passo 2.1.6</p>
+            </div>
+            <div class="flow-card">
+              <strong>[FA02] Edição de dados antes da confirmação</strong>
+              <p><em>Origem:</em> passo 2.1.3</p>
+              <p>A Organização Parceira decide alterar informações antes de confirmar o cadastro. O sistema permite edição livre dos dados.</p>
+              <p><em>Retorno:</em> volta para o passo 2.1.3</p>
+            </div>
+          </div>
+
+          <div class="flow-subsection">
+            <h5>2.3 Fluxos de Exceção</h5>
+            <div class="flow-card error">
+              <strong>[FE01] Campos obrigatórios ausentes</strong>
+              <p><em>Origem:</em> passo 2.1.5</p>
+              <p>O sistema identifica ausência de campos obrigatórios (RN01). O sistema exibe mensagem indicando os campos faltantes. A Organização Parceira deve corrigir os dados.</p>
+              <p><em>Retorno:</em> volta para o passo 2.1.3</p>
+            </div>
+            <div class="flow-card error">
+              <strong>[FE02] Dados inválidos ou inconsistentes</strong>
+              <p><em>Origem:</em> passo 2.1.5</p>
+              <p>O sistema detecta inconsistências (ex.: data final anterior à inicial, formato incorreto). O sistema informa o erro e orienta a correção. A Organização Parceira revisa os dados.</p>
+              <p><em>Retorno:</em> volta para o passo 2.1.3</p>
+            </div>
+            <div class="flow-card error">
+              <strong>[FE03] Falha no registro da campanha</strong>
+              <p><em>Origem:</em> passo 2.1.6</p>
+              <p>O sistema apresenta falha ao salvar a campanha (problema técnico). O sistema exibe mensagem de erro. O sistema oferece opções: tentar novamente ou salvar como rascunho.</p>
+              <p><em>Retorno:</em> após a ação selecionada, volta para o passo 2.1.4</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Seção 3: Requisitos Especiais -->
+      <div class="usecase-section">
+        <h4>3. Requisitos Especiais</h4>
+        <div class="usecase-content">
+          <ul class="requirements-list">
+            <li><strong>Compatibilidade Multiplataforma:</strong> O sistema deve permitir o cadastro de campanhas em dispositivos móveis com baixa capacidade de processamento e conexões instáveis.</li>
+            <li><strong>Suporte a Conexão Limitada:</strong> O formulário deve ser carregado mesmo em ambientes com baixa largura de banda, e dados parcialmente preenchidos devem ser mantidos localmente até o envio.</li>
+            <li><strong>Validação em Tempo Real:</strong> O sistema deve validar campos obrigatórios e formatos (datas, localização, texto) sem recarregar a página, garantindo agilidade no preenchimento.</li>
+            <li><strong>Registro Seguro de Dados:</strong> O envio e armazenamento das informações da campanha devem seguir requisitos de segurança, incluindo criptografia durante a transmissão.</li>
+            <li><strong>Integração com Módulo de Divulgação:</strong> O cadastro de campanhas deve estar integrado ao sistema responsável por segmentar e promover campanhas aos usuários-alvo após o registro.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Seção 4: Regras de Negócio -->
+      <div class="usecase-section">
+        <h4>4. Regras de Negócio</h4>
+        <div class="usecase-content">
+          <div class="rules-grid">
+            <div class="rule-card">
+              <strong>[RN01] Campos Obrigatórios</strong>
+              <p>Os campos título, descrição, localização, data de início e data de término devem ser obrigatoriamente preenchidos para que o cadastro seja concluído.</p>
+            </div>
+            <div class="rule-card">
+              <strong>[RN02] Validade das Datas</strong>
+              <p>A data de término deve ser igual ou posterior à data de início. Caso contrário, o sistema deve impedir o cadastro.</p>
+            </div>
+            <div class="rule-card">
+              <strong>[RN03] Disponibilidade Geográfica</strong>
+              <p>A localização da campanha deve ser registrada utilizando formato válido reconhecido pelo sistema (ex.: endereço, coordenadas ou ponto de referência).</p>
+            </div>
+            <div class="rule-card">
+              <strong>[RN04] Identificação da Campanha</strong>
+              <p>Ao ser cadastrada, a campanha deve receber um identificador único no formato: CMP-AAAA-SEQ, onde SEQ é um número sequencial crescente.</p>
+            </div>
+            <div class="rule-card">
+              <strong>[RN05] Permissão de Acesso</strong>
+              <p>Somente Organizações Parceiras autenticadas podem cadastrar campanhas. Caso o ator não possua permissão, o sistema deve bloquear a ação.</p>
+            </div>
+            <div class="rule-card">
+              <strong>[RN06] Verificação de Dados Críticos</strong>
+              <p>O sistema deve validar em tempo real a consistência dos dados informados (ex.: formatos incorretos, campos numéricos, limites mínimos e máximos).</p>
+            </div>
+            <div class="rule-card">
+              <strong>[RN07] Registro de Auditoria</strong>
+              <p>O sistema deve registrar data, hora e identificador da organização responsável pelo cadastro.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seção 5: Pré/Pós-condições -->
+      <div class="usecase-section">
+        <h4>5. Pré-condições e Pós-condições</h4>
+        <div class="usecase-content">
+          
+          <div class="conditions-grid">
+            <div class="condition-card pre">
+              <h5>📌 Pré-condições</h5>
+              <ul>
+                <li>A organização parceira deve estar autenticada no sistema.</li>
+                <li>A organização parceira deve possuir um perfil válido e ativo no ConnectCare.</li>
+                <li>Os dados básicos da campanha devem estar definidos pela organização (público-alvo, localização, duração, tipo da iniciativa).</li>
+              </ul>
+            </div>
+            
+            <div class="condition-card post">
+              <h5>✅ Pós-condições</h5>
+              <ul>
+                <li>A campanha é registrada no sistema e seus dados ficam armazenados e disponíveis.</li>
+                <li>A campanha passa a estar disponível para promoção aos usuários.</li>
+                <li>O estado do sistema é atualizado com a nova iniciativa cadastrada.</li>
+                <li>Os usuários elegíveis podem ser segmentados automaticamente.</li>
+                <li>Um log de auditoria é gerado.</li>
+                <li>A campanha fica disponível para visualização pelas próprias organizações parceiras.</li>
+                <li>Relatórios podem ser atualizados ou gerados considerando a nova campanha.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Seção 6: Pontos de Extensão -->
+      <div class="usecase-section">
+        <h4>6. Pontos de Extensão</h4>
+        <div class="usecase-content">
+          <p>No passo 2.1.6 este caso de uso pode ser estendido pelo caso de uso "Promover campanhas para usuários".</p>
+          <p>Logo após registrar a campanha, o sistema pode acionar automaticamente a extensão que:</p>
+          <ul>
+            <li>determina localização geográfica</li>
+            <li>seleciona faixa etária</li>
+            <li>estabelece condições de saúde específicas</li>
+          </ul>
+          <p>para divulgar a campanha ao público-alvo.</p>
+        </div>
+      </div>
+
+    </div>
+
+        <!-- Card principal do Caso de Uso -->
+    <div class="usecase-card">
+      <div class="usecase-header">
+        <h3>🏠 Caso de Uso: Registrar Visitas Domiciliares</h3>
+      </div>
+      
+      <!-- Seção 1: Descrição -->
+      <div class="usecase-section">
+        <h4>1. Descrição</h4>
+        <div class="usecase-content">
+          <p><strong>Breve Descrição:</strong> O caso de uso "Registrar Visitas Domiciliares" permite que os Agentes Comunitários registrem dados coletados durante as visitas às residências na comunidade. O objetivo é capturar informações sobre as condições de saúde da população local para gerar relatórios e identificar áreas prioritárias para ações preventivas.</p>
+          <div class="actor-info">
+            <p><strong>Ator Principal:</strong> Agente Comunitário</p>
+            <p><strong>Atores Secundários:</strong> Nenhum</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seção 2: Fluxo de Eventos -->
+      <div class="usecase-section">
+        <h4>2. Fluxo de Eventos</h4>
+        <div class="usecase-content">
+          
+          <div class="flow-subsection">
+            <h5>2.1 Fluxo Principal (Caminho Feliz)</h5>
+            <ol class="flow-list">
+              <li>O caso de uso inicia quando o Agente Comunitário, já autenticado, seleciona a opção "Registrar Visita" no aplicativo.</li>
+              <li>O Sistema solicita a identificação do paciente e da residência visitada.</li>
+              <li>O Agente Comunitário busca e seleciona o paciente/residência na lista de sua área de atuação.</li>
+              <li>O Sistema exibe o formulário de registro da visita.</li>
+              <li>O Agente Comunitário insere os dados observados (condições de saúde, saneamento, necessidades urgentes).</li>
+              <li>O Agente Comunitário confirma o registro da visita.</li>
+              <li>O Sistema valida os dados inseridos (RN01).</li>
+              <li>O Sistema salva as informações da visita e exibe uma mensagem de sucesso ("Visita registrada").</li>
+              <li>O caso de uso é encerrado.</li>
+            </ol>
+          </div>
+
+          <div class="flow-subsection">
+            <h5>2.2 Fluxos Alternativos</h5>
+            <div class="flow-card alternative">
+              <strong>[FA01] Registro Offline (Sincronização Tardia)</strong>
+              <p><em>Origem:</em> Passo 6 (Confirmação)</p>
+              <p><em>Contexto:</em> Devido à baixa penetração de internet na Vila Esperança, o agente pode estar sem conexão no momento da visita.</p>
+              <div class="sub-flow">
+                <ol>
+                  <li>O Sistema detecta a ausência de conexão com a internet.</li>
+                  <li>O Sistema armazena os dados da visita localmente no dispositivo (cache).</li>
+                  <li>O Sistema exibe um alerta: "Visita salva localmente. Sincronização pendente".</li>
+                  <li>Quando a conexão for restabelecida, o Sistema envia os dados automaticamente para o servidor.</li>
+                </ol>
+              </div>
+              <p><em>Retorno:</em> O caso de uso encerra com o status de "Pendente de Sincronização"</p>
+            </div>
+            
+            <div class="flow-card alternative">
+              <strong>[FA02] Paciente/Residência não cadastrada</strong>
+              <p><em>Origem:</em> Passo 3 (Busca)</p>
+              <div class="sub-flow">
+                <ol>
+                  <li>O Agente não encontra o paciente na base de dados.</li>
+                  <li>O Sistema oferece a opção "Cadastrar Novo Paciente".</li>
+                  <li>O Agente realiza o cadastro básico (nome, endereço).</li>
+                  <li>O Sistema retorna ao formulário de visita vinculado a este novo registro.</li>
+                </ol>
+              </div>
+              <p><em>Retorno:</em> Volta para o passo 4 do Fluxo Principal</p>
+            </div>
+          </div>
+
+          <div class="flow-subsection">
+            <h5>2.3 Fluxos de Exceção</h5>
+            <div class="flow-card error">
+              <strong>[FE01] Dados Incompletos</strong>
+              <p><em>Origem:</em> Passo 7 (Validação)</p>
+              <div class="sub-flow">
+                <ol>
+                  <li>O Sistema identifica que campos obrigatórios sobre as condições de saúde não foram preenchidos.</li>
+                  <li>O Sistema destaca os campos faltantes e solicita correção.</li>
+                </ol>
+              </div>
+              <p><em>Retorno:</em> Volta para o passo 5</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Seção 3: Requisitos Especiais -->
+      <div class="usecase-section">
+        <h4>3. Requisitos Especiais</h4>
+        <div class="usecase-content">
+          <div class="special-requirements">
+            <div class="req-item">
+              <div class="req-icon">📱</div>
+              <div class="req-content">
+                <strong>Funcionamento em Dispositivos Simples:</strong> O formulário de visita deve ser leve e otimizado para rodar em smartphones simples, visto que o aplicativo foi projetado para funcionar em dispositivos com recursos limitados.
+              </div>
+            </div>
+            <div class="req-item">
+              <div class="req-icon">📶</div>
+              <div class="req-content">
+                <strong>Suporte a Conexões Limitadas (Modo Offline):</strong> O sistema deve permitir o registro completo da visita mesmo sem acesso à internet no momento da ação, sincronizando posteriormente, dado o cenário de infraestrutura limitada da comunidade.
+              </div>
+            </div>
+            <div class="req-item">
+              <div class="req-icon">👨‍⚕️</div>
+              <div class="req-content">
+                <strong>Usabilidade em Campo:</strong> A interface deve ser intuitiva para permitir o preenchimento rápido durante a visita, facilitando o trabalho do agente comunitário.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seção 4: Regras de Negócio -->
+      <div class="usecase-section">
+        <h4>4. Regras de Negócio</h4>
+        <div class="usecase-content">
+          <div class="rules-grid">
+            <div class="rule-card">
+              <strong>[RN01] Validação de Dados de Saúde</strong>
+              <p>O registro deve conter informações mínimas que permitam a criação de relatórios sobre as condições de saúde para identificação de áreas prioritárias.</p>
+            </div>
+            <div class="rule-card">
+              <strong>[RN02] Permissão de Perfil</strong>
+              <p>Apenas usuários com o perfil de "Agente Comunitário" ou "Profissional de Saúde" podem registrar visitas domiciliares; pacientes não têm acesso a essa função.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seção 5: Pré/Pós-condições -->
+      <div class="usecase-section">
+        <h4>5. Pré-condições e Pós-condições</h4>
+        <div class="usecase-content">
+          
+          <div class="conditions-grid">
+            <div class="condition-card pre">
+              <h5>🔒 Pré-condições</h5>
+              <ul>
+                <li>O Agente Comunitário deve estar logado no aplicativo "ConnectCare".</li>
+                <li>O Agente deve ter permissão de acesso às funcionalidades específicas de profissionais de campo.</li>
+              </ul>
+            </div>
+            
+            <div class="condition-card post">
+              <h5>✅ Pós-condições</h5>
+              <ul>
+                <li>A visita fica registrada no histórico do paciente.</li>
+                <li>Os dados coletados alimentam os relatórios que ajudam na identificação de áreas prioritárias e organização de campanhas preventivas.</li>
+                <li>Caso tenham sido identificadas condições críticas, o sistema pode gerar alertas para a equipe médica (integração com outros casos de uso).</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Seção 6: Pontos de Extensão -->
+      <div class="usecase-section">
+        <h4>6. Pontos de Extensão</h4>
+        <div class="usecase-content">
+          <div class="extension-info">
+            <p>Não há pontos de extensão obrigatórios explícitos neste fluxo base, mas o registro da visita poderia estender para "Atualizar Prontuário" caso o agente tenha permissão médica.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+  </div>
+</div>
         </div>  
       </div>
 
