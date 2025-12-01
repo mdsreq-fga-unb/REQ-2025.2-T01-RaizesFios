@@ -6,6 +6,336 @@
   <title>Entregas - Raízes & Fios</title>
   <link rel="stylesheet" href="style.css">
   <style>
+
+    /* Estilo para User Stories organizadas por persona */
+.persona-section {
+  margin-bottom: 40px;
+}
+
+.persona-header {
+  background: linear-gradient(135deg, #D2691E 0%, #CD853F 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.persona-header h3 {
+  margin: 0;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.story-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.story-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  border-color: #667eea;
+}
+
+.story-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.story-content {
+  line-height: 1.5;
+  color: #333;
+  font-size: 0.95em;
+}
+
+/* Cores específicas para cada persona */
+.persona-section:nth-child(1) .story-card::before { background: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 100%); }
+.persona-section:nth-child(2) .story-card::before { background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%); }
+.persona-section:nth-child(3) .story-card::before { background: linear-gradient(135deg, #45B7D1 0%, #96C93D 100%); }
+.persona-section:nth-child(4) .story-card::before { background: linear-gradient(135deg, #F093FB 0%, #F5576C 100%); }
+.persona-section:nth-child(5) .story-card::before { background: linear-gradient(135deg, #4FACFE 0%, #00F2FE 100%); }
+.persona-section:nth-child(6) .story-card::before { background: linear-gradient(135deg, #A8FF78 0%, #78FFD6 100%); }
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .stories-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .story-card {
+    padding: 15px;
+  }
+  
+  .persona-header {
+    padding: 15px;
+  }
+  
+  .persona-header h3 {
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .stories-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .story-content {
+    font-size: 0.9em;
+  }
+}
+    /* Estilo para grid de critérios de aceitação */
+.criteria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 25px;
+  margin: 20px 0;
+}
+
+.criteria-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.criteria-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.criteria-header {
+  background: linear-gradient(135deg, #D2691E 0%, #CD853F 100%);
+  color: white;
+  padding: 20px;
+}
+
+.criteria-header h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #fff;
+}
+
+.criteria-header p {
+  margin: 0;
+  font-size: 0.95em;
+  line-height: 1.4;
+  opacity: 0.95;
+}
+
+.criteria-body {
+  padding: 20px;
+}
+
+.criterion {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+  line-height: 1.4;
+}
+
+.criterion:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.criterion:before {
+  content: "✅";
+  margin-right: 10px;
+  flex-shrink: 0;
+  font-size: 0.9em;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .criteria-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .criteria-body {
+    padding: 15px;
+  }
+  
+  .criterion {
+    margin-bottom: 10px;
+    padding: 6px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .criteria-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .criteria-header {
+    padding: 15px;
+  }
+  
+  .criteria-header h4 {
+    font-size: 1.1em;
+  }
+  
+  .criteria-header p {
+    font-size: 0.9em;
+  }
+}
+    /* Estilo para grid de cenários BDD */
+.scenarios-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin: 20px 0;
+}
+
+.scenario-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.scenario-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.scenario-header {
+  background: linear-gradient(135deg, #D2691E 0%, #CD853F 100%);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.scenario-header h4 {
+  margin: 0 0 8px 0;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #fff;
+}
+
+.scenario-title {
+  font-size: 1em;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.scenario-body {
+  padding: 25px;
+}
+
+.bdd-step {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: flex-start;
+}
+
+.bdd-step:last-child {
+  margin-bottom: 0;
+}
+
+.step-label {
+  flex-shrink: 0;
+  width: 80px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 0.85em;
+  margin-right: 15px;
+}
+
+.step-text {
+  flex: 1;
+  line-height: 1.5;
+  padding-top: 6px;
+}
+
+/* Cores para cada tipo de passo */
+.dado .step-label {
+  background: #e3f2fd;
+  color: #1976d2;
+  border: 1px solid #bbdefb;
+}
+
+.quando .step-label {
+  background: #e8f5e8;
+  color: #2e7d32;
+  border: 1px solid #c8e6c9;
+}
+
+.entao .step-label {
+  background: #ffebee;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+}
+
+/* Estilo para User Story header (mantido do anterior) */
+.bdd-scenario {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 30px;
+  margin: 30px 0;
+}
+
+.user-story-header {
+  background: #D2691E;
+  border-left: 4px solid #D2691E;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 0 8px 8px 0;
+  font-size: 1.1em;
+  color: #f7f7f7;
+  font-weight: bold;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .scenarios-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .scenario-body {
+    padding: 20px;
+  }
+  
+  .bdd-step {
+    flex-direction: column;
+  }
+  
+  .step-label {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+}
     /* Esconde todas as seções por padrão */
     section {
       display: none;
@@ -86,62 +416,6 @@
      font-weight: bold;
     }
 
-    /* SUB-SUBMENU - Terceiro nível */
-
-    .subsubmenu {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease-out;
-      padding-left: 0;
-      list-style: none;
-      margin: 0;
-    }
-
-    .subsubmenu.show {
-      max-height: 400px;
-    }
-
-    .subsubmenu li {
-      margin: 0;
-      padding: 0;
-    }
-
-    .subsubmenu a {
-      font-size: 0.70em;
-      color: #777;
-      padding: 2px 12px 2px 200px;
-      background-color: transparent;
-      border-left: 2px solid transparent;
-      line-height: 1.2; /* Altura da linha menor */
-      min-height: auto; /* Remove altura mínima */
-    }
-
-    .subsubmenu a:hover {
-      background-color: #f8f8f8;
-      color: #555;
-      border-left-color: #A0522D;
-    }
-
-    .subsubmenu a.active {
-      background-color: #EDDBC0;
-      color: #654321;
-      border-left-color: #A0522D;
-      font-weight: normal;
-    }
-
-    .has-subsubmenu::after {
-      content: "›";
-      font-size: 0.7em;
-      transition: transform 0.3s ease;
-      margin-left: 10px;
-      display: inline-block;
-      transform-origin: center;
-    }
-
-    .has-subsubmenu.expanded::after {
-      transform: rotate(90deg);
-    }
-
     /* Estilo para todos os itens do menu */
     .sidebar ul li a {
       transition: all 0.3s;
@@ -203,17 +477,7 @@
       <ul id="submenu-entrega3" class="submenu">
         <li><a href="#" onclick="showSubSection('entregatres_arquitetura', this)">• Apresentação da Unidade III</a></li>
         <li><a href="#" onclick="showSubSection('entregatres_prototipo', this)">• Feedback Raízes&Fios</a></li>
-
-        <li class="menu-item-with-subsub">
-          <a href="#" class="has-subsubmenu" onclick="toggleSubsubmenu(event, 'subsubmenu-inovahub')">• Estudo de caso: InovaHUB</a>
-          <ul id="subsubmenu-inovahub" class="subsubmenu">
-            <li><a href="#" onclick="showSubSubSection('inovahub_canvas', this)">- CANVAS PBB</a></li>
-            <li><a href="#" onclick="showSubSubSection('inovahub_us', this)">- US</a></li>
-            <li><a href="#" onclick="showSubSubSection('inovahub_criterios', this)">- CRITÉRIOS DE ACEITAÇÃO</a></li>
-            <li><a href="#" onclick="showSubSubSection('inovahub_bdd', this)">- BDDs</a></li>
-          </ul>
-        </li>
-
+        <li><a href="#" onclick="showSubSection('entregatres_inovahub', this)">• Estudo de caso: InovaHUB</a></li>
         <li><a href="#" onclick="showSubSection('entregatres_backend', this)">• Estudo de caso: EcoMove</a></li>
         <li><a href="#" onclick="showSubSection('entregatres_frontend', this)">• Estudo de caso: ConnectCare</a></li>
       </ul>
@@ -252,35 +516,758 @@
       <p>vídeo de feedback dos clientes...</p>
     </section>
 
-    <!-- NOVAS SEÇÕES PARA INOVAHUB -->
-    <section id="inovahub_canvas">
+    <section id="entregatres_inovahub">
       <h1>CANVAS PBB - InovaHUB</h1>
-      <p>Conteúdo do Canvas PBB...</p>
-    </section>
 
-    <section id="inovahub_us">
-      <h1>User Stories - InovaHUB</h1>
-      <p>Conteúdo das User Stories...</p>
-    </section>
+      <p>Este estudo de caso aborda o cenário desafiador da "InovaHub", uma rede nacional de inovação e empreendedorismo que, apesar de seu propósito integrador, sofre com a fragmentação de processos e a ausência de uma plataforma centralizada.
+         O ecossistema é caracterizado pela operação descentralizada de incubadoras, aceleradoras e parceiros, que utilizam sistemas isolados para gerenciar startups, mentorias e editais.
+         Essa realidade gera redundância de dados, retrabalho significativo para empreendedores como Lucas, dificuldade de acompanhamento para mentores como Sérgio e obstáculos críticos na mensuração de impacto para gestoras como Marina e Patrícia.
+         O problema central, portanto, reside na incapacidade de transformar dados dispersos em informação estratégica e ação colaborativa, limitando o crescimento e a transparência do ecossistema.
+         Para enfrentar essa problemática, a atividade proposta tem como objetivo central a elaboração de um Canvas PBB (Product Backlog Building), o detalhamento de User Stories (US), a definição de Critérios de Aceitação claros e a especificação de BDDs (Behavior-Driven Development), criando um fluxo contínuo e coerente desde a concepção macro até a especificação técnica que atenda às necessidades das diversas personas envolvidas.</p>
 
-    <section id="inovahub_criterios">
-      <h1>Critérios de Aceitação - InovaHUB</h1>
-      <p>Conteúdo dos critérios de aceitação...</p>
-    </section>
+<div class="topics-container">
+  <div class="topic">
+    <h2>1. Canvas PBB</h2>
+    <div class="topic-content">
+      <div class="mural-container">
+        <iframe 
+          src='https://app.mural.co/embed/cfde1dc0-f8e4-444f-82e4-4539a741d522' 
+          width='100%' 
+          height='600px' 
+          style='background-color: #f4f4f4; border: 1px solid #efefef; border-radius: 8px;' 
+          sandbox='allow-same-origin allow-scripts allow-modals allow-popups allow-popups-to-escape-sandbox'
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <section id="inovahub_bdd">
-      <h1>BDDs - InovaHUB</h1>
-      <p>Conteúdo dos BDDs...</p>
+      <div class="topics-container">
+        <h2>2. User Stories</h2>
+        <div class="topic-content">
+  
+    <!-- MARINA -->
+    <div class="persona-section">
+      <div class="persona-header">
+        <h3>👩‍💼 USER STORIES - MARINA (Gestora de Inovação)</h3>
+      </div>
+      <div class="stories-grid">
+        <div class="story-card">
+          <div class="story-content">Eu, como Gestora de Inovação, quero visualizar dashboard comparativo para analisar performance entre programas.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Gestora de Inovação, quero acessar dashboard de startups para monitorar progresso em tempo real.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Gestora de Inovação, quero filtrar por programa ou status para identificar startups com dificuldades.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Gestora de Inovação, quero visualizar alertas de desempenho para agir rapidamente em problemas.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Gestora de Inovação, quero gerar relatório automático para reduzir trabalho manual.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Gestora de Inovação, quero selecionar programas para comparação para tomar decisões estratégicas.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Gestora de Inovação, quero configurar formulário padrão para padronizar inscrições.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Gestora de Inovação, quero aprovar modelo de inscrição para garantir qualidade dos dados.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Gestora de Inovação, quero exportar para órgãos financiadores para agilizar prestação de contas.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LUCAS -->
+    <div class="persona-section">
+      <div class="persona-header">
+        <h3>👨‍💼 USER STORIES - LUCAS (Empreendedor)</h3>
+      </div>
+      <div class="stories-grid">
+        <div class="story-card">
+          <div class="story-content">Eu, como Empreendedor, quero visualizar editais disponíveis para encontrar oportunidades de fomento.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Empreendedor, quero visualizar painel para acompanhar progresso do negócio.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Empreendedor, quero visualizar agenda de mentorias para organizar meus compromissos.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Empreendedor, quero filtrar oportunidades por perfil para encontrar editais relevantes.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Empreendedor, quero confirmar participação em sessões para garantir minha presença.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Empreendedor, quero exportar dados para apresentações para compartilhar resultados.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Empreendedor, quero registrar feedback pós-mentoria para melhorar próximas sessões.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SÉRGIO -->
+    <div class="persona-section">
+      <div class="persona-header">
+        <h3>👨‍🏫 USER STORIES - SÉRGIO (Mentor)</h3>
+      </div>
+      <div class="stories-grid">
+        <div class="story-card">
+          <div class="story-content">Eu, como Mentor, quero visualizar agenda consolidada para organizar minha rotina.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Mentor, quero registrar tópicos abordados para manter histórico das mentorias.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Mentor, quero acessar histórico da startup para oferecer orientação consistente.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Mentor, quero confirmar sessões agendadas para evitar conflitos de horário.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Mentor, quero receber lembretes automáticos para não esquecer compromissos.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Mentor, quero definir planos de ação para estabelecer metas claras.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PATRÍCIA -->
+    <div class="persona-section">
+      <div class="persona-header">
+        <h3>👩‍🔬 USER STORIES - PATRÍCIA (Analista de Inovação)</h3>
+      </div>
+      <div class="stories-grid">
+        <div class="story-card">
+          <div class="story-content">Eu, como Analista de Inovação, quero acessar dashboard de dados para monitorar indicadores.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Analista de Inovação, quero visualizar métricas de retorno para avaliar impacto dos programas.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Analista de Inovação, quero aplicar filtros personalizados para segmentar análises.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Analista de Inovação, quero visualizar grupos homogêneos para identificar padrões.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Analista de Inovação, quero filtrar por período e programa para fazer comparações temporais.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Analista de Inovação, quero gerar relatório executivo para compartilhar insights.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RENATO -->
+    <div class="persona-section">
+      <div class="persona-header">
+        <h3>👨‍💼 USER STORIES - RENATO (Investidor)</h3>
+      </div>
+      <div class="stories-grid">
+        <div class="story-card">
+          <div class="story-content">Eu, como Investidor, quero explorar banco de startups para encontrar oportunidades.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Investidor, quero aplicar filtros por indicadores para refinar minha busca.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Investidor, quero visualizar perfil detalhado para conhecer as startups.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Investidor, quero acessar histórico de métricas para avaliar tração.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Investidor, quero comparar evolução no tempo para analisar crescimento.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Investidor, quero visualizar gráficos de tração para entender performance.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Investidor, quero salvar perfis interessantes para acompanhar oportunidades.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CLÁUDIA -->
+    <div class="persona-section">
+      <div class="persona-header">
+        <h3>👩‍💼 USER STORIES - CLÁUDIA (Gestora Pública)</h3>
+      </div>
+      <div class="stories-grid">
+        <div class="story-card">
+          <div class="story-content">Eu, como Gestora Pública, quero acessar mapa de indicadores para monitorar ecossistema.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Gestora Pública, quero visualizar comparativos regionais para identificar desigualdades.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Gestora Pública, quero visualizar métricas de impacto para avaliar políticas públicas.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Gestora Pública, quero gerar relatório para tomada de decisão para justificar investimentos.</div>
+        </div>
+        <div class="story-card">
+          <div class="story-content">Eu, como Gestora Pública, quero filtrar por região geográfica para analisar territórios específicos.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+      <div class="topics-container">
+        <h2>3. Critérios de Aceitação</h2>
+        <div class="topic-content"> 
+    <div class="criteria-grid">
+      <!-- Card 1 -->
+      <div class="criteria-card">
+        <div class="criteria-header">
+          <h4>1. User Story</h4>
+          <p>Eu, como Marina, quero visualizar dashboard comparativo para analisar performance entre programas.</p>
+        </div>
+        <div class="criteria-body">
+          <div class="criterion">Deve exibir pelo menos 3 programas lado a lado</div>
+          <div class="criterion">Deve mostrar métricas como taxa de crescimento, empregos gerados e faturamento</div>
+          <div class="criterion">Deve permitir seleção de período personalizado</div>
+          <div class="criterion">Deve gerar gráficos comparativos (barras, linhas)</div>
+          <div class="criterion">Deve atualizar dados em tempo real</div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="criteria-card">
+        <div class="criteria-header">
+          <h4>2. User Story</h4>
+          <p>Eu, como Marina, quero acessar dashboard de startups para monitorar progresso em tempo real.</p>
+        </div>
+        <div class="criteria-body">
+          <div class="criterion">Deve mostrar lista de todas as startups incubadas</div>
+          <div class="criterion">Deve exibir status atual (ativa, inativa, em risco)</div>
+          <div class="criterion">Deve permitir filtrar por programa ou fase</div>
+          <div class="criterion">Deve atualizar automaticamente a cada 24h</div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="criteria-card">
+        <div class="criteria-header">
+          <h4>3. User Story</h4>
+          <p>Eu, como Lucas, quero visualizar editais disponíveis para encontrar oportunidades de fomento.</p>
+        </div>
+        <div class="criteria-body">
+          <div class="criterion">Deve listar todos os editais abertos</div>
+          <div class="criterion">Deve mostrar data de encerramento das inscrições</div>
+          <div class="criterion">Deve permitir filtrar por área de atuação</div>
+          <div class="criterion">Deve exibir requisitos básicos de cada edital</div>
+          <div class="criterion">Deve ter link direto para inscrição</div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="criteria-card">
+        <div class="criteria-header">
+          <h4>4. User Story</h4>
+          <p>Eu, como Lucas, quero visualizar painel para acompanhar progresso do negócio.</p>
+        </div>
+        <div class="criteria-body">
+          <div class="criterion">Deve mostrar métricas de faturamento, equipe e clientes</div>
+          <div class="criterion">Deve exibir evolução histórica dos indicadores</div>
+          <div class="criterion">Deve comparar metas vs. realização</div>
+          <div class="criterion">Deve permitir exportar dados em PDF</div>
+          <div class="criterion">Deve atualizar com dados mais recentes</div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="criteria-card">
+        <div class="criteria-header">
+          <h4>5. User Story</h4>
+          <p>Eu, como Lucas, quero visualizar agenda de mentorias para organizar meus compromissos.</p>
+        </div>
+        <div class="criteria-body">
+          <div class="criterion">Deve mostrar todas as mentorias agendadas</div>
+          <div class="criterion">Deve exibir data, hora e mentor responsável</div>
+          <div class="criterion">Deve permitir confirmar/desmarcar sessões</div>
+          <div class="criterion">Deve enviar lembretes 24h antes</div>
+          <div class="criterion">Deve sincronizar com calendário externo</div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="criteria-card">
+        <div class="criteria-header">
+          <h4>6. User Story</h4>
+          <p>Eu, como Sérgio, quero visualizar agenda consolidada para organizar minha rotina.</p>
+        </div>
+        <div class="criteria-body">
+          <div class="criterion">Deve mostrar todos os compromissos da semana</div>
+          <div class="criterion">Deve diferenciar cores por tipo de atividade</div>
+          <div class="criterion">Deve permitir visualização semanal e mensal</div>
+          <div class="criterion">Deve exibir conflitos de horário</div>
+          <div class="criterion">Deve sincronizar com Google Calendar/Outlook</div>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="criteria-card">
+        <div class="criteria-header">
+          <h4>7. User Story</h4>
+          <p>Eu, como Sérgio, quero registrar tópicos abordados para manter histórico das mentorias.</p>
+        </div>
+        <div class="criteria-body">
+          <div class="criterion">Deve permitir registrar data da mentoria</div>
+          <div class="criterion">Deve ter campo para tópicos discutidos</div>
+          <div class="criterion">Deve permitir anexar arquivos de apoio</div>
+          <div class="criterion">Deve salvar automaticamente rascunhos</div>
+          <div class="criterion">Deve gerar histórico por startup</div>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="criteria-card">
+        <div class="criteria-header">
+          <h4>8. User Story</h4>
+          <p>Eu, como Patrícia, quero acessar dashboard de dados para monitorar indicadores.</p>
+        </div>
+        <div class="criteria-body">
+          <div class="criterion">Deve consolidar dados de todas as incubadoras</div>
+          <div class="criterion">Deve mostrar indicadores de impacto social e econômico</div>
+          <div class="criterion">Deve permitir comparar períodos diferentes</div>
+          <div class="criterion">Deve gerar alertas para métricas abaixo do esperado</div>
+          <div class="criterion">Deve exportar dados em Excel</div>
+        </div>
+      </div>
+
+      <!-- Card 9 -->
+      <div class="criteria-card">
+        <div class="criteria-header">
+          <h4>9. User Story</h4>
+          <p>Eu, como Patrícia, quero visualizar métricas de retorno para avaliar impacto dos programas.</p>
+        </div>
+        <div class="criteria-body">
+          <div class="criterion">Deve calcular ROI dos programas</div>
+          <div class="criterion">Deve mostrar empregos gerados por programa</div>
+          <div class="criterion">Deve exibir receita gerada pelas startups</div>
+          <div class="criterion">Deve comparar investimento vs. retorno</div>
+          <div class="criterion">Deve permitir filtrar por ano</div>
+        </div>
+      </div>
+
+      <!-- Card 10 -->
+      <div class="criteria-card">
+        <div class="criteria-header">
+          <h4>10. User Story</h4>
+          <p>Eu, como Renato, quero explorar banco de startups para encontrar oportunidades.</p>
+        </div>
+        <div class="criteria-body">
+          <div class="criterion">Deve listar startups por fase de maturidade</div>
+          <div class="criterion">Deve mostrar setor de atuação e localização</div>
+          <div class="criterion">Deve permitir busca por palavra-chave</div>
+          <div class="criterion">Deve exibir resumo executivo de cada startup</div>
+          <div class="criterion">Deve ter contato direto do empreendedor</div>
+        </div>
+      </div>
+
+      <!-- Card 11 -->
+      <div class="criteria-card">
+        <div class="criteria-header">
+          <h4>11. User Story</h4>
+          <p>Eu, como Renato, quero aplicar filtros por indicadores para refinar minha busca.</p>
+        </div>
+        <div class="criteria-body">
+          <div class="criterion">Deve filtrar por faturamento mínimo</div>
+          <div class="criterion">Deve filtrar por tamanho da equipe</div>
+          <div class="criterion">Deve filtrar por tração (crescimento mensal)</div>
+          <div class="criterion">Deve permitir múltiplos filtros simultâneos</div>
+          <div class="criterion">Deve mostrar número de resultados encontrados</div>
+        </div>
+      </div>
+
+      <!-- Card 12 -->
+      <div class="criteria-card">
+        <div class="criteria-header">
+          <h4>12. User Story</h4>
+          <p>Eu, como Renato, quero visualizar perfil detalhado para conhecer as startups.</p>
+        </div>
+        <div class="criteria-body">
+          <div class="criterion">Deve mostrar pitch da startup</div>
+          <div class="criterion">Deve exibir equipe fundadora e advisors</div>
+          <div class="criterion">Deve apresentar modelo de negócio</div>
+          <div class="criterion">Deve ter métricas financeiras detalhadas</div>
+          <div class="criterion">Deve mostrar rodadas de investimento anteriores</div>
+        </div>
+      </div>
+
+      <!-- Card 13 -->
+      <div class="criteria-card">
+        <div class="criteria-header">
+          <h4>13. User Story</h4>
+          <p>Eu, como Cláudia, quero acessar mapa de indicadores para monitorar ecossistema.</p>
+        </div>
+        <div class="criteria-body">
+          <div class="criterion">Deve mostrar mapa geográfico com heatmap</div>
+          <div class="criterion">Deve exibir indicadores por região</div>
+          <div class="criterion">Deve permitir clicar nas regiões para detalhes</div>
+          <div class="criterion">Deve comparar desempenho regional</div>
+          <div class="criterion">Deve atualizar dados trimestralmente</div>
+        </div>
+      </div>
+
+      <!-- Card 14 -->
+      <div class="criteria-card">
+        <div class="criteria-header">
+          <h4>14. User Story</h4>
+          <p>Eu, como Cláudia, quero visualizar comparativos regionais para identificar desigualdades.</p>
+        </div>
+        <div class="criteria-body">
+          <div class="criterion">Deve comparar pelo menos 3 regiões simultaneamente</div>
+          <div class="criterion">Deve mostrar indicadores de desenvolvimento</div>
+          <div class="criterion">Deve destacar regiões com melhor/ pior desempenho</div>
+          <div class="criterion">Deve permitir exportar comparação em PDF</div>
+          <div class="criterion">Deve incluir análise de tendências</div>
+        </div>
+      </div>
+
+      <!-- Card 15 -->
+      <div class="criteria-card">
+        <div class="criteria-header">
+          <h4>15. User Story</h4>
+          <p>Eu, como Cláudia, quero visualizar métricas de impacto para avaliar políticas públicas.</p>
+        </div>
+        <div class="criteria-body">
+          <div class="criterion">Deve medir impacto social das políticas</div>
+          <div class="criterion">Deve calcular retorno econômico dos investimentos</div>
+          <div class="criterion">Deve comparar metas vs. resultados alcançados</div>
+          <div class="criterion">Deve permitir análise temporal (antes/depois)</div>
+          <div class="criterion">Deve gerar relatório executivo automático</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+      <div class="topics-container">
+        <h2>4. BDD's - Desenvolvimento orientado por comportamento</h2>
+        <div class="topic-content">
+          <p>
+                <div class="bdd-scenario">
+      <div class="user-story-header">
+        <strong>1. User Story:</strong> Eu, como Lucas, quero visualizar editais disponíveis para encontrar oportunidades de fomento.
+      </div>
+      
+      <div class="scenarios-grid">
+        <!-- Card 1 -->
+        <div class="scenario-card">
+          <div class="scenario-header">
+            <h4>CENÁRIO 1</h4>
+            <div class="scenario-title">Empreendedor visualiza editais abertos filtrados por área</div>
+          </div>
+          <div class="scenario-body">
+            <div class="bdd-step dado">
+              <span class="step-label">DADO</span>
+              <span class="step-text">que Lucas está logado na plataforma E existem 15 editais abertos no sistema E 5 desses editais são da área de tecnologia</span>
+            </div>
+            <div class="bdd-step quando">
+              <span class="step-label">QUANDO</span>
+              <span class="step-text">ele acessa a seção de editais E filtra por "Tecnologia"</span>
+            </div>
+            <div class="bdd-step entao">
+              <span class="step-label">ENTÃO</span>
+              <span class="step-text">o sistema deve exibir apenas os 5 editais de tecnologia E cada edital deve mostrar data de encerramento E deve haver link "Inscrever-se" em cada card</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="scenario-card">
+          <div class="scenario-header">
+            <h4>CENÁRIO 2</h4>
+            <div class="scenario-title">Empreendedor não encontra editais para seu perfil</div>
+          </div>
+          <div class="scenario-body">
+            <div class="bdd-step dado">
+              <span class="step-label">DADO</span>
+              <span class="step-text">que Lucas está logado na plataforma E não existem editais abertos para sua área de atuação</span>
+            </div>
+            <div class="bdd-step quando">
+              <span class="step-label">QUANDO</span>
+              <span class="step-text">ele acessa a seção de editais E aplica filtro por "Biotechnology"</span>
+            </div>
+            <div class="bdd-step entao">
+              <span class="step-label">ENTÃO</span>
+              <span class="step-text">o sistema deve exibir mensagem "Nenhum edital encontrado" E deve sugerir "Receber notificações quando houver editais nesta área"</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+              <!-- User Story 2 -->
+    <div class="bdd-scenario">
+      <div class="user-story-header">
+        <strong>2. User Story:</strong> Eu, como Marina, quero visualizar dashboard comparativo para analisar performance entre programas.
+      </div>
+      
+      <div class="scenarios-grid">
+        <!-- Card 1 -->
+        <div class="scenario-card">
+          <div class="scenario-header">
+            <h4>CENÁRIO 1</h4>
+            <div class="scenario-title">Gestora compara programas com sucesso</div>
+          </div>
+          <div class="scenario-body">
+            <div class="bdd-step dado">
+              <span class="step-label">DADO</span>
+              <span class="step-text">que Marina está logada como gestora de inovação E existem dados de 5 programas no período Jan-Dez 2024</span>
+            </div>
+            <div class="bdd-step quando">
+              <span class="step-label">QUANDO</span>
+              <span class="step-text">ela seleciona os programas "TechStart" e "InovaBio" E define o período "Jan 2024 - Dez 2024"</span>
+            </div>
+            <div class="bdd-step entao">
+              <span class="step-label">ENTÃO</span>
+              <span class="step-text">o sistema deve exibir gráfico comparativo de crescimento E deve mostrar métricas lado a lado: taxa crescimento, empregos, faturamento E deve destacar o programa com melhor performance</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="scenario-card">
+          <div class="scenario-header">
+            <h4>CENÁRIO 2</h4>
+            <div class="scenario-title">Gestora identina programa com baixo desempenho</div>
+          </div>
+          <div class="scenario-body">
+            <div class="bdd-step dado">
+              <span class="step-label">DADO</span>
+              <span class="step-text">que Marina está logada como gestora E o programa "AgroTech" tem taxa de crescimento abaixo de 10%</span>
+            </div>
+            <div class="bdd-step quando">
+              <span class="step-label">QUANDO</span>
+              <span class="step-text">ela visualiza o dashboard comparativo</span>
+            </div>
+            <div class="bdd-step entao">
+              <span class="step-label">ENTÃO</span>
+              <span class="step-text">o sistema deve destacar "AgroTech" em cor vermelha E deve exibir alerta "Atenção: crescimento abaixo da meta" E deve sugerir "Ver detalhes do programa"</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- User Story 3 -->
+    <div class="bdd-scenario">
+      <div class="user-story-header">
+        <strong>3. User Story:</strong> Eu, como Renato, quero aplicar filtros por indicadores para refinar minha busca.
+      </div>
+      
+      <div class="scenarios-grid">
+        <!-- Card 1 -->
+        <div class="scenario-card">
+          <div class="scenario-header">
+            <h4>CENÁRIO 1</h4>
+            <div class="scenario-title">Investidor encontra startups com faturamento mínimo</div>
+          </div>
+          <div class="scenario-body">
+            <div class="bdd-step dado">
+              <span class="step-label">DADO</span>
+              <span class="step-text">que Renato está logado como investidor E existem 50 startups no banco de dados E 10 startups têm faturamento acima de R$ 100.000/mês</span>
+            </div>
+            <div class="bdd-step quando">
+              <span class="step-label">QUANDO</span>
+              <span class="step-text">ele aplica filtro "Faturamento mínimo: R$ 100.000"</span>
+            </div>
+            <div class="bdd-step entao">
+              <span class="step-label">ENTÃO</span>
+              <span class="step-text">o sistema deve exibir apenas as 10 startups E deve mostrar indicador "10 resultados de 50" E deve permitir remover filtros individualmente</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="scenario-card">
+          <div class="scenario-header">
+            <h4>CENÁRIO 2</h4>
+            <div class="scenario-title">Investidor combina múltiplos filtros</div>
+          </div>
+          <div class="scenario-body">
+            <div class="bdd-step dado">
+              <span class="step-label">DADO</span>
+              <span class="step-text">que Renato está logado como investidor E existem startups de diversos setores e tamanhos</span>
+            </div>
+            <div class="bdd-step quando">
+              <span class="step-label">QUANDO</span>
+              <span class="step-text">ele aplica filtros: - Setor: "Saúde" - Equipe: "5+ membros" - Tração: "Crescimento > 20% mensal"</span>
+            </div>
+            <div class="bdd-step entao">
+              <span class="step-label">ENTÃO</span>
+              <span class="step-text">o sistema deve exibir apenas startups que atendem TODOS os critérios E deve mostrar contador de resultados em tempo real E deve permitir salvar esta combinação de filtros</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- User Story 4 -->
+    <div class="bdd-scenario">
+      <div class="user-story-header">
+        <strong>4. User Story:</strong> Eu, como Sérgio, quero registrar tópicos abordados para manter histórico das mentorias.
+      </div>
+      
+      <div class="scenarios-grid">
+        <!-- Card 1 -->
+        <div class="scenario-card">
+          <div class="scenario-header">
+            <h4>CENÁRIO 1</h4>
+            <div class="scenario-title">Mentor registra sessão com sucesso</div>
+          </div>
+          <div class="scenario-body">
+            <div class="bdd-step dado">
+              <span class="step-label">DADO</span>
+              <span class="step-text">que Sérgio está logado como mentor E tem uma mentoria agendada com a startup "TechSolution"</span>
+            </div>
+            <div class="bdd-step quando">
+              <span class="step-label">QUANDO</span>
+              <span class="step-text">ele acessa a sessão de registro pós-mentoria E preenche: - Tópicos: "Validação de MVP, definição de métricas" - Ações: "Testar com 50 usuários até próxima sessão" - Data: "15/03/2024"</span>
+            </div>
+            <div class="bdd-step entao">
+              <span class="step-label">ENTÃO</span>
+              <span class="step-text">o sistema deve salvar o registro E deve associar ao histórico da startup "TechSolution" E deve enviar e-mail de resumo para o empreendedor</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="scenario-card">
+          <div class="scenario-header">
+            <h4>CENÁRIO 2</h4>
+            <div class="scenario-title">Sistema previne registro duplicado</div>
+          </div>
+          <div class="scenario-body">
+            <div class="bdd-step dado">
+              <span class="step-label">DADO</span>
+              <span class="step-text">que Sérgio já registrou a mentoria de "15/03/2024"</span>
+            </div>
+            <div class="bdd-step quando">
+              <span class="step-label">QUANDO</span>
+              <span class="step-text">ele tenta registrar outra mentoria para mesma data e startup</span>
+            </div>
+            <div class="bdd-step entao">
+              <span class="step-label">ENTÃO</span>
+              <span class="step-text">o sistema deve alertar "Já existe registro para esta data" E deve oferecer opções: "Visualizar registro existente" ou "Editar registro"</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- User Story 5 -->
+    <div class="bdd-scenario">
+      <div class="user-story-header">
+        <strong>5. User Story:</strong> Eu, como Patrícia, quero visualizar métricas de retorno para avaliar impacto dos programas.
+      </div>
+      
+      <div class="scenarios-grid">
+        <!-- Card 1 -->
+        <div class="scenario-card">
+          <div class="scenario-header">
+            <h4>CENÁRIO 1</h4>
+            <div class="scenario-title">Analista visualiza ROI dos programas</div>
+          </div>
+          <div class="scenario-body">
+            <div class="bdd-step dado">
+              <span class="step-label">DADO</span>
+              <span class="step-text">que Patrícia está logada como analista E o programa "ScaleUp" recebeu investimento de R$ 2.000.000 E as startups do programa geraram R$ 8.000.000 em</span>
+            </div>
+            <div class="bdd-step quando">
+              <span class="step-label">QUANDO</span>
+              <span class="step-text">ela acessa a métrica "Retorno sobre Investimento"</span>
+            </div>
+            <div class="bdd-step entao">
+              <span class="step-label">ENTÃO</span>
+              <span class="step-text">o sistema deve calcular e exibir "ROI: 300%" E deve mostrar gráfico de evolução trimestral E deve comparar com meta estabelecida de 250%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="scenario-card">
+          <div class="scenario-header">
+            <h4>CENÁRIO 2</h4>
+            <div class="scenario-title">Analista identina programa abaixo da meta</div>
+          </div>
+          <div class="scenario-body">
+            <div class="bdd-step dado">
+              <span class="step-label">DADO</span>
+              <span class="step-text">que Patrícia está analisando o programa "StartSeed" E a meta de empregos gerados é 500 E o programa gerou apenas 320 empregos</span>
+            </div>
+            <div class="bdd-step quando">
+              <span class="step-label">QUANDO</span>
+              <span class="step-text">ela visualiza o dashboard de impacto</span>
+            </div>
+            <div class="bdd-step entao">
+              <span class="step-label">ENTÃO</span>
+              <span class="step-text">o sistema deve destacar "StartSeed" em amarelo E deve exibir alerta "Meta de empregos: 64% alcançado" E deve sugerir "Analisar causas do desempenho"</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      
     </section>
 
     <section id="entregatres_backend">
       <h1>Estudo de caso: EcoMove</h1>
-      <p>USM, MAPA, US e Critérios de Aceitação...</p>
+      
+      <div class="topics-container">
+        <h2>1. User Story Mapping</h2>
+        <div class="topic-content">
+          <p>TEXTO AQUI</p>
+        </div>         
+      </div>
+
+      <div class="topics-container">
+        <h2>2. User Stories</h2>
+        <div class="topic-content">
+          <p>TEXTO AQUI</p>
+        </div>  
+      </div>
+
+      <div class="topics-container">
+        <h2>3. Critérios de Aceitação</h2>
+        <div class="topic-content">
+          <p>TEXTO AQUI</p>
+        </div>  
+      </div>
+
     </section>
 
     <section id="entregatres_frontend">
       <h1>Estudo de caso: ConnectCare</h1>
-      <p>Diagrama de casos de uso, especificações de casos de uso...</p>
+      
+      <div class="topics-container">
+        <h2>1. Diagrama de casos de uso</h2>
+        <div class="topic-content">
+          <p>TEXTO AQUI</p>
+        </div>         
+      </div>
+
+      <div class="topics-container">
+        <h2>2. Especificações de caso de uso</h2>
+        <div class="topic-content">
+          <p>TEXTO AQUI</p>
+        </div>  
+      </div>
+
     </section>
 
     <footer>
@@ -391,88 +1378,7 @@
       }
     }
 
-//SUBSUBMENU
-function toggleSubsubmenu(event, subsubmenuId) {
-  event.preventDefault();
-  event.stopPropagation();
-  
-  const subsubmenu = document.getElementById(subsubmenuId);
-  const toggleButton = event.target;
-  const isShowing = subsubmenu.classList.contains('show');
-  
-  // Remove a classe active de TODOS os itens do menu
-  document.querySelectorAll('.sidebar ul li a').forEach(item => {
-    item.classList.remove('active');
-  });
-  
-  // Fecha todos os sub-submenus primeiro
-  document.querySelectorAll('.subsubmenu').forEach(menu => {
-    menu.classList.remove('show');
-  });
-  
-  document.querySelectorAll('.has-subsubmenu').forEach(button => {
-    button.classList.remove('expanded');
-  });
-  
-  // Se não estava mostrando, abre este
-  if (!isShowing) {
-    subsubmenu.classList.add('show');
-    toggleButton.classList.add('expanded');
-    toggleButton.classList.add('active');
-    
-    // Também mantém o menu principal ativo
-    const mainItem = document.querySelector('.submenu-toggle');
-    mainItem.classList.add('active');
-    mainItem.classList.add('expanded');
-    
-    const submenu = document.getElementById('submenu-entrega3');
-    submenu.classList.add('show');
-  }
-}
-
-function showSubSubSection(sectionId, clickedElement) {
-  event.preventDefault();
-  event.stopPropagation();
-
-  // Esconde todas as seções
-  document.querySelectorAll("main section").forEach(section => {
-    section.classList.remove("active");
-  });
-
-  // Remove a classe active de TODOS os itens do menu
-  document.querySelectorAll('.sidebar ul li a').forEach(item => {
-    item.classList.remove('active');
-  });
-
-  // Mantém o menu principal ATIVO (Unidade III)
-  const mainItem = document.querySelector('.submenu-toggle');
-  mainItem.classList.add('active');
-  mainItem.classList.add('expanded');
-
-  // Mantém o submenu ABERTO
-  const submenu = document.getElementById('submenu-entrega3');
-  submenu.classList.add('show');
-
-  // Mantém o item pai ATIVO (Estudo de caso: InovaHUB)
-  const parentItem = clickedElement.closest('.menu-item-with-subsub').querySelector('.has-subsubmenu');
-  parentItem.classList.add('active');
-  parentItem.classList.add('expanded');
-
-  // Mantém o sub-submenu ABERTO
-  const subsubmenu = document.getElementById('subsubmenu-inovahub');
-  subsubmenu.classList.add('show');
-
-  // Adiciona classe active ao subitem clicado
-  clickedElement.classList.add('active');
-
-  // Mostra a seção clicada
-  const sectionToShow = document.getElementById(sectionId);
-  if (sectionToShow) {
-    sectionToShow.classList.add("active");
-    sectionToShow.scrollIntoView({ behavior: "smooth" });
-  }
-}
-    
+   
     // E ADICIONE ESTE EVENT LISTENER NO FINAL
     document.addEventListener('click', function(event) {
       if (!event.target.matches('.submenu-toggle') && !event.target.closest('.submenu')) {
