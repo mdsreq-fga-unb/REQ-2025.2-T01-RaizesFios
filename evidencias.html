@@ -5,6 +5,70 @@
   <title>Evidências - Raízes & Fios</title>
   <link rel="stylesheet" href="style.css">
   <style>
+
+    .container-imagem {
+  margin: 30px 0;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.imagem-wrapper {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.imagem-checklist {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.legenda {
+  text-align: center;
+  font-style: italic;
+  color: #666;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container-imagem {
+    padding: 15px;
+    margin: 20px 0;
+  }
+  
+  .imagem-checklist {
+    width: 100%;
+  }
+}
+
+    /*Estilo figma*/
+      .figma-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+  }
+  
+  .figma-responsive {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 ratio */
+  }
+  
+  .figma-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
     /* Esconde todas as seções por padrão */
     section {
       display: none;
@@ -34,73 +98,138 @@
     </nav>
   </header>
 
-  <!-- Menu lateral -->
-  <nav class="sidebar">
-    <h2>Menu</h2>
-    <ul>
-      <li><a href="#" onclick="showSection('entrevista_casal')">Entrevista com o casal</a></li>
-      <li><a href="visao.html#analise-de-concorrentes">Análise de Concorrentes</a></li>
-      <li><a href="visao.html#topicodois">Reunião de alinhamento</a></li>
-      <li><a href="visao.html#matriz-complexidade">Matriz de complexidade</a></li>
-      <li><a href="visao.html#historias-de-usuario">User Story</a></li>
-      <li><a href="visao.html#topicotres">Prototipagem</a></li>
-      <li><a href="#" onclick="showSection('feedback_cliente_4')">Feedback com o cliente</a></li>
-      <li><a href="#" onclick="showSection('checklist_5')">Checklist</a></li>
-      <li><a href="#" onclick="showSection('feedback_cliente_6')">Feedback do cliente</a></li>
-      <li><a href="#" onclick="showSection('checklist_7')">Checklist final</a></li>
-      <li><a href="#" onclick="showSection('feedback_cliente_8')">Feedback do cliente</a></li>
-      <li><a href="#" onclick="showSection('reuniao_alinhamento_9')">Reunião de alinhamento</a></li>
-    </ul>
-  </nav>
-
   <!-- Conteúdo principal -->
   <main>
-    <!-- Seção 1 -->
-    <section id="entrevista_casal" class="active">
-      <h1>1. Elicitação e descoberta: Entrevista com o casal</h1>
-      <p><strong>Entrevistas com Stakeholders:</strong> Realizar reuniões entre os Stakeholders para alinhar expectativas, conhecer os clientes e estabelecer uma base ao projeto, incluindo problemas, questionamentos, soluções e estratégias.</p>
-      <p><strong>Brainstorming:</strong> Realizar convenções para criar novas ideias de soluções e implementações no projeto.</p>
-      <p>
-        <a href="https://unbbr.sharepoint.com/:v:/s/Projeto-RequisitosdeSW/Edk6nKgZgvJMokw9FEU7X-YBvwusfbjq9CLG6seBd2L19w?e=fRnzbs" class="apresentacao-link" target="_blank">
-          Entrevista com o cliente
-        </a>
-      </p>
+    <section id="entrevista-cliente" class="active">
+      <h1>1. Elicitação e Descoberta: Entrevista com o casal</h1>
+            
+        <div class="video-wrapper" style="max-width: 700px; margin: 30px auto;">
+          <div class="video-responsive" style="position: relative; padding-top: 56.25%; /* 16:9 aspect ratio */">
+            <iframe 
+              src="https://unbbr.sharepoint.com/sites/Projeto-RequisitosdeSW/_layouts/15/embed.aspx?UniqueId=a89c3ad9-8219-4cf2-a24c-3d14453b5fe6&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+              frameborder="0"
+              scrolling="no"
+              allowfullscreen
+              title="Entrevista com o Cliente-20251201_183343-Gravação de Reunião">
+            </iframe>
+          </div>
+          <p style="text-align: center; color: #666; font-style: italic; margin-top: 10px;">
+            Vídeo: Entrevista com o Cliente
+          </p>
+        </div>
     </section>
 
-    <!-- Seção 4 -->
-    <section id="feedback_cliente_4">
-      <h1>4. Verificação e validação: Feedback do Cliente</h1>
-      <p>Em breve.</p>
+    <section id="reuniao-alinhamento" class="active">
+      <h1>2. Análise e Consenso: Reunião de Alinhamento</h1>
     </section>
 
-    <!-- Seção 5 -->
-    <section id="checklist_5">
-      <h1>5. Verificação e Validação: Checklist</h1>
-      <p>Em breve.</p>
+    <section id="prototipagem" class="active">
+      <h1>3. Representação: Prototipagem</h1>
+
+      <div class="figma-container">
+        <div class="figma-responsive">
+          <iframe 
+            src="https://embed.figma.com/design/gqycElKEjcczwpFS95GzkN/Ra%C3%ADzes-Fios?node-id=2-3&embed-host=share" 
+            allowfullscreen
+            title="Protótipo Figma - Raízes Fios">
+          </iframe>
+        </div>
+      </div>
+    </section>
+    
+    <section id="feedback-prototipo" class="active">
+      <h1>4. Verificação e Validação: Feedback do Protótipo</h1>
+              <div class="video-wrapper" style="max-width: 700px; margin: 30px auto;">
+    <div class="video-responsive" style="position: relative; padding-top: 56.25%; /* 16:9 aspect ratio */">
+      <iframe 
+        src="https://unbbr.sharepoint.com/sites/Projeto-RequisitosdeSW/_layouts/15/embed.aspx?UniqueId=c24aaa41-f58d-4389-8fdf-949eefebbeae&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+        frameborder="0"
+        scrolling="no"
+        allowfullscreen
+        title="Feedback do cliente -Protótipo- Validação MVP-20251201_183343-Gravação de Reunião">
+      </iframe>
+    </div>
+    <p style="text-align: center; color: #666; font-style: italic; margin-top: 10px;">
+      Vídeo: Feedback do cliente sobre o protótipo
+    </p>
+  </div>
     </section>
 
-    <!-- Seção 6 -->
-    <section id="feedback_cliente_6">
-      <h1>6. Verificação e Validação: Feedback do Cliente</h1>
-      <p>Em breve.</p>
+    <section id="checklist-aprovacao-mvp" class="active">
+  <h1>5. Verificação e Validação: Checklist de aprovação dos RF do MVP</h1>
+  
+  <!-- Adicione este bloco completo: -->
+  <div class="container-imagem">
+    <h2>Checklist de Aprovação</h2>
+    <div class="imagem-wrapper">
+      <img 
+        src="image/checklist-aprovação.jpg" 
+        alt="Tabela com 10 requisitos funcionais aprovados para o MVP. Inclui RF01 Registrar produto, RF03 Consultar produto, RF04 Excluir produto, RF13 Adicionar ao carrinho, RF14 Remover do carrinho, RF15 Calcular valor total, RF22 Realizar pagamento, RF23 Registrar usuário, RF25 Realizar login e RF28 Cadastrar endereço."
+        class="imagem-checklist">
+    </div>
+    <p class="legenda">Figura 1: Checklist de aprovação dos requisitos funcionais do MVP</p>
+  </div>
     </section>
 
-    <!-- Seção 7 -->
-    <section id="checklist_7">
-      <h1>7. Verificação e Validação: Checklist</h1>
-      <p>Em breve.</p>
+    <section id="feedback-cliente-mvp" class="active">
+      <h1>6. Verificação e Validação: Feedback do cliente</h1>
+      
+      <div class="video-wrapper" style="max-width: 700px; margin: 30px auto;">
+        <div class="video-responsive" style="position: relative; padding-top: 56.25%; /* 16:9 aspect ratio */">
+          <iframe 
+            src="https://unbbr.sharepoint.com/sites/Projeto-RequisitosdeSW/_layouts/15/embed.aspx?UniqueId=73569aea-c8b4-43b4-9213-580b80a84086&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+            frameborder="0"
+            scrolling="no"
+            allowfullscreen
+            title="Feedback do cliente -Aprovação MVP- Validação MVP-20251201_183343-Gravação de Reunião">
+          </iframe>
+        </div>
+        <p style="text-align: center; color: #666; font-style: italic; margin-top: 10px;">
+          Vídeo: Feedback do cliente sobre o MVP
+        </p>
+      </div>
     </section>
 
-    <!-- Seção 8 -->
-    <section id="feedback_cliente_8">
-      <h1>8. Verificação e Validação: Feedback do Cliente</h1>
-      <p>Em breve.</p>
+    <section id="checklist-aprovacao-mvp" class="active">
+  <h1>7. Verificação e Validação: Checklist de implementação dos RF do MVP</h1>
+  
+  <!-- Adicione este bloco completo: -->
+  <div class="container-imagem">
+    <h2>Checklist de implementação dos RF do MVP</h2>
+    <div class="imagem-wrapper">
+      <img 
+        src="image/checklist-implementação.jpg" 
+        alt="Tabela com 10 requisitos funcionais aprovados para o MVP. Inclui RF01 Registrar produto, RF03 Consultar produto, RF04 Excluir produto, RF13 Adicionar ao carrinho, RF14 Remover do carrinho, RF15 Calcular valor total, RF22 Realizar pagamento, RF23 Registrar usuário, RF25 Realizar login e RF28 Cadastrar endereço."
+        class="imagem-checklist">
+    </div>
+    <p class="legenda">Figura 2: Checklist de implementação dos requisitos funcionais do MVP</p>
+  </div>
     </section>
 
-    <!-- Seção 9 -->
-    <section id="reuniao_alinhamento_9">
+    <section id="feedback-cliente-implementacao" class="active">
+      <h1>8. Verificação e Validação: Feedback do cliente</h1>
+        <div class="video-wrapper" style="max-width: 700px; margin: 30px auto;">
+    <div class="video-responsive" style="position: relative; padding-top: 56.25%; /* 16:9 aspect ratio */">
+      <iframe 
+        src="https://unbbr.sharepoint.com/sites/Projeto-RequisitosdeSW/_layouts/15/embed.aspx?UniqueId=de366a81-488a-4724-a676-b69c415617b0&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+        frameborder="0"
+        scrolling="no"
+        allowfullscreen
+        title="Feedback do cliente -Usabilidade- Validação MVP-20251201_183343-Gravação de Reunião">
+      </iframe>
+    </div>
+    <p style="text-align: center; color: #666; font-style: italic; margin-top: 10px;">
+      Vídeo: Feedback do cliente sobre implementação do MVP
+    </p>
+  </div>
+    </section>
+
+    <section id="reuniao-alinhamento"class="active">
       <h1>9. Análise e Consenso: Reunião de alinhamento</h1>
-      <p>Em breve.</p>
     </section>
 
     <footer>
@@ -108,22 +237,5 @@
     </footer>
   </main>
 
-  <!-- Script para alternar seções -->
-  <script>
-    function showSection(sectionId) {
-      // Esconde todas as seções
-      document.querySelectorAll("main section").forEach(section => {
-        section.classList.remove("active");
-      });
-
-      // Mostra a seção clicada
-      const sectionToShow = document.getElementById(sectionId);
-      if (sectionToShow) {
-        sectionToShow.classList.add("active");
-        // Faz o scroll suave até a seção visível
-        sectionToShow.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  </script>
 </body>
 </html>
