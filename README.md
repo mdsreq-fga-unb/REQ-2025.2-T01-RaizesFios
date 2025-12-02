@@ -29,5 +29,12 @@ Nosso objetivo é analisar esse cenário e propor soluções para fortalecer a p
   
 **[Clique aqui para visitar nossa página no GitHub Pages](https://mdsreq-fga-unb.github.io/REQ-2025.2-T01-RaizesFios/)**
 
+**URL do projeto: https://req-2025-2-t01-raizes-fios-ehix.vercel.app/**
+
+**Para login de Usuário Administrador: admin@raizesfios.com**
+                              **Senha: raizesfios123**
+
+
+
 </div>
 
