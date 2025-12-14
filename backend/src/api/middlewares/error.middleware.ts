@@ -19,9 +19,10 @@ export const errorMiddleware = (
       path: issue.path.join("."),
       message: issue.message,
     }));
+
     
     return res.status(422).json({
-      message: "Erro de validação",
+      message: formattedErrors[0].message,
       errors: formattedErrors,
     });
   }
